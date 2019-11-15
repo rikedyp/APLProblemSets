@@ -1,6 +1,7 @@
-var runURL = "https://tio.run/cgi-bin/run"
-var quitURL = "https://tio.run/cgi-bin/quit"
-var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.input.tio","0","F.code.tio"]
+var runURL = "https://tio.run/cgi-bin/run";
+var quitURL = "https://tio.run/cgi-bin/quit";
+var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.input.tio","0","F.code.tio"];
+var testString = "{a←⎕JSON ⍺ ⋄ b e←⍎¨¨a.(a b) ⋄ +/((⍎a.f)¨¨b e)≡¨((⍎⍵)¨¨b e)}";
 var runRequest;
 
 function $(selector, parent) {
@@ -13,12 +14,24 @@ function $$(selector, parent) {
 
 function submit(p) {
   console.log("submit " + p);  
-  var p = "P" + p.slice(1,2);    
+  var p = problems["P" + p.slice(1,2)];
+  
+  console.log("---");
   var sol = $("#s0").value;
-  tioRequest(sol); 
+  console.log(sol)
+  // var test = "⎕←{a←⎕JSON ⍵⋄a.a}" + encodeURIComponent(JSON.stringify(p));
+  var t = JSON.parse("{\"a\":[5,4,3,2]}");
+  var test = "⎕←" + "'" + JSON.stringify(problems.P2) + "' " + testString + " '" + doubleQuotes(sol) + "'";
+  // var test = "⎕←{a←⎕JSON ⍵⋄a.a}'{\"a\":[1,2,3,4]}'";
+  tioRequest(test); 
   // 0: Failed
   // 1: Basic pass
   // 2: Full pass
+}
+
+function doubleQuotes(string){
+  var s = string.split("'");  
+  return s.join("''");
 }
 
 function tioRequest(code){
