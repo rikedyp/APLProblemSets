@@ -15,14 +15,9 @@ function $$(selector, parent) {
 function submit(p) {
   console.log("submit " + p);  
   var p = problems["P" + p.slice(1,2)];
-  
-  console.log("---");
   var sol = $("#s0").value;
-  console.log(sol)
-  // var test = "⎕←{a←⎕JSON ⍵⋄a.a}" + encodeURIComponent(JSON.stringify(p));
   var t = JSON.parse("{\"a\":[5,4,3,2]}");
-  var test = "⎕←" + "'" + JSON.stringify(problems.P2) + "' " + testString + " '" + doubleQuotes(sol) + "'";
-  // var test = "⎕←{a←⎕JSON ⍵⋄a.a}'{\"a\":[1,2,3,4]}'";
+  var test = "⎕←" + "'" + doubleQuotes(JSON.stringify(p)) + "' " + testString + " '" + doubleQuotes(sol) + "'";
   tioRequest(test); 
   // 0: Failed
   // 1: Basic pass
