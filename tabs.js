@@ -1,7 +1,7 @@
-window.onload = function() {
-  setTimeout(loadTabs, 500);
-}
-function loadTabs() {
+// window.onload = function() {
+  // setTimeout(loadTabs, 500);
+// }
+window.onload = function loadTabs() {
   console.log("hello");
   // Add language bars and inputs to problems
   var tabs = document.getElementById("tabContainer");
@@ -32,9 +32,12 @@ function loadTabs() {
       }
     })(problem);
     submit.innerHTML = "Submit";
+    var feedback = document.createElement("div");
+    feedback.id = "feedback" + problem;
     div.appendChild(lb);
     div.appendChild(input);
     div.appendChild(submit);
+    div.appendChild(feedback);
   }
   var lbScript = document.createElement("script");
   lbScript.src = "lb.js";
@@ -44,6 +47,8 @@ function loadTabs() {
 function openTab(event, p) {
   console.log("ot");
   console.log(p);
+  var i, tabs, tabLinks;
+  
 }
 
 function sub(p) {

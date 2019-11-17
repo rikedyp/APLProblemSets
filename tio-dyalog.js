@@ -3,6 +3,7 @@ var quitURL = "https://tio.run/cgi-bin/quit";
 var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.input.tio","0","F.code.tio"];
 var testString = "{a←⎕JSON ⍺ ⋄ b e←⍎¨¨a.(a b) ⋄ +/((⍎a.f)¨¨b e)≡¨((⍎⍵)¨¨b e)}";
 var runRequest;
+var currentProblem;
 
 function $(selector, parent) {
 	return (parent || document).querySelector(selector);
@@ -13,6 +14,7 @@ function $$(selector, parent) {
 }
 
 function submit(p) {
+  currentProblem = p;
   console.log("submit " + p);  
   var problem = problems[p];
   var sol = $("#s" + p).value;
@@ -22,6 +24,22 @@ function submit(p) {
   // 0: Failed
   // 1: Basic pass
   // 2: Full pass
+}
+
+function outResult(result) {
+  console.log(currentProblem);
+  console.log(result);
+  var out = document.getElementById("feedback" + currentProblem);
+  if (result == 0) {
+    out.innerHTML = "Fail";
+  } else if (result == 1) {
+    out.innerHTML = "Basic pass";
+  } else if (result == 2) {
+    out.innerHTML = "Full pass";
+  } else {
+    out.innerHTML = "Error";
+  }
+  //out.innerHTML = result;
 }
 
 function doubleQuotes(string){
@@ -81,13 +99,15 @@ function runRequestOnReadyState() {
 	}
 
 	var results = response.substr(16).split(response.substr(0, 16));
-  console.log(results[0]);
+  console.log("got:"+results[0]);  
   var errors = response.split("\n");
   var e = errors[0].split(" ");
   console.log(e.slice(5,7).join(" "));
 	var warnings = results.pop().split("\n");
-	var outputTextAreas = $$("#interpreter textarea.output");
-
+	var outputTextAreas = $$("#interpreter textarea.output");  
+  
+  outResult(results[0]);
+  
 	iterate(warnings, function(warning) {
 		if (warning !== "")
 			sendMessage(results.toString() ? "Warning" : "Error", warning);
@@ -97,6 +117,7 @@ function runRequestOnReadyState() {
 		outputTextArea.value = results.shift() || "";
 		resize(outputTextArea);
 	});
+  
 }
 
 function deflate(byteString) {
