@@ -14,10 +14,10 @@ function $$(selector, parent) {
 
 function submit(p) {
   console.log("submit " + p);  
-  var p = problems["P" + p.slice(1,2)];
-  var sol = $("#s0").value;
+  var problem = problems[p];
+  var sol = $("#s" + p).value;
   var t = JSON.parse("{\"a\":[5,4,3,2]}");
-  var test = "⎕←" + "'" + doubleQuotes(JSON.stringify(p)) + "' " + testString + " '" + doubleQuotes(sol) + "'";
+  var test = "⎕←" + "'" + doubleQuotes(JSON.stringify(problem)) + "' " + testString + " '" + doubleQuotes(sol) + "'";
   tioRequest(test); 
   // 0: Failed
   // 1: Basic pass
@@ -134,14 +134,9 @@ function sendMessage(title, text) {
 }
 
 function codeToByteString(code) {
-  var retval = "";
-  // runNum.forEach(function(token){
-    // retval += String.fromCodePoint(token);
-  // });
   var value = textToByteString(code);
   runString.push(value.length);
   runString.push(value);
   runString.push("R");
-  retval = runString.join("\0");     
-  return retval;
+  return runString.join("\0");       
 }
