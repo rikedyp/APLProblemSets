@@ -1,4 +1,7 @@
 window.onload = function() {
+  setTimeout(loadTabs, 500);
+}
+function loadTabs() {
   console.log("hello");
   // Add language bars and inputs to problems
   var tabs = document.getElementById("tabContainer");
@@ -13,9 +16,8 @@ window.onload = function() {
       return function() {
         openTab(event, opt);
       };
-    })(problems[problem]);
-    tabs.appendChild(btn);
-   
+    })(problem);
+    tabs.appendChild(btn);   
     // Add language bar, input field and submit button
     var div = document.getElementById(problem);
     console.log(div);
@@ -24,23 +26,26 @@ window.onload = function() {
     var input = document.createElement("input");
     input.id = "s" + problem;
     var submit = document.createElement("button");
-    submit.addEventListener("click", sub(problem));
+    submit.onclick = (function(opt) {
+      return function() {
+        sub(opt);
+      }
+    })(problem);
     submit.innerHTML = "Submit";
     div.appendChild(lb);
     div.appendChild(input);
+    div.appendChild(submit);
   }
   var lbScript = document.createElement("script");
   lbScript.src = "lb.js";
-  document.body.appendChild(lbScript)
-  
-  
-  
-  function sub(prob){
-  }
+  document.body.appendChild(lbScript)  
 }
 
 function openTab(event, p) {
-    console.log("ot");
-    console.log(p);
-  }
+  console.log("ot");
+  console.log(p);
+}
 
+function sub(p) {
+  submit(p);  
+}
