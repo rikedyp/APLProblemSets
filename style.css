@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "APL385";
+  src: url("Apl385.ttf");
+}
+@font-face {
+  font-family: "OD";
+  src: url("OpenDyslexic-Regular.otf");
+}
+* {
+  box-sizing: border-box;  
+}
+body > * {
+  font-family: Ubuntu,Courier,Verdana,Arial;
+}
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  border: 0.5px solid black;
+  background-color: #eae9f3;
+  color: #fff
+}
+a:hover {
+  background: #BBB5D6;
+}
+.apl {
+  font-family: APL385!important;
+  color: #361134;
+}
+.description {
+  display: inline-flex;
+}
+.description p {
+  padding: 1em 3em 0 3em;
+  width: 80%;
+}
+.solution {
+  width: 90%;
+  line-height: 1.15em;
+  margin-top: 1em;
+}
+.border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.border td {
+  border: 1px solid black;
+  /* width: 50%; */
+  /* text-align: center;   */
+}
+.submit {width: 10%;}
+#tabContainer {
+  float: left;
+  border: 1px solid black;
+  background-color: #b193c1;
+  border-radius: 5px;
+  width: 15%;
+  /* height: 300px;   */
+}
+.tab {
+  float: right;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  border-left: 0;
+  border-right: 0;
+  width: 70%;
+  margin-right: 10%;
+  /* height: 300px; */
+  padding-bottom: 1em;
+}
+/* Style the buttons that are used to open the tab content */
+#tabContainer button {
+  display: block;
+  background-color: inherit;
+  color: white;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* Change background color of buttons on hover */
+#tabContainer button:hover {
+  background-color: #BBB5D6;/*#b793c1;*/
+}
+
+/* Create an active/current "tab button" class */
+#tabContainer button.active {
+  background-color: #655aa0;
+}
+/* language bar */
+
+.ngn_lb {
+  background-color: #eae9f3;
+  color: #555;
+  cursor: default;
+  border-radius: 0.25rem;
+  font-family: "Apl385 Unicode";
+  padding: 2px;
+  word-wrap: break-word;
+  margin-top: 1em;
+}
+
+.ngn_lb b {
+  cursor: pointer;
+  padding: 0 0.125rem;
+  font-weight: normal;
+  border-radius: 0.125rem;
+}
+
+.ngn_lb b:hover,
+.ngn_bq .ngn_lb {
+  background-color: #928abd;
+  color: #fff
+}
+.svg-inline--fa {
+  color: #d4af37;
+  height: 1em;
+}

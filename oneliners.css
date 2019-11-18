@@ -1,0 +1,14 @@
+.telephone {
+  width: 20%;
+}
+.telephone td {
+  text-align: center;
+  font-family: arial;
+  font-size: 2em;
+  width: 33.3%;
+  border: none;
+  border-radius: 5px;
+}
+.telephone td:hover {
+  background: #BBB5D6;
+}
