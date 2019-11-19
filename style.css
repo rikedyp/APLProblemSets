@@ -6,9 +6,6 @@
   font-family: "OD";
   src: url("OpenDyslexic-Regular.otf");
 }
-* {
-  box-sizing: border-box;  
-}
 body > * {
   font-family: Ubuntu,Courier,Verdana,Arial;
 }
@@ -32,8 +29,10 @@ a:hover {
   display: inline-flex;
 }
 .description p {
-  padding: 1em 3em 0 3em;
+  display: block;
+  padding: 0em 0em 0 2em;
   width: 80%;
+  margin: 0;
 }
 .solution {
   width: 90%;
