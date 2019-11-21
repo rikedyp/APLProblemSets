@@ -1,9 +1,7 @@
 window.onload = function loadTabs() {
-  console.log("hello");
   // Add language bars and inputs to problems
   var tabs = document.getElementById("tabContainer");
   for (problem in problems) {
-    console.log(problem);
     // Add tab button 
     var btn = document.createElement("button");
     btn.classList.add("tabLink");
@@ -17,8 +15,7 @@ window.onload = function loadTabs() {
     })(problem);
     tabs.appendChild(btn);   
     // Add language bar, input field and submit button
-    var div = document.getElementById(problem);
-    console.log(div);
+    var div = document.getElementById(problem);    
     var lb = document.createElement("div");
     lb.classList.add("lb");
     lb.classList.add("apl");    
@@ -48,13 +45,10 @@ window.onload = function loadTabs() {
 }
 
 function openTab(p) {
-  console.log("ot");
-  console.log(p);
   var i, tabs, tabLinks;
   // Get all elements with class="tab" and hide
   tabs = document.getElementsByClassName("tab");
   for (i = 0; i < tabs.length; i++) {
-    console.log(tabs[i]);
     tabs[i].style.display = "none";
   }
   // Get all tabLinks and remove the "active" class
@@ -65,7 +59,6 @@ function openTab(p) {
   document.getElementById(p).style.display = "block";
   // Add active class to clicked button
   var btn = document.getElementById("btn" + p);
-  console.log(btn);
   btn.classList.add("active");
 }
 

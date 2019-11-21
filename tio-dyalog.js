@@ -10,6 +10,7 @@ var congrats = [
   "Awesome! Your solution couldn't be any more correct",
   "Way to go! Your function passed all of our test cases",
 ];
+var version = 1.0;
 
 function $(selector, parent) {
 	return (parent || document).querySelector(selector);
@@ -21,7 +22,6 @@ function $$(selector, parent) {
 
 function submit(p) {
   currentProblem = p;
-  console.log("submit " + p);  
   var problem = problems[p];
   var sol = $("#s" + p).value;
   var t = JSON.parse("{\"a\":[5,4,3,2]}");
@@ -33,9 +33,6 @@ function submit(p) {
 }
 
 function outResult(result, error) {
-  console.log(currentProblem);
-  console.log(result);
-  console.log(error);
   var out = document.getElementById("feedback" + currentProblem);
   if (result == 0) {
     out.innerHTML = "That function doesn't seem to work. " + error;
@@ -73,8 +70,6 @@ function iterate(iterable, monad) {
 function runRequestOnReadyState() {
 	if (runRequest.readyState != XMLHttpRequest.DONE)
 		return; 
-  console.log(runRequest.status);
-  console.log(runRequest.statusText);
 	var response = byteArrayToByteString(new Uint8Array(runRequest.response));
 	var statusCode = runRequest.status;
 	var statusText = runRequest.statusText;
@@ -106,7 +101,6 @@ function runRequestOnReadyState() {
 	}
 
 	var results = response.substr(16).split(response.substr(0, 16));
-  console.log("got:"+results[0]);  
   var errors = response.split("\n");
   var e = errors[0].split(" ");
   var error = e.slice(5,7).join(" ");
