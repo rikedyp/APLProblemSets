@@ -1,7 +1,7 @@
 var runURL = "https://tio.run/cgi-bin/run";
 var quitURL = "https://tio.run/cgi-bin/quit";
 var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.input.tio","0","F.code.tio"];
-var testString = "{a←⎕JSON ⍺ ⋄ b e←⍎¨¨a.(a b) ⋄ (⊃∧+/)((⍎a.f)¨¨b e)≡¨((⍎⍵)¨¨b e)}";
+var testString = "{a←⎕JSON ⍺ ⋄ b e←⍵{0::⍎¨¨⍵.(a b) ⋄ ⍎¨¨¨⍵.(a b)}a ⋄ test←(a.f)∘{0::(⍎⍺)⍵ ⋄ (⊃⍵)(⍎⍺)(2⊃⍵)}¨¨b e ⋄ user←(⍵)∘{0::(⍎⍺)⍵ ⋄ (⊃⍵)(⍎⍺)(2⊃⍵)}¨¨b e ⋄ (⊃∧+/)user≡¨test}";
 var runRequest;
 var currentProblem;
 var congrats = [
