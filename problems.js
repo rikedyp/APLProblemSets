@@ -23,10 +23,8 @@ problems = {
  "P2": {
   "title": "Telephone Names",
   "a": ["'IAMYY4U'",
-   "'UR2CUTE'",
-   "(⎕D,⎕A)[?26⍴⍨4+?15]",
-   "⎕D,⎕A"],
-  "b": ["''"],
+   "'UR2CUTE'"],
+  "b": ["''","(⎕D,⎕A)[?26⍴⍨4+?15]","⎕D,⎕A"],
   "f": "{∊10|⍸¨↓⍵∘.∊'1' '2ABC' '3DEF' '4GHI' '5JKL' '6MNO' '7PQRS' '8TUV' '9WXYZ' '0'}",
   "p": ","
  }
