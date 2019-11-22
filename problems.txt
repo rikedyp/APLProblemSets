@@ -1,0 +1,69 @@
+Workshop problems
+=================
+
+Math (+ - × ÷ ⌈ ⌊ * ⍟)
+Reduction ⌿
+Naming things list←1 5 56 23 23 5
+Eg. of inline assignment
+- Range
+- Fractional part
+- Binary to decimal 
+- Length of vector (unlocks ≢)
+
+
+Index generation / Indexing [⍸]
+- Sum numbers to 100
+- Generate odd numbers
+- Grille cypher
+
+Naming functions ← 
+
+Comparison (= < >)
+- Mean average
+- Is this number prime?
+- Reverse
+
+∊?
+
+Out product
+- Prime numbers
+- Multiplication table
+- Counting vowels
+
+
+1 hr: + - × ÷ / = < > ⍳ 
+2 hr: ∘.
+3 hr:
+
+
+
+Going ballistic
+
+
+Telephone
+Letter grades (e.g. % of grades)
+
+
+Blinking lights
+2014: Revolutionary thinking
+
+CS centric 
+----------
+{2 (≢⍵)⍴⍵,⌽2*¯1+⍳≢⍵}
+
+- Mode
+- Median
+
+Removing vowels
+Grille cypher
+Sum square difference
+Special pythagorean triple (e.g. it's all right)
+Longest Collatz sequence
+Counting Sundays
+Nag a ram
+
+Lattic paths
+
+Longer tasks
+============
+2011: It's all about image

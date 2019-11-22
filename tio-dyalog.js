@@ -1,7 +1,8 @@
+var lastResponse;
+
 var runURL = "https://tio.run/cgi-bin/run";
 var quitURL = "https://tio.run/cgi-bin/quit";
 var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.input.tio","0","F.code.tio"];
-var testString = "{a←⎕JSON ⍺ ⋄ b e←⍵{0::⍎¨¨⍵.(a b) ⋄ ⍎¨¨¨⍵.(a b)}a ⋄ test←(a.f)∘{0::(⍎⍺)⍵ ⋄ (⊃⍵)(⍎⍺)(2⊃⍵)}¨¨b e ⋄ user←(⍵)∘{0::(⍎⍺)⍵ ⋄ (⊃⍵)(⍎⍺)(2⊃⍵)}¨¨b e ⋄ (⊃∧+/)user≡¨test}";
 var runRequest;
 var currentProblem;
 var congrats = [
@@ -25,7 +26,11 @@ function submit(p) {
   var problem = problems[p];
   var sol = $("#s" + p).value;
   var t = JSON.parse("{\"a\":[5,4,3,2]}");
-  var test = "⎕←" + "'" + doubleQuotes(JSON.stringify(problem)) + "' " + testString + " '" + doubleQuotes(sol) + "'";
+  // var test = "⎕←" + "'" + doubleQuotes(JSON.stringify(problem)) + "' " + testString + " '" + doubleQuotes(sol) + "'";
+  
+  var test = testString + "\n⎕←'" + doubleQuotes(JSON.stringify(problem)) + "' TestSolution '" + doubleQuotes(sol) + "'";
+  
+  console.log(test);
   tioRequest(test); 
   // 0: Failed
   // 1: Basic pass
@@ -34,15 +39,19 @@ function submit(p) {
 
 function outResult(result, error) {
   var out = document.getElementById("feedback" + currentProblem);
+  console.log("---------RESULT------------");
+  console.log(result);
+  console.log("---------ERRROR-----------");
+  console.log(error);
   if (result == 0) {
-    out.innerHTML = "That function doesn't seem to work. " + error;
+    out.innerHTML = result + error;    
   } else if (result == 1) {
     out.innerHTML = "Passed all basic cases. Try to solve with <code class='apl'>⍵ ← " + problems[currentProblem].b[0] + "</code> for full marks";
   } else if (result == 2) {
     out.innerHTML = goldTrophy;
     out.innerHTML += "  " + congrats[Math.floor(Math.random() * congrats.length)];
   } else {
-    out.innerHTML = error;
+    out.innerHTML = result + error;
   }
 }
 
@@ -100,14 +109,17 @@ function runRequestOnReadyState() {
 		sendMessage("Error", "Could not establish or maintain a connection with the server.");
 	}
 
+  lastResponse = response;
 	var results = response.substr(16).split(response.substr(0, 16));
-  var errors = response.split("\n");
-  var e = errors[0].split(" ");
+  var errors = response.split("eRRt0KEN");
+  console.log(errors);
+  var e = errors[1].split("\n ");
+  console.log(e);
   var error = e.slice(5,7).join(" ");
 	var warnings = results.pop().split("\n");
 	var outputTextAreas = $$("#interpreter textarea.output");  
-  
-  outResult(results[0], error);
+  console.log(errors[0]);
+  outResult(results[0].slice(0,results[0].length-9), error);
   
 	iterate(warnings, function(warning) {
 		if (warning !== "")

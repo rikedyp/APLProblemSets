@@ -30,6 +30,7 @@ window.onload = function loadTabs() {
       }
     })(problem);
     submit.classList.add("submit");
+    submit.id = "sub" + problem;
     submit.innerHTML = "Submit";
     var feedback = document.createElement("div");
     feedback.id = "feedback" + problem;
@@ -42,6 +43,11 @@ window.onload = function loadTabs() {
   lbScript.src = "lb.js";
   document.body.appendChild(lbScript)  
   openTab("P0");
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      document.getElementById("sub" + document.activeElement.id.split("s")[1]).click();
+    }
+  });
 }
 
 function openTab(p) {
