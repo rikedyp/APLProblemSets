@@ -11,165 +11,18 @@
     <script src="pako.min.js"></script>    
   </head>
   <body>
-    <!-- Add <div class="tab"> for each problem -->
-    <!-- Tab buttons created by tabs.js -->
-    <!-- Language bar, input field and submit button included by tabs.js -->
-    <h1>APL one-liners</h1>
-    <div id="tabContainer"></div>
+    <h1>Dyalog APL Workshop</h1>
     <div id="P0" class="tab">
-      <h3>1: Counting Vowels</h3>
+      <h3>Problem Sets</h3>
       <div class="description">
         <p>
-          Write a function to count the number of vowels (A,E,I,O,U) in an array consisting of uppercase letters (A-Z).
-          <br /><br />
-          <strong>💡 Hint:</strong> The membership function <a class="apl" target="_blank" href="http://help.dyalog.com/latest/Content/Language/Primitive%20Functions/Membership.htm">∊</a> could be helpful for this problem.
-        </p>  
+          This site hosts a series of problem-solving tasks which are designed to test and hone your problem-solving ability using APL.
+        </p>        
       </div>
-      <h4>Examples</h4>
-      <pre class="apl">
-            (your_function) 'COOLAPL'
-      3
-            (your_function) ''        ⍝ Empty argument
-      3
-            (your_function) 'NVWLSHR' 
-      3
-      </pre>
+      <br><br>
+      <a href="intro.html" class="apl">Start here</a>
+      <br><br>
+      <a href="problems.html" class="apl">More problems</a>
     </div>
-    <div id="P1" class="tab">
-      <h3>2: Making the Grade</h3>
-      <div class="description">
-        <table class="border">
-          <tr>
-            <td><strong>Score Range</strong></td>
-            <td><strong>Letter Grade</strong></td>
-          </tr>
-          <tr>
-            <td>0-64</td>
-            <td>F</td>
-          </tr>
-          <tr>
-            <td>65-69</td>
-            <td>D</td>
-          </tr>
-          <tr>
-            <td>70-79</td>
-            <td>C</td>
-          </tr>
-          <tr>
-            <td>80-89</td>
-            <td>B</td>
-          </tr>
-          <tr>
-            <td>90-100</td>
-            <td>A</td>
-          </tr>
-        </table>
-          <p>
-            Write a function that, given an array of integer test scores in the inclusive range 0–100, returns an identically-shaped array of the corresponding letter grades according to the table to the left.
-            <br /><br />
-            <strong>💡 Hint:</strong> You may want to investigate the interval index function <a class="apl" target="_blank" href="http://help.dyalog.com/latest/Content/Language/Primitive%20Functions/Interval%20Index.htm">⍸</a>
-          </p>
-      </div>
-      
-      <h4>Examples</h4>
-      <pre class="apl">
-      (your_function) 0 64 65 69 70 79 80 89 90 100      
-FFDDCCBBAA
-      (fn) ⍬  ⍝ returns an empty vector
-
-      (fn) 2 3⍴71 82 81 82 84 59
-CBB
-BBF
-      </pre>
-    </div>
-    <div id="P2" class="tab">
-      <h3>3: Telephone Names</h3>
-      <div class="description">
-        <table class="telephone">
-          <tbody><tr>
-            <td><ruby>1<rt></rt></ruby></td>
-            <td><ruby>2<rt>ABC</rt></ruby></td>
-            <td><ruby>3<rt>DEF</rt></ruby></td>
-          </tr>
-          <tr>
-            <td><ruby>4<rt>GHI</rt></ruby></td>
-            <td><ruby>5<rt>JKL</rt></ruby></td>
-            <td><ruby>6<rt>MNO</rt></ruby></td>
-          </tr>
-          <tr>
-            <td><ruby>7<rt>PQRS</rt></ruby></td>
-            <td><ruby>8<rt>TUV</rt></ruby></td>
-            <td><ruby>9<rt>WXYZ</rt></ruby></td>
-          </tr>
-          <tr>
-            <td><ruby>*<rt></rt></ruby></td>
-            <td><ruby>0<rt></rt></ruby></td>
-            <td><ruby>#<rt></rt></ruby></td>
-          </tr>
-        </tbody></table>
-        <p>
-          Some telephone keypads have letters of the alphabet embossed on their keytops. Some people like to remember phone numbers by converting them to an alphanumeric form using one of the letters on the corresponding key. For example, in the keypad shown, <code class="apl">'ALSMITH'</code> would correspond to the number 257-6484 and <code class="apl">'1DYALOGBEST'</code> would correspond to 1-392-564-2378.
-          
-          Write an APL function that takes a character vector right argument that consists of digits and uppercase letters and returns an integer vector of the corresponding digits on the keypad. 
-          <br /><br />
-          <strong>💡 Hint:</strong> You might want to use the membership function <a class="apl ngn_tt" target="_blank" href="http://help.dyalog.com/latest/Content/Language/Primitive%20Functions/Membership.htm">∊</a>
-        </p>
-        <br />        
-        </div>      
-      <h4>Examples</h4>
-      <pre class="apl">
-      (your_function) 'IAMYY4U'
-4 2 6 9 9 4 8
-      (your_function) ''   ⍝ Returns an empty vector
-
-      (your_function) 'UR2CUTE'
-8 7 2 2 8 8 3
-
-      </pre>         
-    </div>
-    <div id="P3" class="tab">
-        <h3>4: Grille Cypher</h3>
-        <div class="description">
-          <p>
-            A Grille is a cryptographic device consisting of a square sheet with holes cut out, which when laid ontop of a similarly sized character matrix reveals a hidden message (see image below).
-            <img src="Grille.png" width=60%/><br>
-            Representing a Grilleas an <strong>n × n</strong> character matrix, using a hash ('#') to mean opaque material and a blank (' ') to meana hole, write a function which takes a grille to the left and a character matrix of the same shape tothe right, producing the hidden message as a character vector.
-          </p>  
-        </div>
-        <h4>Examples</h4>
-        <pre class="apl">
-      (2 2⍴'# # ') (your_function) 2 2⍴'LHOI'
-HI
-      g←6 6⍴'#### ## #  #### # ######## # ## ####'
-      c←6 6⍴'OBAATIFHRISZOADIFSVJJXXBBHFQUBONVSKH'
-      g c
-┌──────┬──────┐
-│#### #│OBAATI│
-│# #  #│FHRISZ│
-│### # │OADIFS│
-│######│VJJXXB│
-│## # #│BHFQUB│
-│# ####│ONVSKH│
-└──────┴──────┘
-      g (your_function) c
-THISISFUN
-        </pre>  
-      </div>
-      <div id="P4" class="tab">
-        <h3>5: Moving Average</h3>
-        <div class="description">
-          <p>
-            Write a function to calculate the n-wise rolling average of the rows of an array.                      
-            </p>  
-        </div>
-        <h4>Examples</h4>
-        <pre class="apl">
-      3(your_function)4 5 5 3 4 1 2
-14 13 12 8 7
-      6(your_function)73 8 2 100 6 31 20 50 32 1
-220 167 209 239 140
-        </pre>  
-      </div>
-    <script src="tabs.js"></script>
   </body>
 </html>

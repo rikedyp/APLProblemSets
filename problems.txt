@@ -9,8 +9,11 @@ Eg. of inline assignment
 - Fractional part
 - Binary to decimal 
 - Length of vector (unlocks ≢)
-
-
+- Sugar cubes
+    ___
+   /__/|
+   |__|/
+   
 Index generation / Indexing [⍸]
 - Sum numbers to 100
 - Generate odd numbers
@@ -21,7 +24,7 @@ Naming functions ←
 Comparison (= < >)
 - Mean average
 - Is this number prime?
-- Reverse
+- Reverse (unlocks ⌽)
 
 ∊?
 

@@ -25,13 +25,24 @@ a:hover {
   font-family: APL385!important;
   color: #361134;
 }
+pre {
+  background: lightyellow;
+  border: 0.5px solid gray;
+  border-style: inset;  
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
 .description {
   display: inline-flex;
+  width: 80%;
 }
 .description p {
   display: block;
   padding: 0em 0em 0 2em;
-  width: 80%;
+  width: 100%;
   margin: 0;
 }
 .solution {

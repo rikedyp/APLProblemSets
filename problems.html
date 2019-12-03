@@ -128,20 +128,35 @@ BBF
       </pre>         
     </div>
     <div id="P3" class="tab">
-        <h3>1: Grille cypher</h3>
+        <h3>4: Grille Cypher</h3>
         <div class="description">
           <p>
-            A grille is an old method of sending secret messages.
-                      
-            </p>  
+            A Grille is a cryptographic device consisting of a square sheet with holes cut out, which when laid ontop of a similarly sized character matrix reveals a hidden message (see image below).
+            <img src="img/Grille.png" width=60%/><br>
+            Representing a Grilleas an <strong>n × n</strong> character matrix, using a hash ('#') to mean opaque material and a blank (' ') to meana hole, write a function which takes a grille to the left and a character matrix of the same shape tothe right, producing the hidden message as a character vector.
+          </p>  
         </div>
         <h4>Examples</h4>
         <pre class="apl">
-
+      (2 2⍴'# # ') (your_function) 2 2⍴'LHOI'
+HI
+      g←6 6⍴'#### ## #  #### # ######## # ## ####'
+      c←6 6⍴'OBAATIFHRISZOADIFSVJJXXBBHFQUBONVSKH'
+      g c
+┌──────┬──────┐
+│#### #│OBAATI│
+│# #  #│FHRISZ│
+│### # │OADIFS│
+│######│VJJXXB│
+│## # #│BHFQUB│
+│# ####│ONVSKH│
+└──────┴──────┘
+      g (your_function) c
+THISISFUN
         </pre>  
       </div>
       <div id="P4" class="tab">
-        <h3>2: Moving Average</h3>
+        <h3>5: Moving Average</h3>
         <div class="description">
           <p>
             Write a function to calculate the n-wise rolling average of the rows of an array.                      
