@@ -1,6 +1,11 @@
 Workshop problems
 =================
 
+Newton-Rhapson + Newton's square root
+y = (x+a÷x)÷2
+
+Ramanujan's Pi
+
 Math (+ - × ÷ ⌈ ⌊ * ⍟)
 Reduction ⌿
 Naming things list←1 5 56 23 23 5
@@ -18,6 +23,7 @@ Index generation / Indexing [⍸]
 - Sum numbers to 100
 - Generate odd numbers
 - Grille cypher
+- Caesar Cypher (Rot13)
 
 Naming functions ← 
 

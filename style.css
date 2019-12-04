@@ -6,17 +6,25 @@
   font-family: "OD";
   src: url("OpenDyslexic-Regular.otf");
 }
+@font-face {
+  font-family: "SC";
+  src: url("SourceCodeVariable-Roman.ttf");
+}
+body {
+  background: #fffff3;
+}
 body > * {
-  font-family: Ubuntu,Courier,Verdana,Arial;
+  font-family: SC,Ubuntu,Courier,Verdana,Arial;  
 }
 h1 {
   text-align: center;
 }
 a {
   text-decoration: none;
-  border: 0.5px solid black;
+  border: none;
   background-color: #eae9f3;
-  color: #fff
+  color: #fff;
+  padding: 3px;
 }
 a:hover {
   background: #BBB5D6;
@@ -25,10 +33,21 @@ a:hover {
   font-family: APL385!important;
   color: #361134;
 }
+.nav {
+  position: fixed;
+  bottom: 3em;
+}
+.left {
+  left: 9em;
+}
+.right {
+  right: 3em;
+}
 pre {
-  background: lightyellow;
-  border: 0.5px solid gray;
-  border-style: inset;  
+  padding: 1em 0 0 0.5em;
+  background: #eae9f3;
+  border: none;
+  border-radius: 5px;  
   white-space: pre-wrap;       /* Since CSS 2.1 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
   white-space: -pre-wrap;      /* Opera 4-6 */
@@ -56,17 +75,16 @@ pre {
 }
 .border td {
   border: 1px solid black;
-  /* width: 50%; */
-  /* text-align: center;   */
 }
 .submit {width: 10%;}
 #tabContainer {
   float: left;
   border: 1px solid black;
   background-color: #b193c1;
+  border: none;
   border-radius: 5px;
   width: 15%;
-  /* height: 300px;   */
+  margin-left: 1em;
 }
 .tab {
   float: right;

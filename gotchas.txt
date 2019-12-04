@@ -1,0 +1,30 @@
+Shape and rank
+==============
+
+
+Gotchas
+=======
+Before you venture out on your own, there are a few gotchas which are worth mentioning. You aren't expected to absorb these things fully straight away, and learning any language is often a matter of trial and error, but we hope that by giving you a heads up you can be slightly less surprised later on.
+
+Don't get stranded
+==================
+Stranding is the word used to describe how we write vectors simply by separating elements with spaces. This takes precedence over any function application. Execute the following statements. Is the result what you expect? After seeing the output, do you understand what the interpreter is doing?
+3 + 4 5 6
+3 4 5 + 6
+2 + 2 2 + 2
+9 8 + 6 5 + 4
+5 6 + 7 + 8 9
+
+Strange scalars
+===============
+Scalars are single numbers or characters. We say that a scalar is a rank 0 array, whose shape is the empty vector ⍬, which contains itself as its value.
+127 ⍝ Numeric scalar
+'a' ⍝ Character scalar
+'a' 'bcd'
+'a' 'b' 'c' 'd'
+If you enclose a scalar, it returns the same scalar.
+However, if you enclose a vector of length 1, you get back a scalar which is in enclosed vector.
+⊂66
+⊂,66 ⍝ Ravel (monadic ,) makes its right argument a vector
+⊂'a' 
+⊂,'a'

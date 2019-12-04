@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dyalog APL Workshop</title>   
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="oneliners.css" />
+    <script src="tio-dyalog.js"></script>
+    <script src="testString.js"></script>
+    <script src="problems.js"></script>     
+    <script src="pako.min.js"></script>    
+  </head>
+  <body>
+    <h1>Part 3: Selecting from lists</h1>
+    <div class="tab">
+      <h3>Use only these symbols for the problems on this page:</h3>
+      <pre class="apl">
+      + - × ÷ * ⍟ ⌈ ⌊ / < ≤ = ≠ ≥ > { ⍺ ⍵ } ( ) ~ ⍳ ⍸ ≢
+      </pre>
+    </div>
+    <div class="tab">
+      <div class="description">      
+        <p>
+          <br>
+          We have now seen how to represent words in APL using lists of characters (AKA "character vectors"). We have also introduced a couple of functions for comparing arrays.
+        </p>
+      </div>
+      <pre class="apl">
+      'APPLE'[1 3 4]    ⍝ Select elements 1, 3 and 4 from 'APPLE'
+APL
+      'APPLE'∊'APL'     ⍝ 1 at positions where are A, P and L found in 'APPLE'
+1 1 1 1 0      
+      ⍸'APPLE'∊'APL'    ⍝ Where are 'A', 'P' and 'L' found in 'APPLE'?
+1 2 3 4
+      </pre>    
+    </div>
+    <div class="tab">
+      <h3>1: Can I have a vowel please?</h3>
+      <div class="description">
+        <p>
+          Now try the following:
+          <br><br>
+          <strong>a)</strong> Write a dfn to count the number of vowels in a character vector which is all lowercase. For this task only <code class="apl">'aeiou'</code> count as vowels. 
+          <br><br>
+          <strong>Example session:</strong>
+        </p>        
+      </div>
+      <pre class="apl">
+      (your_solution) 'there are sixteen vowels in this character vector'
+16        
+      </pre>
+    </div>
+    <div class="tab">
+      <h3>2: sdrawkcab s'taht woN</h3>
+      <div class="description">
+        <p>
+          Write a dfn which reverses its right argument.
+        </p>
+      </div>
+      <pre class="apl">
+      Reverse 'Some characters'
+sretcarahc emoS
+      Reverse ⍳10
+10 9 8 7 6 5 4 3 2 1      
+      </pre>
+    </div>     
+    <a class="apl nav right" href="rank2.html">Next →</a>
+    <a class="apl nav left" href="dfns.html">← Back</a>
+  </body>
+</html>

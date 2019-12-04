@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dyalog APL Workshop</title>   
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="oneliners.css" />
+    <script src="tio-dyalog.js"></script>
+    <script src="testString.js"></script>
+    <script src="problems.js"></script>     
+    <script src="pako.min.js"></script>    
+  </head>
+  <body>
+    <h1>Part 4: Red pilling</h1>
+      <div class="tab">
+      <h3>Creating the matrix</h3>
+      <div class="description">
+        <p>
+          The "outer product" operator applies its function operand to all combinations of elements of its left and right argument arrays.
+        </p>
+      </div>
+      <pre class="apl">
+      f←{⍺+⍵}
+      1 2 3 ∘.f 10 20 30
+11 21 31
+12 22 32
+13 23 33      
+      </pre>
+    </div>
+    <div class="tab">
+      <h3>1: Back to school</h3>
+      <div class="description">
+        <p>
+          <strong>a)</strong> Write a function to produce the multiplication table from 1 to ⍵.
+        </p>
+      </div>
+      <pre class="apl">
+      MulTable 7
+1  2  3  4  5  6  7
+2  4  6  8 10 12 14
+3  6  9 12 15 18 21
+4  8 12 16 20 24 28
+5 10 15 20 25 30 35
+6 12 18 24 30 36 42
+7 14 21 28 35 42 49      
+      </pre>
+      <div class="description">
+        <p>
+          <strong>b)</strong> Write a function to produce the addition table from 0 to ⍵.
+        </p>
+      </div>
+      <pre class="apl">
+      AddTable 6
+0 1 2 3  4  5  6
+1 2 3 4  5  6  7
+2 3 4 5  6  7  8
+3 4 5 6  7  8  9
+4 5 6 7  8  9 10
+5 6 7 8  9 10 11
+6 7 8 9 10 11 12     
+      </pre>
+    </div>
+    <div class="tab">
+      <h3>Title</h3>
+      <div class="description">
+        <p>
+        </p>
+      </div>
+      <pre class="apl">
+      </pre>
+    </div>
+    <a class="apl nav right" href="problems.html">Next →</a>
+    <a class="apl nav left" href="selection.html">← Back</a>
+  </body>
+</html>  

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dyalog APL Workshop</title>   
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="oneliners.css" />
+    <script src="tio-dyalog.js"></script>
+    <script src="testString.js"></script>
+    <script src="problems.js"></script>     
+    <script src="pako.min.js"></script>    
+  </head>
+  <body>
+    <!-- Add <div class="tab"> for each problem -->
+    <!-- Tab buttons created by tabs.js -->
+    <!-- Language bar, input field and submit button included by tabs.js -->
+    <h1>Part 2: Dfns and assignment</h1>
+    <div class="tab">
+      <div class="description">      
+        <p>
+          <br>
+          So we have seen how to assign functions and variables to names. We will now write some useful functions as dfns and use them to solve some slightly more complex problems.
+          <br><br>
+          Scroll down to continue.
+          <br><br>
+          <strong>Name assignment:</strong>
+        </p>
+      </div>
+      <pre class="apl">
+      one←1
+      three←3
+      equals←=
+      plus←+
+      four←4
+      ⍝ 1 means true, 0 means false
+      four equals one plus three
+1   
+      </pre> 
+      <div class="description">
+        <p><strong>
+          Dfns:
+        </p></strong>
+      </div>
+      <pre class="apl">
+      3{⍺}5      ⍝ ⍺ is the (optional) left argument
+3
+     
+      {⍵}'apl'   ⍝ ⍵ is the right argument
+apl      
+
+      {⍺}5       ⍝ Calling a dyadic function monadically results in an error
+VALUE ERROR
+      {⍺}5
+      ∧      
+      
+      3{⍺}       ⍝ Calling a dyadic funcion without a right argument results in an error
+SYNTAX ERROR: Missing right argument
+      3{⍺}
+       ∧      
+      </pre>    
+    </div>
+    <div class="tab">
+      <div class="description">
+        <h3>Use only these symbols for the problems on this page:</h3>
+      </div>
+      <pre class="apl">
+      + - × ÷ * ⍟ ⌈ ⌊ / < ≤ = ≠ ≥ > { ⍺ ⍵ } ( ) ~ ⍳
+      </pre> 
+    </div>       
+    <div class="tab">
+      <h3>1: Utility functions</h3>
+      <div class="description">
+        <p>
+          <strong>a)</strong> Create a function named <code class="apl">Count</code> which returns the number of elements in a vector.
+          <br><br>
+          <strong>b)</strong> Create a function named <code class="apl">Mean</code> which returns the mean average of a numeric vector.
+          <br><br>
+          <strong>c)</strong> Create a function named <code class="apl">Where</code> which returns the indices of 1s in a boolean vector.
+        </p>
+      </div>
+      <pre class="apl">
+      Count 1 2 4 523 1 2 454
+7
+      Mean 1 2 4 523 1 2 454
+141
+      Where 1 = 1 2 4 523 1 2 454
+1 5      
+      </pre>      
+    </div>
+    <div class="tab">
+      <h3>2: What remains</h3>
+      <div class="description">
+        <p>
+          <code class="apl">Mod</code> is a <strong>dyadic</strong> function which returns the remainder after its right argument <strong><code class="apl">⍵</code></strong> number is divided by the left argument <strong><code class="apl">⍺</code></strong>. 
+          <br><br>
+          <strong>a) </strong>Write the <code class="apl">Mod</code> function as a dfn.
+          <br><br>
+          <strong>Example session:</strong>
+        </p>        
+      </div>
+      <pre class="apl">
+      16÷5  
+3.2      
+      5 Mod 16   ⍝ 3 5s and 1 left over
+1      
+      0.2×5      ⍝ 0.2 5s left over
+1      
+      12 Mod 30
+6
+      13 Mod 56
+4
+      5 Mod 30   ⍝ 5 goes into 25 exactly 6 times      
+0      
+      </pre>
+      <div class="description">
+        <p>
+          <strong>b)</strong> Write a function named <code class="apl">Split</code> which takes a fractional number and returns two numbers: its integer and fractional parts.
+          <br><br>
+          <strong>Example session:</strong>
+        </p>              
+      </div>
+      <pre class="apl">
+      Split 0
+0 0
+      Split ¯10
+¯10 0
+      Split 7.62
+7 0.62
+      </pre>
+    </div>
+    <div class="tab">
+      <h3>3: What was in that vector again?</h3>
+      <div class="description">
+        <p>
+          You should have a variable named <code class="apl">vec</code> in your workspace, from <a class="apl" href="intro.html">Part 1</a>. 
+          <br><br>          
+        </p>        
+      </div>
+      <div class="description">
+        <p>
+          <strong>a)</strong> How many even numbers are there in <code class="apl">vec</code>?
+          <br><br>
+          <strong>b)</strong> What percentage of numbers in <code class="apl">vec</code> are odd numbers?
+          <br><br>
+          <strong>c)</strong> What percentage of numbers in <code class="apl">vec</code> are strictly negative?
+          <br><br>
+          <strong>d)</strong> What percentage of numbers in <code class="apl">vec</code> are strictly positive?
+          <br><br>
+          <strong>e)</strong> What do you notice about the percentage of positive and negative numbers?
+        </p>
+      </div>
+      <br><br><br><br><br>
+    </div>    
+    <a class="apl nav right" href="selection.html">Next →</a>
+    <a class="apl nav left" href="intro.html">← Back</a>
+  </body>
+</html>
