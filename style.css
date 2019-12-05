@@ -24,7 +24,8 @@ a {
   border: none;
   background-color: #eae9f3;
   color: #fff;
-  padding: 3px;
+  padding: 0.3em;
+  border-radius: 0.2em;
 }
 a:hover {
   background: #BBB5D6;
