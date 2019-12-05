@@ -26,7 +26,24 @@
 12 22 32
 13 23 33      
       </pre>
-    </div>
+      <div class="description">
+        <p>
+          Reduce-first <code class="apl">⌿</code> on a matrix will reduce along columns instead of rows.
+        </p>
+      </div>
+      <pre class="apl">
+      ∘.÷⍨⍳3
+1 0.5 0.3333333333
+2 1   0.6666666667
+3 1.5 1    
+       
+      +/∘.÷⍨⍳3               ⍝ Sum of rows
+1.833333333 3.666666667 5.5
+
+      +⌿∘.÷⍨⍳3               ⍝ Sum of columns
+6 3 2      
+      </pre>
+    </div>    
     <div class="tab">
       <h3>1: Back to school</h3>
       <div class="description">
@@ -61,12 +78,51 @@
       </pre>
     </div>
     <div class="tab">
+      <h3>2: Making the Grade</h3>
+      <div class="description">
+        <table class="border">
+          <tr>
+            <td><strong>Score Range</strong></td>
+            <td><strong>Letter Grade</strong></td>
+          </tr>
+          <tr>
+            <td>0-64</td>
+            <td>F</td>
+          </tr>
+          <tr>
+            <td>65-69</td>
+            <td>D</td>
+          </tr>
+          <tr>
+            <td>70-79</td>
+            <td>C</td>
+          </tr>
+          <tr>
+            <td>80-89</td>
+            <td>B</td>
+          </tr>
+          <tr>
+            <td>90-100</td>
+            <td>A</td>
+          </tr>
+        </table>
+        <p>
+          Write a function that, given an array of integer test scores in the inclusive range <code class="apl">0</code> to <code class="apl">100</code>, returns a list of letter grades according to the table to the left.
+          <br /><br />           
+        </p>
+      </div>
+      <pre class="apl">
+      Grade 0 64 65 69 70 79 80 89 90 100      
+FFDDCCBBAA      
+      </pre>
+    </div>
+    <div class="tab">
       <h3>3: Optimus Prime</h3>
       <div class="description">
         <p>
         A prime number is divisible by only itself and <code class="apl">1</code>.
         <br><br>
-        Write a dfn which returns all of the prime numbers between 1 and <code class="apl">⍵</code>.
+        Write a dfn which returns all of the prime numbers between <code class="apl">1</code> and <code class="apl">⍵</code>.
         </p>
       </div>
       <pre class="apl">

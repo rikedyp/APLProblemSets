@@ -58,7 +58,7 @@ pre {
 }
 .copy {
   padding: 1em;
-  margin-bottom: 1em;
+  margin: 1em 0 1em 0;
   background: #eae9f3;
   border: none;
   border-radius: 5px;  

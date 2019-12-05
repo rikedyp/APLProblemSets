@@ -5,6 +5,7 @@
     <title>Dyalog APL Workshop</title>   
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="oneliners.css" />
+    <script src="util.js"></script>
     <script src="tio-dyalog.js"></script>
     <script src="testString.js"></script>
     <script src="problems.js"></script>     
@@ -15,7 +16,7 @@
     <div class="tab">
       <h3>Use only these symbols for the problems on this page:</h3>
       <pre class="apl">
-      + - × ÷ * ⍟ ⌈ ⌊ / < ≤ = ≠ ≥ > { ⍺ ⍵ } ( ) ~ ⍳ ⍸ ≢
+      + - × ÷ * ⍟ ⌈ ⌊ / ∧ ∨ < ≤ = ≠ ≥ > { ⍺ ⍵ } ( ) ~ ⍳ ⍸ ≢
       </pre>
     </div>
     <div class="tab">
@@ -50,6 +51,7 @@ some text
       <pre class="apl">
       1 0 1 1 0/'APPLE'   ⍝ Select elements 1, 3 and 4 from 'APPLE'
 APL
+
       'APPLE'[1 3 4]      ⍝ Select elements 1, 3 and 4 from 'APPLE'
 APL
 
@@ -61,12 +63,62 @@ APL
       </pre>    
     </div>
     <div class="tab">
-      <h3>1: Can I have a vowel please?</h3>
+      <h3>1: On the run</h3>
+      <div class="description">
+        <p>
+          The variable <code class="apl">times</code> gives the times, in seconds, of 12 runners in a 100m sprint. Runners proceed to the next round if their time is under <code class="apl">11</code> seconds. Write a dfn which returns 'Next round' if the time is under 11 seconds and 'Too slow' otherwise.
+        </p>
+      </div>
+      <pre class="apl">
+      ]box on
+Was OFF
+      
+      RunTime 10.999
+┌──────────┐
+│Next round│
+└──────────┘
+
+      RunTime 11
+┌────────┐
+│Too slow│
+└────────┘
+
+      RunTime 12.251 12.395 10.614 9.694 10.203 11.554 12.183
+┌────────┬────────┬──────────┬──────────┬──────────┬────────┬────────┐
+│Too slow│Too slow│Next round│Next round│Next round│Too slow│Too slow│
+└────────┴────────┴──────────┴──────────┴──────────┴────────┴────────┘   
+    </div>
+    <div class="tab">
+      <h3>2: In or Out</h3>
+      <div class="description">
+        <p>
+          Write a dyadic dfn which takes a single test value (1 number) on its left and a range (2 numbers) on its right and returns 'In' if the test value is inside the range and 'Out' if it is outside the range.
+        </p>
+      </div>
+      <pre class="apl">
+      4 Between 2 8
+┌───┐
+│Yes│
+└───┘
+      2 Between 2 8
+┌──┐
+│No│
+└──┘
+      8 Between 2 8
+┌──┐
+│No│
+└──┘
+      (⍳10) Between 2 8
+┌──┬──┬───┬───┬───┬───┬───┬──┬──┬──┐
+│No│No│Yes│Yes│Yes│Yes│Yes│No│No│No│
+└──┴──┴───┴───┴───┴───┴───┴──┴──┴──┘      
+      </pre>
+    </div>
+    <div class="tab">
+      <h3>2: Can I have a vowel please?</h3>
       <div class="description">
         <p>
           <strong>a)</strong> Write a dfn to count the number of vowels in a character vector which is all lowercase. For this task only <code class="apl">'aeiou'</code> count as vowels. 
-          <br><br>
-          <strong>Example session:</strong>
         </p>        
       </div>
       <pre class="apl">
@@ -75,10 +127,10 @@ APL
       </pre>
     </div>
     <div class="tab">
-      <h3>2: sdrawkcab s'taht woN</h3>
+      <h3>3: sdrawkcab s'taht woN</h3>
       <div class="description">
         <p>
-          Write a dfn which reverses its right argument.
+          <strong>a)</strong> Write a dfn which reverses its right argument.
         </p>
       </div>
       <pre class="apl">
@@ -88,9 +140,14 @@ sretcarahc emoS
       Reverse ⍳10
 10 9 8 7 6 5 4 3 2 1      
       </pre>
+      <div class="description">
+        <p>
+          <strong>b)</strong> The file <a class="apl" target="_blank" href="data/words.txt">words.txt</a> is the Unix words list (a freely available list of words). Find all the palindromes in <code class="apl">words.txt</code>. How many are there?
+        </p>
+      </div>
     </div>   
     <div class="tab">
-      <h3>3: Without without</h3>
+      <h3>4: Without without</h3>
       <div class="description">
         <p>
           <strong>Not using <code class="apl">~</code></strong>, write a dfn which removes spaces from a text vector
