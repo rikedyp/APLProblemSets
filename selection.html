@@ -22,15 +22,41 @@
       <div class="description">      
         <p>
           <br>
-          We have now seen how to represent words in APL using lists of characters (AKA "character vectors"). We have also introduced a couple of functions for comparing arrays.
+          We have now seen how to represent words in APL using lists of characters (AKA "character vectors"). We have also seen how to make lists of words ("nested character vectors").                   
         </p>
       </div>
       <pre class="apl">
-      'APPLE'[1 3 4]    ⍝ Select elements 1, 3 and 4 from 'APPLE'
+      ]box on
+Was OFF
+
+      'some text'              ⍝ A simple character vector
+some text
+
+      'list' 'of' 'words'      ⍝ A nested character vector
+┌────┬──┬─────┐
+│list│of│words│
+└────┴──┴─────┘
+
+      'space' 'is' 'just another character'
+┌─────┬──┬──────────────────────┐
+│space│is│just another character│
+└─────┴──┴──────────────────────┘
+      </pre>
+      <div class="description">
+        <p>
+          We have also introduced a couple of functions for comparing arrays and selecting elements from an array.
+        </p>
+      </div>
+      <pre class="apl">
+      1 0 1 1 0/'APPLE'   ⍝ Select elements 1, 3 and 4 from 'APPLE'
 APL
-      'APPLE'∊'APL'     ⍝ 1 at positions where are A, P and L found in 'APPLE'
-1 1 1 1 0      
-      ⍸'APPLE'∊'APL'    ⍝ Where are 'A', 'P' and 'L' found in 'APPLE'?
+      'APPLE'[1 3 4]      ⍝ Select elements 1, 3 and 4 from 'APPLE'
+APL
+
+      'APPLE'∊'APL'       ⍝ 1 at positions where are A, P and L found in 'APPLE'
+1 1 1 1 0  
+    
+      ⍸'APPLE'∊'APL'      ⍝ Where are 'A', 'P' and 'L' found in 'APPLE'?
 1 2 3 4
       </pre>    
     </div>
@@ -38,8 +64,6 @@ APL
       <h3>1: Can I have a vowel please?</h3>
       <div class="description">
         <p>
-          Now try the following:
-          <br><br>
           <strong>a)</strong> Write a dfn to count the number of vowels in a character vector which is all lowercase. For this task only <code class="apl">'aeiou'</code> count as vowels. 
           <br><br>
           <strong>Example session:</strong>
@@ -60,10 +84,27 @@ APL
       <pre class="apl">
       Reverse 'Some characters'
 sretcarahc emoS
+
       Reverse ⍳10
 10 9 8 7 6 5 4 3 2 1      
       </pre>
-    </div>     
+    </div>   
+    <div class="tab">
+      <h3>3: Without without</h3>
+      <div class="description">
+        <p>
+          <strong>Not using <code class="apl">~</code></strong>, write a dfn which removes spaces from a text vector
+        </p>
+      </div>
+      <pre class="apl">
+      NoSpace'here is some text'
+hereissometext
+
+      NoSpace'there   are   more   spaces   here'
+therearemorespaceshere
+      </pre>
+      <br><br>
+    </div>    
     <a class="apl nav right" href="rank2.html">Next →</a>
     <a class="apl nav left" href="dfns.html">← Back</a>
   </body>

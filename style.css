@@ -33,6 +33,7 @@ a:hover {
 .apl {
   font-family: APL385!important;
   color: #361134;
+  background: #eae9f3;
 }
 .nav {
   position: fixed;
@@ -54,6 +55,24 @@ pre {
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+.copy {
+  padding: 1em;
+  margin-bottom: 1em;
+  background: #eae9f3;
+  border: none;
+  border-radius: 5px;  
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  overflow: hidden;
+  width: 100%;
+  resize: none;
+}
+.copy:hover {
+  background: #BBB5D6;/*#928abd;*/
 }
 .description {
   display: inline-flex;

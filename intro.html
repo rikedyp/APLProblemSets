@@ -5,6 +5,7 @@
     <title>Dyalog APL Workshop</title>   
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="oneliners.css" />
+    <script src="util.js"></script>
     <script src="tio-dyalog.js"></script>
     <script src="testString.js"></script>
     <script src="problems.js"></script>     
@@ -82,12 +83,13 @@
       <h3>3: What's in a vector?</h3>
       <div class="description">
         <p>
-          Here is a list named <code class="apl">vec</code>. Paste the following into the session to declare <code class="apl">vec</code> in your workspace.          
+          Here is a list named <code class="apl">vec</code>. Click the box below to copy the text to your clipboard, and paste it into the session to declare <code class="apl">vec</code> in your workspace.
+          <br><br>
         </p>        
       </div>
-      <pre class="apl">
-      vec ← ¯7 17 ¯11 32 16 6 35 8 11 ¯39 44 ¯9 45 41 ¯18 ¯22 ¯6 ¯38 3 ¯11 14 17 45 ¯21 ¯5 ¯38 ¯38 ¯43 ¯41 ¯47 ¯15 1 11 ¯29 33 ¯17 19 ¯3 11 50 ¯1 ¯23 ¯39 7 10 48 31 ¯8 ¯14 ¯47 ¯41 ¯47 ¯46 ¯2 23 ¯2 38 9 22 7 ¯20 ¯25 17 ¯25 ¯40 ¯43 ¯4 ¯18 47 34 20 30 13 27 ¯22 ¯25 44 33 5 ¯48 ¯5 ¯36 ¯37 43 11 32 6 ¯44 15 ¯39 18 ¯28 ¯31 10 41 ¯13 43 ¯14 24 26 12 39 ¯18 ¯13 ¯22 10 40 41 42 3 19 ¯23 27 37 ¯35 5 ¯39 24 41 47 ¯11 ¯48 41 45 ¯7 12 ¯9 ¯11 ¯23 30 46 ¯6 4 ¯30 ¯18 ¯27 19 ¯12 ¯24 1 ¯28 ¯23 ¯37 0 42 ¯43 ¯45 ¯37 5 ¯40 ¯3 ¯47 1 ¯17 49 30 ¯38 ¯49 41 ¯5 ¯5 ¯15 37 50 ¯36 44 ¯34 ¯17 8 ¯17 2 7 ¯23 ¯37 25 38 ¯2 ¯3 ¯8 49 ¯14 14 ¯30 29 ¯31 ¯2 13 ¯5 ¯2 ¯49 ¯47 15 6 10 ¯3 38 5 ¯2 0 17 ¯19 ¯11 13 43 28 29 ¯22 ¯31 ¯16 42 ¯32 ¯42 ¯24 41 31 38 ¯37 ¯8 ¯12 ¯33 18 11 38 ¯26 ¯12 23 ¯32 4 40 ¯18 34 ¯27 ¯9 ¯9 23 6 ¯23 40 37 15 ¯43 20 38 8 11 40 40 ¯28 ¯26 10 ¯30 32 ¯42 ¯38 ¯26 11 ¯37 47 49 ¯1 28 9 ¯30 ¯39 38 ¯6 28 ¯1 22 4 ¯7 ¯39 ¯15 ¯19 13 ¯19 47 35 13 1 17 ¯4 16 ¯11 ¯31 ¯29 29 8 19 ¯7 ¯27 14 40 30 ¯49 3 ¯27 ¯24 38 8
-      </pre>
+      <textarea readonly type="textarea"  id="vec" class="apl copy" onclick="clipCopy('vec')">
+      vec ← ¯7 17 ¯11 32 16 6 35 8 11 ¯39 44 ¯9 45 41 ¯18 ¯22 ¯6 ¯38 3 ¯11 14 17 45 ¯21 ¯5 ¯38 ¯38 ¯43 ¯41 ¯47 ¯15 1 11 ¯29 33 ¯17 19 ¯3 11 50 ¯1 ¯23 ¯39 7 10 48 31 ¯8 ¯14 ¯47 ¯41 ¯47 ¯46 ¯2 23 ¯2 38 9 22 7 ¯20 ¯25 17 ¯25 ¯40 ¯43 ¯4 ¯18 47 34 20 30 13 27 ¯22 ¯25 44 33 5 ¯48 ¯5 ¯36 ¯37 43 11 32 6 ¯44 15 ¯39 18 ¯28 ¯31 10 41 ¯13 43 ¯14 24 26 12 39 ¯18 ¯13 ¯22 10 40 41 42 3 19 ¯23 27 37 ¯35 5 ¯39 24 41 47 ¯11 ¯48 41 45 ¯7 12 ¯9 ¯11 ¯23 30 46 ¯6 4 ¯30 ¯18 ¯27 19 ¯12 ¯24 1 ¯28 ¯23 ¯37 0 42 ¯43 ¯45 ¯37 5 ¯40 ¯3 ¯47 1 ¯17 49 30 ¯38 ¯49 41 ¯5 ¯5 ¯15 37 50 ¯36 44 ¯34 ¯17 8 ¯17 2 7 ¯23 ¯37 25 38 ¯2 ¯3 ¯8 49 ¯14 14 ¯30 29 ¯31 ¯2 13 ¯5 ¯2 ¯49 ¯47 15 6 10 ¯3 38 5 ¯2 0 17 ¯19 ¯11 13 43 28 29 ¯22 ¯31 ¯16 42 ¯32 ¯42 ¯24 41 31 38 ¯37 ¯8 ¯12 ¯33 18 11 38 ¯26 ¯12 23 ¯32 4 40 ¯18 34 ¯27 ¯9 ¯9 23 6 ¯23 40 37 15 ¯43 20 38 8 11 40 40 ¯28 ¯26 10 ¯30 32 ¯42 ¯38 ¯26 11 ¯37 47 49 ¯1 28 9 ¯30 ¯39 38 ¯6 28 ¯1 22 4 ¯7 ¯39 ¯15 ¯19 13 ¯19 47 35 13 1 17 ¯4 16 ¯11 ¯31 ¯29 29 8 19 ¯7 ¯27 14 40 30 ¯49 3 ¯27 ¯24 38 8      
+      </textarea>
       <div class="description">
         <p>
           <strong>a) </strong> Find the sum of all the values in <code class="apl">vec</code>.
@@ -102,12 +104,37 @@
           <br><br>
           <strong>f) </strong> Find the mean average value of <code class="apl">vec</code>.
           <br><br>
-          <strong>g) </strong> How many numbers are there in <code class="apl">vec</code>?
+          <strong>g) </strong> What is the length of <code class="apl">vec</code>?
           <br><br>
         </p>
       </div>
-      <br><br><br><br><br>
-    </div>    
+      <!-- <br><br><br><br><br> -->
+    </div> 
+    <div class="tab">
+      <h3>4: Shopping lists</h3>
+      <div class="description">
+        <p>
+          A 160g tin of tuna costs £1, a 160g tin of sweetcorn costs 70p, a loaf of bread costs £1.20 (the loaf has 20 slices including crusts), a 750g bottle of salt costs 35p, ground black pepper costs £2.50 for 100g and mayonnaise is £3 for 800g.
+          <br><br>
+          A recipe for tuna mayo and sweetcorn sandwiches is show on the right. 
+          <br><br>
+          <strong>a)</strong> How much will it cost to make a sandwich (without using the crusts)?
+          <br><br>
+          <strong>b)</strong> How much will you save per sandwich if you do use the crusts?
+        </p>
+        <ul style="margin-top:0;">
+          <strong>Tuna mayonnaise and sweetcorn sandwich:</strong><br><br>
+          <li>½ × 160g can of tuna, drained.</li>
+          <li>1 tablespoon (15g) of mayonnaise.</li>
+          <li>A pinch (0.36g) of salt</li>
+          <li>A pinch (0.42g) of ground black pepper</li>
+          <li>A tablespoon (10g) of sweetcorn</li>
+          <li>2 slices of bread</li>
+          </ul>
+      </div>
+      <pre class="apl">
+      </pre>
+    </div>
     <a class="apl nav right" href="dfns.html">Next →</a>
     <a class="apl nav left" href="index.html">← Back</a>
   </body>
