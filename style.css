@@ -56,6 +56,7 @@ a:hover {
   font-variant-numeric: tabular-nums !important;
   font-family: monospace !important;
   border-radius: 5px;
+  line-height: 0.6em!important;
 }
 #aplscript {
   font-size: 1.5em;
@@ -182,7 +183,14 @@ pre {
   font-weight: normal;
   border-radius: 0.125rem;
 }
-
+.ngn_tth {
+  background: green;
+  display: block;
+}
+.ngn_tth b:hover{  
+  display:block;
+  background: green;
+}
 .ngn_lb b:hover,
 .ngn_bq .ngn_lb {
   background-color: #928abd;
