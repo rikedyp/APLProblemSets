@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dyalog APL Workshop</title>   
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="oneliners.css" />
+    <script src="tio-dyalog.js"></script>
+    <script src="disp.js"></script>
+    <script src="testString.js"></script>
+    <script src="problems.js"></script>     
+    <script src="pako.min.js"></script> 
+  </head>
+  <body>
+    <h1>Execute APL</h1>
+    <div class="tab">
+      <h3>Executable APL Script</h3>
+      <div class="description">
+        <p>
+          Fill the text field with APL code and click <a id="submit" class="apl" onclick="submit()">Submit</a> or press <code class="apl">Ctrl+Enter</code> to execute.           
+        </p>        
+      </div>
+      <div class="description">
+        <strong>Input:</strong>
+      </div>
+      <div class="lb apl"></div>
+      <textarea id="aplscript" class="solution">
+'Hello, World!'
+      </textarea>
+      <!-- <button style="display:none" class="apl" id="submit" onclick="submit()">Submit</button> -->
+      <!-- <br> -->
+      <div class="description">        
+        <h3>Output:</h3>        
+      </div>
+      <pre id="output" class="apl"></pre>
+      <script src="lb.js"></script>
+    </div>
+  </body>
+</html>

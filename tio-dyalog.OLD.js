@@ -1,5 +1,5 @@
 var lastResponse;
-var shifted;
+
 var runURL = "https://tio.run/cgi-bin/run";
 var quitURL = "https://tio.run/cgi-bin/quit";
 var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.input.tio","0","F.code.tio"];
@@ -21,71 +21,38 @@ function $$(selector, parent) {
 	return (parent || document).querySelectorAll(selector);
 }
 
-window.onload = function() {
-  document.addEventListener("keyup", function(event) {
-    console.log(event.keyCode);
-    if (shifted && event.keyCode === 13) {
-      event.preventDefault();
-      console.log("cancellable----");
-      console.log(event.cancelable);
-      console.log("cancellable----");
-      document.getElementById("submit").click();
-      console.log("enter");
-    }
-    if (event.keyCode === 17) {
-      shifted = false;
-    }
-  });
-  document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 17) {
-      shifted = true;
-    }
-  });
-}
-
-function submit() {
-  var aplscript = document.getElementById("aplscript");
-  console.log(version);
-  console.log(aplscript.value);
-  // var problem = problems[p];
-  // var sol = $("#s" + p).value;
-  // var t = JSON.parse("{\"a\":[5,4,3,2]}");
+function submit(p) {
+  currentProblem = p;
+  var problem = problems[p];
+  var sol = $("#s" + p).value;
+  var t = JSON.parse("{\"a\":[5,4,3,2]}");
+  // var test = "⎕←" + "'" + doubleQuotes(JSON.stringify(problem)) + "' " + testString + " '" + doubleQuotes(sol) + "'";
   
-  // var test = testString + "\n⎕←'" + doubleQuotes(JSON.stringify(problem)) + "' TestSolution '" + doubleQuotes(sol) + "'";
-  var input = aplscript.value.split("\n");
-  var rgx = /^.*←/;
-  var tioDyalog = "∇ FunWrapper\n" + jsDisp + "\n:Trap 0\n";
-  input.forEach(function(line) {
-    var trimmed = line.trim(" ");
-    console.log(trimmed);
-    console.log(rgx.test(trimmed));
-    if (rgx.test(trimmed)) {
-      tioDyalog += trimmed + "\n⎕←'<br>'\n";
-    } else if (trimmed.startsWith("⍝"))  {
-      console.log(trimmed);
-    } else if (trimmed == "") {
-    } else {
-      tioDyalog += "⎕←(⎕UCS 13),⍤1⍨disp " + trimmed  + "\n⎕←'<br>'\n";
-    }  
-// (' '⎕R' '),    
-  });
-  tioDyalog += "\n⎕←'eRRt0KEN'\n:Else\n⎕←⎕DMX.(EM,'<br>',Message,'<br>')\n⎕←'eRRt0KEN'\n:EndTrap\n∇\nFunWrapper"  
-  console.log(tioDyalog);
-  tioRequest(tioDyalog);
-  // console.log(test);
-  // tioRequest(test); 
+  var test = testString + "\n⎕←'" + doubleQuotes(JSON.stringify(problem)) + "' TestSolution '" + doubleQuotes(sol) + "'";
+  
+  console.log(test);
+  tioRequest(test); 
   // 0: Failed
   // 1: Basic pass
   // 2: Full pass
 }
 
 function outResult(result, error) {
-  var out = document.getElementById("output");
+  var out = document.getElementById("feedback" + currentProblem);
   console.log("---------RESULT------------");
   console.log(result);
   console.log("---------ERRROR-----------");
   console.log(error);
-  out.innerHTML = result + error;
+  if (result == 0) {
+    out.innerHTML = result + error;    
+  } else if (result == 1) {
+    out.innerHTML = "Passed all basic cases. Try to solve with <code class='apl'>⍵ ← " + problems[currentProblem].b[0] + "</code> for full marks";
+  } else if (result == 2) {
+    out.innerHTML = goldTrophy;
+    out.innerHTML += "  " + congrats[Math.floor(Math.random() * congrats.length)];
+  } else {
+    out.innerHTML = result + error;
+  }
 }
 
 function doubleQuotes(string){

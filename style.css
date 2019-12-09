@@ -3,6 +3,10 @@
   src: url("Apl385.ttf");
 }
 @font-face {
+  font-family: "APL333";
+  src: url("APL333.ttf");
+}
+@font-face {
   font-family: "OD";
   src: url("OpenDyslexic-Regular.otf");
 }
@@ -45,6 +49,23 @@ a:hover {
 }
 .right {
   right: 3em;
+}
+#output {
+  padding: 1em;
+  font-size: 1.5em;
+  font-variant-numeric: tabular-nums !important;
+  font-family: monospace !important;
+  border-radius: 5px;
+}
+#aplscript {
+  font-size: 1.5em;
+  width: 100%;
+  height: 5em;
+  resize: none;
+  border: none;
+  background: #eae9f3;
+  border-radius: 5px;
+  padding: 1em;
 }
 pre {
   line-height: 1em!important;
