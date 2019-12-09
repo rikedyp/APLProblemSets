@@ -41,3 +41,25 @@ Was OFF
 
       </pre>      
     </div>
+    
+        <div class="tab">
+      <h3>5: Scan and windowed reduction</h3>
+      <div class="description">
+        <p>
+          The "scan" operator <code class="apl">\</code> works similarly to reduce <code class="apl">/</code>, but it gives intermediate values.
+        </p>
+      </div>
+      <pre class="apl">
+      ×\⍳10
+1 2 6 24 120 720 5040 40320 362880 3628800  
+      </pre>  
+      <div class="description">
+        <p>
+          If you give a reduction a number <code class="apl">n</code> to its left, it will do a windowed sum of size <code class="apl">n</code> on its argument.
+        </p>
+      </div>
+      <pre class="apl">
+      2×/⍳10   ⍝ Pair-wise products
+2 6 12 20 30 42 56 72 90 
+      </pre>       
+    </div>

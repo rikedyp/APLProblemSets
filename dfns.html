@@ -75,7 +75,7 @@ SYNTAX ERROR: Missing right argument
           <br><br>
           <strong>b)</strong> Create a function named <code class="apl">Mean</code> which returns the mean average of a numeric vector.
           <br><br>
-          <strong>c)</strong> Create a function named <code class="apl">Where</code> which returns the indices of 1s in a boolean vector.
+          <strong>c)</strong> Create a function named <code class="apl">Where</code> which returns the indices of <code class="apl">1</code>s in a boolean vector.
         </p>
       </div>
       <pre class="apl">
@@ -161,7 +161,34 @@ SYNTAX ERROR: Missing right argument
       IsPrime 17
 1
       </pre>
-      <br><br>
+    </div>
+    <div class="tab">
+      <h3>5: Maths and logic</h3>
+      <div class="description">
+        <p>
+          APL also has boolean logical operators built in. Here are two of them.
+        </p>
+      </div>
+      <pre class="apl">
+      1∧0   ⍝ AND
+0
+      1∨0   ⍝ OR
+1      
+      </pre>
+      <div class="description">
+        <p>
+          <strong>a)</strong> Write an expression which sets <code class="apl">C</code> to <code class="apl">16</code> if <code class="apl">A > B</code> and otherwise sets <code class="apl">C</code> to <code class="apl">15</code>.
+          <br><br>
+          <strong>b)</strong> Write an expression which sets <code class="apl">C</code> to <code class="apl">42</code> if <code class="apl">N > 0</code> and <code class="apl">N < 100</code>, otherwise setting <code class="apl">C</code> to <code class="apl">50</code>.
+          <br><br>
+          <strong>c)</strong> Write an expression which sets <code class="apl">C</code> to <code class="apl">36</code> if <code class="apl">N > 2019</code> and otherwise sets <code class="apl">C</code> to <code class="apl">0</code>.  
+          <br><br>
+          <strong>d)</strong> Return <code class="apl">1</code> if all elements in a boolean vector are true and <code class="apl">0</code> otherwise.
+          <br><br>
+          <strong>e)</strong> Return <code class="apl">1</code> if any of the elements in a boolean vector are true and <code class="apl">0</code> otherwise.
+        </p>        
+      </div>
+      <br><br><br><br><br>
     </div>
     <a class="apl nav right" href="selection.html">Next →</a>
     <a class="apl nav left" href="intro.html">← Back</a>

@@ -1,0 +1,8 @@
+Intermediate problem sets
+=========================
+Text processing
+---------------
+ToUpper / ToLower using ⎕UCS ⍳ []
+' -_'CamelCase
+Grille Cypher
+

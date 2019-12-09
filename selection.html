@@ -66,7 +66,7 @@ APL
       <h3>1: On the run</h3>
       <div class="description">
         <p>
-          The variable <code class="apl">times</code> gives the times, in seconds, of 12 runners in a 100m sprint. Runners proceed to the next round if their time is under <code class="apl">11</code> seconds. Write a dfn which returns 'Next round' if the time is under 11 seconds and 'Too slow' otherwise.
+          In a 100m sprint tournament, runners proceed to the next round if their time is under <code class="apl">11</code> seconds. Write a dfn which returns 'Next round' if the given time is under 11 seconds and 'Too slow' otherwise.
         </p>
       </div>
       <pre class="apl">
@@ -92,26 +92,33 @@ Was OFF
       <h3>2: In or Out</h3>
       <div class="description">
         <p>
-          Write a dyadic dfn which takes a single test value (1 number) on its left and a range (2 numbers) on its right and returns 'In' if the test value is inside the range and 'Out' if it is outside the range.
+          <strong>a)</strong> Write a dyadic dfn which takes a single test value (1 number) on its right and a range (2 numbers) on its left and returns 'In' if the test value is inside the range and 'Out' if it is outside the range.
         </p>
       </div>
       <pre class="apl">
-      4 Between 2 8
+      2 8 Compare 2
 ┌───┐
-│Yes│
+│Out│
 └───┘
-      2 Between 2 8
-┌──┐
-│No│
-└──┘
-      8 Between 2 8
-┌──┐
-│No│
-└──┘
-      (⍳10) Between 2 8
-┌──┬──┬───┬───┬───┬───┬───┬──┬──┬──┐
-│No│No│Yes│Yes│Yes│Yes│Yes│No│No│No│
-└──┴──┴───┴───┴───┴───┴───┴──┴──┴──┘      
+      2 8 Compare 8
+┌───┐
+│Out│
+└───┘
+      2 8 Compare ⍳10
+┌───┬───┬──┬──┬──┬──┬──┬───┬───┬───┐
+│Out│Out│In│In│In│In│In│Out│Out│Out│
+└───┴───┴──┴──┴──┴──┴──┴───┴───┴───┘      
+      </pre>
+      <div class="description">
+        <p>
+          <strong>b)</strong> Now modify your function so that it returns 'Lower' if its argument is below the range, 'Between' if it is between the range (numbers on the boundary are excluded) and 'Higher' if its argument is above the range.
+        </p>
+      </div>
+      <pre class="apl">
+      5 10 Compare 5 7 10
+┌─────┬───────┬──────┐
+│Lower│Between│Higher│
+└─────┴───────┴──────┘      
       </pre>
     </div>
     <div class="tab">
@@ -161,7 +168,102 @@ hereissometext
 therearemorespaceshere
       </pre>
       <br><br>
-    </div>    
+    </div>  
+    <div class="tab">
+      <h3>6: How many bytes?</h3>
+      <div class="description">
+        <p>
+          Computers represent data internally as binary data (AKA base 2). A binary number is a series of 1s and 0s which represent powers of 2. The equivalent decimal number is the sum of these powers of 2.
+        </p>
+      </div>
+      <pre class="apl">
+ 1 0 1 1 0           ⍝ Binary representation
+16 8 4 2 1           ⍝ Powers of 2
+          
+16 0 4 2 0           ⍝ Decimal representation is the sum of this vector
+      +/16 0 4 2 0
+22  
+      </pre>
+      <div class="description">
+        <p>
+          <strong>a)</strong> Write a function <code class="apl">Bin2Dec</code> which converts binary into decimal.
+        </p>
+      </div>
+      <pre class="apl">
+      Bin2Dec 1 0 1 1 0
+22
+      Bin2Dec 1 1
+3
+      Bin2Dec 1 0 0 1
+9
+      Bin2Dec¨(1 0 0 1)(1 0 1 1)
+9 11      
+      </pre>      
+      <div class="description">
+        <table class="border">
+          <tr> 
+            <td><strong>Lower bound</strong></td>
+            <td><strong>Prefix</strong></td>
+          </tr>
+          <tr>
+            <td>0.000000001</td>
+            <td>nano</td>            
+          </tr>
+          <tr>
+            <td>0.000001</td>
+            <td>micro</td>            
+          </tr>
+          <tr>
+            <td>0.001</td>
+            <td>milli</td>            
+          </tr>
+          <tr>
+            <td>1,000</td>
+            <td>kilo</td>            
+          </tr>
+          <tr>
+            <td>1,000,000</td>
+            <td>mega</td>            
+          </tr>
+          <tr>
+            <td>1,000,000,000</td>
+            <td>giga</td>            
+          </tr>
+          <tr>
+            <td>1,000,000,000,000</td>
+            <td>tera</td>            
+          </tr>
+          <tr>
+            <td>1,000,000,000,000,000</td>
+            <td>peta</td>            
+          </tr>
+        </table>        
+        <p>
+          Decimal numbers have prefixes which make them easier to read and write. The table on the left shows prefixes for powers of <code class="apl">1,000</code>. 
+          <br><br>
+          <strong>b)</strong> Write a function which returns the appropriate prefix for its numeric argument.
+      </div>
+      <pre class="apl">
+      Prefix 0.000000001
+┌────┐
+│nano│
+└────┘
+      Prefix 0.001
+┌─────┐
+│milli│
+└─────┘
+      Prefix 1024
+┌────┐
+│kilo│
+└────┘
+      Prefix 1
+1
+      Prefix 999      ⍝ Numbers between milli and kilo return themselves
+999
+      Prefix 0        ⍝ An error for 0 is acceptable
+DOMAIN ERROR
+      </pre>
+    </div>
     <a class="apl nav right" href="rank2.html">Next →</a>
     <a class="apl nav left" href="dfns.html">← Back</a>
   </body>
