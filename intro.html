@@ -28,22 +28,19 @@
         <p>
           Use APL to evaluate the following:
           <br><br>
-          <strong>a)</strong> 20<sup>4</sup> 
+          <strong>a)</strong> 2<sup>3</sup> 
           <br><br>
-          <strong>b)</strong> <sup>3</sup>√74088000 
+          <strong>b)</strong> <sup>3</sup>√8
           <br><br>
-          <strong>c)</strong> 2<sup>3</sup>
+          <strong>c)</strong> log<sub>2</sub>8
           <br><br>
-          <strong>d)</strong> log<sub>2</sub>8
+          <strong>d)</strong> <img src="img/Prod100.svg">  (the product of the first one hundred integers)
           <br><br>
-          <strong>e)</strong> <sup>3</sup>√8 
+          <strong>e)</strong> <img src="img/EvenSum100.svg">  (the sum of the first one hundred even integers)
           <br><br>
-          <strong>f)</strong> <img src="img/Sum100.svg">  (the sum of the first one hundred integers)
-          <br><br>
-          <strong>g)</strong> <img src="img/Prod100.svg">   (the product of the first one hundred integers)
-          <br><br>
-          <strong>h)</strong> In traditional mathematical notation (TMN), the following equation is true. Why does this return false in APL?
-          <br><br>             
+          <strong>f)</strong> <img src="img/OddSum100.svg">  (the sum of the first one hundred odd integers)
+          <br><br>          
+          <strong>g)</strong> In traditional mathematical notation (TMN), the following equation is true. Why does this return false in APL?
         </p>        
       </div>
       <pre class="apl">
@@ -76,6 +73,17 @@
       <div class="description">
         <p>
           The arrangement in <strong>figure 2</strong> has <code class="apl">4</code> layers and <code class="apl">84</code> cubes. How many cubes are there in a similar stack with 812 layers?  
+          <br><br>
+          <strong>c)</strong> Now look at <strong>figure 3</strong>.
+        </p>
+      </div>
+      <figure>
+        <img width=280px src="img/CubedCubes.png" alt="Figure 2. Differently stacked sugar cubes">
+        <figcaption><strong>Figure 3.</strong> This is just a waste of sugar cubes by now...</figcaption>
+      </figure>
+      <div class="description">
+        <p>
+          The stack in <strong>figure 3</strong> has <code class="apl">3</code> "layers" and <code class="apl">36</code> cubes in total. How many cubes are there in a similar stack with 68 layers?
         </p>
       </div>
     </div>
@@ -83,35 +91,39 @@
       <h3>3: What's in a vector?</h3>
       <div class="description">
         <p>
-          Here is a list named <code class="apl">vec</code>. Click the box below to copy the text to your clipboard, and paste it into the session to declare <code class="apl">vec</code> in your workspace.
-          <br>
-        </p>        
-      </div>
-      <textarea readonly type="textarea"  id="vec" class="apl copy" onclick="clipCopy('vec')">
-vec ← ¯7 17 ¯11 32 16 6 35 8 11 ¯39 44 ¯9 45 41 ¯18 ¯22 ¯6 ¯38 3 ¯11 14 17 45 ¯21 ¯5 ¯38 ¯38 ¯43 ¯41 ¯47 ¯15 1 11 ¯29 33 ¯17 19 ¯3 11 50 ¯1 ¯23 ¯39 7 10 48 31 ¯8 ¯14 ¯47 ¯41 ¯47 ¯46 ¯2 23 ¯2 38 9 22 7 ¯20 ¯25 17 ¯25 ¯40 ¯43 ¯4 ¯18 47 34 20 30 13 27 ¯22 ¯25 44 33 5 ¯48 ¯5 ¯36 ¯37 43 11 32 6 ¯44 15 ¯39 18 ¯28 ¯31 10 41 ¯13 43 ¯14 24 26 12 39 ¯18 ¯13 ¯22 10 40 41 42 3 19 ¯23 27 37 ¯35 5 ¯39 24 41 47 ¯11 ¯48 41 45 ¯7 12 ¯9 ¯11 ¯23 30 46 ¯6 4 ¯30 ¯18 ¯27 19 ¯12 ¯24 1 ¯28 ¯23 ¯37 0 42 ¯43 ¯45 ¯37 5 ¯40 ¯3 ¯47 1 ¯17 49 30 ¯38 ¯49 41 ¯5 ¯5 ¯15 37 50 ¯36 44 ¯34 ¯17 8 ¯17 2 7 ¯23 ¯37 25 38 ¯2 ¯3 ¯8 49 ¯14 14 ¯30 29 ¯31 ¯2 13 ¯5 ¯2 ¯49 ¯47 15 6 10 ¯3 38 5 ¯2 0 17 ¯19 ¯11 13 43 28 29 ¯22 ¯31 ¯16 42 ¯32 ¯42 ¯24 41 31 38 ¯37 ¯8 ¯12 ¯33 18 11 38 ¯26 ¯12 23 ¯32 4 40 ¯18 34 ¯27 ¯9 ¯9 23 6 ¯23 40 37 15 ¯43 20 38 8 11 40 40 ¯28 ¯26 10 ¯30 32 ¯42 ¯38 ¯26 11 ¯37 47 49 ¯1 28 9 ¯30 ¯39 38 ¯6 28 ¯1 22 4 ¯7 ¯39 ¯15 ¯19 13 ¯19 47 35 13 1 17 ¯4 16 ¯11 ¯31 ¯29 29 8 19 ¯7 ¯27 14 40 30 ¯49 3 ¯27 ¯24 38 8      
-      </textarea>
-      <div class="description">
-        <p>
-          <strong>a) </strong> Find the sum of all the values in <code class="apl">vec</code>.
+          <code class="apl">⎕AVU</code> is a list (vector) of numbers (don't worry about <em>what</em> it represents). Find the following properties of <code class="apl">⎕AVU</code>.
           <br><br>
-          <strong>b) </strong> Find the product of all the values in <code class="apl">vec</code>.
+          <strong>a) </strong> Find the sum of all the values in <code class="apl">⎕AVU</code>.
           <br><br>
-          <strong>c) </strong> Find the highest number in <code class="apl">vec</code>.
+          <strong>b) </strong> Find the product of all the values in <code class="apl">⎕AVU</code>.
           <br><br>
-          <strong>d) </strong> Find the lowest number in <code class="apl">vec</code>.
+          <strong>c) </strong> Find the highest number in <code class="apl">⎕AVU</code>.
           <br><br>
-          <strong>e) </strong> Find the range of values in <code class="apl">vec</code>.
+          <strong>d) </strong> Find the lowest number in <code class="apl">⎕AVU</code>.
           <br><br>
-          <strong>f) </strong> What is the length of <code class="apl">vec</code>?
+          <strong>e) </strong> Find the range of values in <code class="apl">⎕AVU</code>.
           <br><br>
-          <strong>g) </strong> Find the mean average value of <code class="apl">vec</code>.
+          <strong>f) </strong> What is the length of <code class="apl">⎕AVU</code>?
+          <br><br>
+          <strong>g) </strong> Find the mean average value of <code class="apl">⎕AVU</code>.
           <br><br>
         </p>
       </div>
       <!-- <br><br><br><br><br> -->
-    </div> 
+    </div>     
     <div class="tab">
-      <h3>4: Shopping lists</h3>
+      <h3>4: Polynomials</h3>
+      <div class="description">
+        <p>
+          A polynomial is a function (equation) of the form <br>      f(x) = a + bx + cx<sup>2</sup> + dx<sup>3</sup> + ... + kx<sup>N</sup>
+          <br>
+          <br>
+          Evaluate f(x) = 10 - 2x<sup>3</sup> - 4x<sup>4</sup> for x = 5
+        </p>
+      </div>      
+    </div>
+    <div class="tab">
+      <h3>5: Shopping lists</h3>
       <div class="description">
         <p>
           A 160g tin of tuna costs £1, a 160g tin of sweetcorn costs 70p, a loaf of bread costs £1.20 (the loaf has 20 slices including crusts), a 750g bottle of salt costs 35p, ground black pepper costs £2.50 for 100g and mayonnaise is £3 for 800g.
@@ -131,20 +143,9 @@ vec ← ¯7 17 ¯11 32 16 6 35 8 11 ¯39 44 ¯9 45 41 ¯18 ¯22 ¯6 ¯38 3 ¯11 
           <li>A tablespoon (10g) of sweetcorn</li>
           <li>2 slices of bread</li>
         </ul>        
-      </div>            
-    </div>  
-    <div class="tab">
-      <h3>5: Polynomials</h3>
-      <div class="description">
-        <p>
-          A polynomial is a function (equation) of the form <br>      f(x) = a + bx + cx<sup>2</sup> + dx<sup>3</sup> + ... + kx<sup>N</sup>
-          <br>
-          <br>
-          Evaluate f(x) = 10 - 2x<sup>3</sup> - 4x<sup>4</sup> for x = 5
-        </p>
-      </div>
+      </div>  
       <br><br><br><br><br>
-    </div>
+    </div>  
     <a class="apl nav right" href="dfns.html">Next →</a>
     <a class="apl nav left" href="index.html">← Back</a>
   </body>

@@ -165,9 +165,12 @@ pre {
   background-color: #655aa0;
 }
 /* language bar */
-
+.ngn_x {
+  display:none!important;
+}
 .ngn_lb {
-  background-color: #eae9f3;
+  background-color: #eae9f3!important;
+  top: -1em!important;
   color: #555;
   cursor: default;
   border-radius: 0.25rem;
@@ -194,7 +197,7 @@ pre {
 .ngn_lb b:hover,
 .ngn_bq .ngn_lb {
   background-color: #928abd;
-  color: #fff
+  color: #000;
 }
 .svg-inline--fa {
   color: #d4af37;
