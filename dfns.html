@@ -67,7 +67,7 @@ SYNTAX ERROR: Missing right argument
           <br><br>
           <strong>b)</strong> Create a function named <code class="apl">Mean</code> which returns the mean average of a numeric vector.
           <br><br>
-          <strong>c)</strong> Without using <code class="apl">⍸</code> (where), create a function named <code class="apl">Where</code> which returns the indices of <code class="apl">1</code>s in a boolean vector.
+          <strong>c)</strong> Using <code class="apl">⌊</code> ("floor" i.e. round down), create a function <code class="apl">IsDivisibleBy</code> which returns <code class="apl">1</code> if <code class="apl">⍺</code> is divisible by <code class="apl">⍵</code> and <code class="apl">0</code> otherwise.
         </p>
       </div>
       <pre class="apl">
@@ -75,10 +75,7 @@ SYNTAX ERROR: Missing right argument
 7
 
       Mean 1 2 4 523 1 2 454
-141
-
-      Where 1 = 1 2 4 523 1 2 454
-1 5      
+141   
       </pre>      
     </div>
     <div class="tab">

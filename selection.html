@@ -21,17 +21,17 @@
         </p>
       </div>
       <pre class="apl">
-      'APPLE'[1 3 4]              ⍝ Select elements 1, 3 and 4
+      'APPLE'[1 3 4]                         ⍝ Select elements 1, 3 and 4
 APL
       
-      ⍸ 1 0 0 1 0 1               ⍝ Where are the 1s?
+      ⍸ 1 0 0 1 0 1                          ⍝ Where are the 1s?
 1 4 6
 
-      2|⍳5                        ⍝ 1 where (⍳5) is odd
-1 0 1 0 1
+      (⍳5) IsDivisibleBy 2                   ⍝ 1 Where ⍺ is even
+0 1 0 1 0
 
-      {⍵[⍸2|⍵]} 9 8 23 54 16 23   ⍝ Select only odd numbers
-9 23 23
+      {⍵[⍸⍵ IsDivisibleBy 123]}⎕AVU          ⍝ Numbers in ⎕AVU divisible by 123
+0 123 8364 246
       </pre>
     </div>
     <div class="tab">
