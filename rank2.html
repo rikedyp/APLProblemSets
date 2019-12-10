@@ -28,21 +28,27 @@
       </pre>
       <div class="description">
         <p>
-          Reduce-first <code class="apl">⌿</code> on a matrix will reduce along columns instead of rows.
+          For example, the catenate function <code class="apl">,</code> (comma) will join two lists together. We can use the outer product to join combinations of words from two lists.
         </p>
       </div>
       <pre class="apl">
-      ∘.÷⍨⍳3
-1 0.5 0.3333333333
-2 1   0.6666666667
-3 1.5 1    
-       
-      +/∘.÷⍨⍳3               ⍝ Sum of rows
-1.833333333 3.666666667 5.5
+      1 4 9 , 6 5 4
+1 4 9 6 5 4
 
-      +⌿∘.÷⍨⍳3               ⍝ Sum of columns
-6 3 2      
-      </pre>
+      'joined up' , 'text vectors'
+joined uptext vectors
+
+
+
+      'chicken' 'pork' 'vegetable' ∘., ' chow mein' ' with cashew nuts'
+┌───────────────────┬──────────────────────────┐
+│chicken chow mein  │chicken with cashew nuts  │
+├───────────────────┼──────────────────────────┤
+│pork chow mein     │pork with cashew nuts     │
+├───────────────────┼──────────────────────────┤
+│vegetable chow mein│vegetable with cashew nuts│
+└───────────────────┴──────────────────────────┘      
+      </pre>      
     </div>    
     <div class="tab">
       <h3>1: Back to school</h3>
@@ -75,6 +81,26 @@
 4 5 6 7  8  9 10
 5 6 7 8  9 10 11
 6 7 8 9 10 11 12     
+      </pre>
+    </div>
+    <div class="tab">
+      <h3>Reduce down</h3>
+      <div class="description">
+        <p>
+          Reduce-first <code class="apl">⌿</code> on a matrix will reduce along columns instead of rows.
+        </p>
+      </div>
+      <pre class="apl">
+      ∘.÷⍨⍳3
+1 0.5 0.3333333333
+2 1   0.6666666667
+3 1.5 1    
+       
+      +/∘.÷⍨⍳3               ⍝ Sum of rows
+1.833333333 3.666666667 5.5
+
+      +⌿∘.÷⍨⍳3               ⍝ Sum of columns
+6 3 2      
       </pre>
     </div>
     <div class="tab">
