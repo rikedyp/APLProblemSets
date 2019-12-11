@@ -132,7 +132,7 @@ function runRequestOnReadyState() {
     session.value = lastText + "";
   }
   if (newLine === "") {
-    session.value = oldText + "\n      ";
+    session.value = lastText + "\n" + currentLine + "\n      ";
   } else if (cursorPos > session.value.length - session.value.split("\n").slice(-1).length) {
     session.value = session.value.slice(0,session.value.length - 7)
     session.value = oldText + "\n" + newLine + "\n      "
