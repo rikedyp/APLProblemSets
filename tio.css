@@ -1,8 +1,22 @@
 @font-face {
   font-family: "APL385";
-  src: url("Apl385.ttf");
+  src: local('APL385 Unicode'),url(apl385.ttf);
 }
-body{margin:0;overflow:hidden;}
-textarea{font-family:APL385;
-  resize:none;
-width:calc(100% - 2ex);border:none;border-bottom:1px solid black;padding:0 1ex;margin:0}
+*{font-size:24px}
+body{
+  margin: 0;
+  overflow: hidden;
+  font-family: APL385;
+}
+textarea{
+  font-family: APL385;
+  resize: none;
+  width: calc(100% - 1ex);
+  border: none;
+  padding: 0 0.5ex;
+  margin: 0;
+}
+.ngn_lb{position:fixed;top:0;left:0;right:0;background-color:#eee;color:#000;
+  font-family:"Apl385 Unicode",monospace;border-bottom:solid #999 2px;padding:2px;word-wrap:break-word}
+.ngn_lb b{cursor:pointer;padding:0 2px;font-weight:normal}
+.ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#777;color:#fff}
