@@ -6,6 +6,7 @@ var currentWS = ["78DA95D4055415411480E105E4A188028A8A85128A848A8A220A8A2DA2A8D8
 var runURL = "https://tio.run/cgi-bin/run";
 var runString = ["Vlang","1","apl-dyalog","Vargs","0","F.code.tio","0","F.input.tio"];
 var runRequest;
+var disabled = false;
 
 $=s=>document.querySelector(s);
 $$=s=>document.querySelectorAll(s);
@@ -14,9 +15,11 @@ oldText="Dyalog 17.1\n" + Date().split(" ").slice(0,5).join(" ") + "\n      ";
 
 window.onload = function() {
   document.addEventListener("keydown", function(event) {     
-    if (event.keyCode === 13) {  
+    if (!disabled && event.keyCode === 13) {  
       submitLine();           
       event.preventDefault();
+      session.disabled = true;
+      disabled = true;
     };    
   });
   session.value=oldText;
@@ -29,6 +32,7 @@ function submitLine() {
   currentLine = ("\n" + oldText).replace(r,'').split("\n")[0];  
   console.log(currentLine);
   session.value += "\n";
+  session.scrollTop = session.scrollHeight;
   
   oneTimeToken = "'" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "'";
   
@@ -120,7 +124,11 @@ function runRequestOnReadyState() {
   } else {
     session.value += currentLine + "\n" + newLine + "\n      "
   }
-  
+  session.scrollTop = session.scrollHeight + 100;
+  session.disabled = false;
+  disabled = false;
+  // session.blur();
+  session.focus();
     
 }
 

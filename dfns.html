@@ -28,12 +28,16 @@
       </div>
       <pre class="apl">
       one←1
+      
       three←3
+      
       equals←=
+      
       plus←+
+      
       four←4
-      ⍝ 1 means true, 0 means false
-      four equals one plus three
+      
+      four equals one plus three   ⍝ 1 means true, 0 means false
 1   
       </pre> 
       <div class="description">
@@ -59,6 +63,36 @@ SYNTAX ERROR: Missing right argument
        ∧      
       </pre>    
     </div>     
+    
+    <div class="tab">
+      <div class="description">
+        <ol>
+          <li>
+            <h3>Utility functions</h3>
+            <ol type="a">
+              <li>
+                Without using <code class="apl">≢</code> (tally), create a function named <code class="apl">Tally</code> which returns the number of elements in a vector.
+                <pre class="apl">
+      Tally 1 2 4 523 1 2 454
+7                
+                </pre>
+              </li>
+              <li>
+                Create a function named <code class="apl">Mean</code> which returns the mean average of a numeric vector.
+                <pre class="apl">
+      Mean 1 2 4 523 1 2 454
+141                   
+                </pre>
+              </li>
+              <li>
+                Using <code class="apl">⌊</code> ("floor" i.e. round down), create a function <code class="apl">IsDivisibleBy</code> which returns <code class="apl">1</code> if <code class="apl">⍺</code> is divisible by <code class="apl">⍵</code> and <code class="apl">0</code> otherwise.
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div>
+    
     <div class="tab">
       <h3>1: Utility functions</h3>
       <div class="description">
