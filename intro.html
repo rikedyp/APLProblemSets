@@ -17,124 +17,85 @@
     <!-- Language bar, input field and submit button included by tabs.js -->
     <h1>Part 1: The APL Pocket Calculator</h1>
     <div class="tab">
-      <h3>1: A Mathematical Notation</h3>
-      <div class="description">
-        <p>
-          Use APL to evaluate the following:
-          <br><br>
-          <strong>a)</strong> <img src="img/Prod100.svg">  (the product of the first one hundred integers)
-          <br><br>
-          <strong>b)</strong> <img src="img/SumSq.svg">  (the sum of the first seventeen squared integers)
-          <br><br>
-          <strong>c)</strong> <img src="img/EvenSum100.svg">  (the sum of the first one hundred even integers)
-          <br><br>
-          <strong>d)</strong> <img src="img/OddSum100.svg">  (the sum of the first one hundred odd integers)
-          <br><br>          
-          <strong>e)</strong> In traditional mathematical notation (TMN), the following equation is true. Why does this return false in APL?
-        </p>        
-      </div>
-      <pre class="apl">
+      <div class="description">        
+        <ol>                 
+          <li>
+            <h3>A Mathematical Notation</h3>
+            Use APL to evaluate the following:
+            <br><br>
+            <ol type="a">            
+              <li> 
+                <img src="img/Prod100.svg">  (multiply together the first one hundred integers)
+              </li>
+              <li>
+                <img src="img/SumSq.svg">  (add together the first seventeen squared integers)
+              </li>
+              <li>
+                <img src="img/EvenSum100.svg">  (add together the first one hundred even integers)
+              </li>
+              <li>
+                <img src="img/OddSum100.svg">  (add together the first one hundred odd integers)
+              </li>
+              <li>
+                In traditional mathematical notation (TMN), the following equation is true. Why does this return false in APL?
+                <pre class="apl">
       0 = 84 - 12 - 1 - 13 - 28 - 9 - 6 - 15
 0      
-      </pre>
-    </div>
-    <div class="tab">
-      <h3>2: Pyramid schemes</h3>
-      <div class="description">
-        <p>
-          <strong>a) </strong> Sugar cubes are stacked in an arrangement as shown by <strong>figure 1</strong>.           
-        </p>
-      </div>
-      <figure>
-        <img width=200px src="img/SquaredCubes.png" alt="Figure 2. Stacked sugar cubes">
-        <figcaption><strong>Figure 1.</strong> Stacked sugar cubes</figcaption>
-      </figure>
-      <div class="description">
-        <p>
-          This stack has <code class="apl">4</code> layers and a total of <code class="apl">30</code> cubes. How many cubes are there in a similar stack with <code class="apl">467</code> layers?
-          <br><br>
-          <strong>b) </strong> Now consider the stack in <strong>figure 2</strong>.      
-        </p>
-      </div>
-      <figure>
-        <img width=280px src="img/OddSquaredCubes.png" alt="Figure 2. Differently stacked sugar cubes">
-        <figcaption><strong>Figure 1.</strong> Differently stacked sugar cubes</figcaption>
-      </figure>
-      <div class="description">
-        <p>
-          The arrangement in <strong>figure 2</strong> has <code class="apl">4</code> layers and <code class="apl">84</code> cubes. How many cubes are there in a similar stack with 812 layers?  
-          <br><br>
-          <strong>c)</strong> Now look at <strong>figure 3</strong>.
-        </p>
-      </div>
-      <figure>
-        <img width=280px src="img/CubedCubes.png" alt="Figure 2. Differently stacked sugar cubes">
-        <figcaption><strong>Figure 3.</strong> This is just a waste of sugar cubes by now...</figcaption>
-      </figure>
-      <div class="description">
-        <p>
-          The stack in <strong>figure 3</strong> has <code class="apl">3</code> "layers" and <code class="apl">36</code> cubes in total. How many cubes are there in a similar stack with 68 layers?
-        </p>
-      </div>
-    </div>
-    <div class="tab">
-      <h3>3: What's in a vector?</h3>
-      <div class="description">
-        <p>
-          <code class="apl">⎕AVU</code> is a list (vector) of numbers (don't worry about <em>what</em> it represents). Find the following properties of <code class="apl">⎕AVU</code>.
-          <br><br>
-          <strong>a) </strong> Find the sum of all the values in <code class="apl">⎕AVU</code>.
-          <br><br>
-          <strong>b) </strong> Find the product of all the values in <code class="apl">⎕AVU</code>.
-          <br><br>
-          <!-- <strong>c) </strong> Find the highest number in <code class="apl">⎕AVU</code>. -->
-          <!-- <br><br> -->
-          <!-- <strong>d) </strong> Find the lowest number in <code class="apl">⎕AVU</code>. -->
-          <!-- <br><br> -->
-          <!-- <strong>e) </strong> Find the range of values in <code class="apl">⎕AVU</code>. -->
-          <!-- <br><br> -->
-          <strong>c) </strong> What is the length of <code class="apl">⎕AVU</code>?
-          <br><br>
-          <strong>d) </strong> Find the mean average value of <code class="apl">⎕AVU</code>.
-          <br><br>
-        </p>
-      </div>
-      <!-- <br><br><br><br><br> -->
-    </div>     
-    <div class="tab">
-      <h3>4: Polynomials</h3>
-      <div class="description">
-        <p>
-          A polynomial is a function (equation) of the form <br>      f(x) = a + bx + cx<sup>2</sup> + dx<sup>3</sup> + ... + kx<sup>N</sup>
-          <br><br>
-          By representing a polynomial as a list of numbers <code class="apl">a b c d</code>, evaluate f(x) = 10 - 2x<sup>3</sup> - 4x<sup>4</sup> for x = 5
-        </p>
+                </pre>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <h3>Pyramid schemes</h3>
+            <ol type="a">
+              <li>                
+                Sugar cubes are stacked in an arrangement as shown by <strong>figure 1</strong>.
+                <figure>
+                  <img width=200px src="img/SquaredCubes.png" alt="Figure 2. Stacked sugar cubes">
+                  <figcaption><strong>Figure 1.</strong> Stacked sugar cubes</figcaption>
+                </figure>
+                This stack has <code class="apl">4</code> <strong>layers</strong> and a total of <code class="apl">30</code> cubes.<br>How many cubes are there in a similar stack with <code class="apl">467</code> <strong>layers</strong>?
+              </li>
+              <li>
+                Now consider the stack in <strong>figure 2</strong>. 
+                <figure>
+                  <img width=280px src="img/OddSquaredCubes.png" alt="Figure 2. Differently stacked sugar cubes">
+                  <figcaption><strong>Figure 1.</strong> Differently stacked sugar cubes</figcaption>
+                </figure>
+                The arrangement in <strong>figure 2</strong> has <code class="apl">4</code> <strong>layers</strong> and <code class="apl">84</code> cubes.<br>How many cubes are there in a similar stack with 812 <strong>layers</strong>?
+              </li>
+              <li>
+                Now look at <strong>figure 3</strong>.
+                <figure>
+                  <img width=280px src="img/CubedCubes.png" alt="Figure 2. Differently stacked sugar cubes">
+                  <figcaption><strong>Figure 3.</strong> This is just a waste of sugar cubes by now...</figcaption>
+                </figure>
+                The stack in <strong>figure 3</strong> has <code class="apl">3</code> <strong>"layers"</strong> and <code class="apl">36</code> cubes in total.<br>How many cubes are there in a similar stack with 68 <strong>"layers"</strong>?
+              </li>
+            </ol>
+          </li>
+          <li>
+            <h3>3: What's in a vector?</h3>
+            <code class="apl">⎕AVU</code> is a list (vector) of numbers (don't worry about what it represents).<br>Find the following properties of <code class="apl">⎕AVU</code>.
+            <br><br>
+            <ol type="a">
+              <li>
+                Find the sum of all the values in <code class="apl">⎕AVU</code>.
+              </li>
+              <li>
+                Find the product of all the values in <code class="apl">⎕AVU</code>.
+              </li>
+              <li>
+                What is the length of <code class="apl">⎕AVU</code>?
+              </li>
+              <li>
+                Find the mean average value of <code class="apl">⎕AVU</code>.
+              </li>
+            </ol>
+          </li>
+        </ol>
       </div>      
-    </div>
-    <div class="tab">
-      <h3>5: Shopping lists</h3>
-      <div class="description">
-        <p>
-          A 160g tin of tuna costs £1, a 160g tin of sweetcorn costs 70p, a loaf of bread costs £1.20 (the loaf has 20 slices including crusts), a 750g bottle of salt costs 35p, ground black pepper costs £2.50 for 100g and mayonnaise is £3 for 800g.
-          <br><br>
-          A recipe for tuna mayo and sweetcorn sandwiches is show on the right. 
-          <br><br>
-          <strong>a)</strong> How much will it cost to make a sandwich (without using the crusts)?
-          <br><br>
-          <strong>b)</strong> How much will you save per sandwich if you do use the crusts?
-        </p>
-        <ul style="margin-top:0;">
-          <strong>Tuna mayonnaise and sweetcorn sandwich:</strong><br><br>
-          <li>½ × 160g can of tuna, drained.</li>
-          <li>1 tablespoon (15g) of mayonnaise.</li>
-          <li>A pinch (0.36g) of salt</li>
-          <li>A pinch (0.42g) of ground black pepper</li>
-          <li>A tablespoon (10g) of sweetcorn</li>
-          <li>2 slices of bread</li>
-        </ul>        
-      </div>  
-      <br><br><br><br><br>
-    </div>  
+    </div>     
     <a class="apl nav right" href="dfns.html">Next →</a>
     <a class="apl nav left" href="index.html">← Back</a>
   </body>

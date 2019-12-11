@@ -24,6 +24,9 @@ body > * {
 h1 {
   text-align: center;
 }
+ol > li{
+  padding-bottom: 2em;
+}
 a {
   text-decoration: none;
   border: none;
