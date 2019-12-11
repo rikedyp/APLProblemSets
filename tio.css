@@ -2,7 +2,7 @@
   font-family: "APL385";
   src: url("Apl385.ttf");
 }
-body{margin:0;overflow:hidden}
+body{margin:0;overflow:hidden;}
 textarea{font-family:APL385;
   resize:none;
 width:calc(100% - 2ex);border:none;border-bottom:1px solid black;padding:0 1ex;margin:0}
