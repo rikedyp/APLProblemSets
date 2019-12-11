@@ -15,8 +15,10 @@ var disabled = false;
 $=s=>document.querySelector(s);
 $$=s=>document.querySelectorAll(s);
 
-oldText="Dyalog 17.1\n" + Date().split(" ").slice(0,5).join(" ") + "\n      ";
-// oldText = "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n";
+oldText="Dyalog APL/TIO\n" + 
+         Date().split(" ").slice(0,5).join(" ") + 
+      "\nCopyright (c) Dyalog Limited 1982-" + Date().split(" ")[3] + 
+      "\n      ";
 lastText = oldText;
 
 window.onload = function() {  
