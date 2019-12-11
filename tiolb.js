@@ -1,4 +1,4 @@
-;(_=>{
+;var lbh = 0;(_=>{
 let hc={'<':'&lt;','&':'&amp;',"'":'&apos;','"':'&quot;'},he=x=>x.replace(/[<&'"]/g,c=>hc[c]) //html chars and escape fn
 ,tcs='<-←xx×/\\×:-÷*O⍟[-⌹-]⌹OO○77⌈FF⌈ll⌊LL⌊T_⌶II⌶|_⊥TT⊤-|⊣|-⊢=/≠L-≠<=≤<_≤>=≥>_≥==≡=_≡7=≢L=≢vv∨^^∧^~⍲v~⍱^|↑v|↓((⊂cc⊂(_⊆c_⊆))⊃[|⌷|]⌷A|⍋V|⍒ii⍳i_⍸ee∊e_⍷'+
 'uu∪UU∪nn∩/-⌿\\-⍀,-⍪rr⍴pp⍴O|⌽O-⊖O\\⍉::¨""¨~:⍨~"⍨*:⍣*"⍣oo∘o:⍤o"⍤[\'⍞\']⍞[]⎕[:⍠:]⍠[=⌸=]⌸[<⌺>]⌺o_⍎oT⍕o-⍕<>⋄^v⋄on⍝->→aa⍺ww⍵VV∇--¯0~⍬'+
@@ -68,7 +68,7 @@ let ff=x=>{
   if(nn!=='textarea'&&(nn!=='input'||t0.type!=='text'&&t0.type!=='search'))return
   t=t0;if(!t.ngn){t.ngn=1;ts.push(t);ev(t,'keydown',fk)}
 }
-let upd=_=>{d.body.style.marginTop=lb.clientHeight+'px';session.style.height="calc(100vh - "+lb.clientHeight+'px)'}
+let upd=_=>{d.body.style.marginTop=lb.clientHeight+'px';session.style.height="calc(100vh - " + lb.clientHeight+'px)'}
 upd();ev(window,'resize',upd)
 ev(d,'focus',ff,!0);let ae=d.activeElement;ae&&ff({type:'focus',target:ae})
 })();
