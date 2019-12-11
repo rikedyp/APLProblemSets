@@ -1,3 +1,4 @@
+var version = 2.0;
 var lastRequest;
 var lastResponse;
 var oldText;
@@ -19,6 +20,7 @@ oldText="Dyalog 17.1\n" + Date().split(" ").slice(0,5).join(" ") + "\n      ";
 lastText = oldText;
 
 window.onload = function() {  
+  console.log("tio.html v." + version);
   document.addEventListener("keydown", function(event) {     
     if (!disabled && event.keyCode === 13) {  
       submitLine();           
@@ -132,7 +134,10 @@ function runRequestOnReadyState() {
     session.value = lastText + "";
   }
   if (newLine === "") {
-    session.value = lastText + "\n" + currentLine + "\n      ";
+    console.log("no result");
+    // session.value = session.value.slice(0,session.value.length - 7);
+    // session.value = lastText + "\n" + currentLine + "\n      ";
+    session.value = lastText.slice(0, lastText.length - 7) + "\n" + currentLine + "\n      ";
   } else if (cursorPos > session.value.length - session.value.split("\n").slice(-1).length) {
     session.value = session.value.slice(0,session.value.length - 7)
     session.value = oldText + "\n" + newLine + "\n      "
