@@ -50,21 +50,26 @@ a:hover {
 .right {
   right: 3em;
 }
-#output {
+#session {
   padding: 1em;
+  outline: none;
+  position: relative;
   font-size: 1.5em;
   font-variant-numeric: tabular-nums !important;
-  font-family: monospace !important;
+  /* font-family: monospace !important; */
+  font-family: Apl385!important;
   border-radius: 5px;
-  line-height: 0.6em!important;
-}
-#aplscript {
-  font-size: 1.5em;
-  width: 100%;
-  height: 5em;
+  line-height: 1em!important;  
+  left: 9.5vw;
+  top: 2em;
+  width: 80vw;
+  height: 100vh;
   resize: none;
   border: none;
   background: #eae9f3;
+}
+#aplscript {
+  
   border-radius: 5px;
   padding: 1em;
 }
@@ -169,13 +174,18 @@ pre {
   display:none!important;
 }
 .ngn_lb {
+  border: none!important;
+  left: 10vw!important;
+  top: 0.5vh!important;
+  width: 80vw!important;
+  
   background-color: #eae9f3!important;
-  top: -1em!important;
   color: #555;
   cursor: default;
   border-radius: 0.25rem;
-  font-family: "Apl385 Unicode";
-  padding: 2px;
+  font-family: APL385;
+  font-size: 1.1em!important;
+  padding: 0.5em 1em 0.5em 1em!important;
   word-wrap: break-word;
   margin-top: 1em;
 }
