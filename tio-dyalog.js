@@ -1,4 +1,4 @@
-var version = 2.1;
+var version = 2.2;
 var lastRequest;
 var lastResponse;
 var oldText;
@@ -15,7 +15,7 @@ var disabled = false;
 $=s=>document.querySelector(s);
 $$=s=>document.querySelectorAll(s);
 
-oldText="Dyalog APL/TIO\n" + 
+oldText="Dyalog APL/TIO Version " + version + "\n" + 
          Date().split(" ").slice(0,5).join(" ") + 
       "\nCopyright (c) Dyalog Limited 1982-" + Date().split(" ")[3] + 
       "\n      ";
