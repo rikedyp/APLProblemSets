@@ -63,13 +63,15 @@ function submitLine() {
   });  
   
   importWS = CW + "'#' ⎕NS 0(220⌶)¯2(219⌶)¯128+256|128+16⊥⍉(⊢⍴⍨2,⍨2÷⍨≢)⎕IO-⍨(⎕D,⎕A)⍳∆WS∆\n⎕EX'∆WS∆'\n";
-    
+  
+  quadSE = "⎕SE.(⎕WS'Event'('SessionPrint' 'd')⊣⎕CY'dfns')\n⎕SE.d←{(1=≡⍺)∧⍬≡⍴⍺:⎕←⍺dft 0⋄⎕←disp⍺}\n";   
+  
   exportWS  = "\n∆WS∆←(⎕D,⎕A)[,⍉⎕IO+16 16⊤256|⊃⌽2 9(219⌶)1(220⌶)⎕NS⎕NL-⍳9]\n";  
   exportWS += "∆GUWSID∆←(⎕A,⎕D)[?12⍴36]\n";
   exportWS += "∆WS∆←100{((≢⍵)⍴⍺↑1)⊂⍵}∆WS∆\n";
   exportWS += "⍞←∊(⊂∆GUWSID∆),¨∆WS∆\n⍞←" + oneTimeToken + "\n⍞←∆GUWSID∆\n"
 
-  lastRequest = importWS + "⍞←" + oneTimeToken + "\n" + currentLine + "\n⍞←" + oneTimeToken + "\n" + exportWS;
+  lastRequest = quadSE + importWS + "⍞←" + oneTimeToken + "\n" + currentLine + "\n⍞←" + oneTimeToken + "\n" + exportWS;
   tioRequest(lastRequest);  
 }
 
