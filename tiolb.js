@@ -27,17 +27,7 @@ let lbh='';for(let i=0;i<lbs.length;i++){
   for(let j=0;j<bqk.length;j++)if(lbs[i][0]===bqv[j])ks.push('\n` '+bqk[j])
   lbh+='<b title="'+he(lbs[i].slice(1)+(ks.length?'\n'+ks.join(''):''))+'">'+lbs[i][0]+'</b>'
 }
-let d=document,el=d.createElement('div');el.innerHTML=
-`<div class=ngn_lb><span class=ngn_x title=Close>❎</span>${lbh}</div>
- <style>@font-face{font-family:"APL385 Unicode";src:local("APL385 Unicode"),url(//abrudz.github.io/lb/Apl385.woff)format('woff');}</style>
- <style>
-  .ngn_lb{position:fixed;top:0;left:0;right:0;background-color:#eee;color:#000;cursor:default;z-index:2147483647;
-    font-family:"Apl385 Unicode",monospace;border-bottom:solid #999 1px;padding:2px 2px 0 2px;word-wrap:break-word;}
-  .ngn_lb b{cursor:pointer;padding:0 1px;font-weight:normal}
-  .ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#777;color:#fff}
-  .ngn_x{display:none;float:right;color:#999;cursor:pointer;margin-top:-3px}
-  .ngn_x:hover{color:#f00}
- </style>`
+let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb>${lbh}</div>`
 d.body.appendChild(el)
 let t,ts=[],lb=el.firstChild,bqm=0 //t:textarea or input, lb:language bar, bqm:backquote mode
 let pd=x=>x.preventDefault()
