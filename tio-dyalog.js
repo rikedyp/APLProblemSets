@@ -19,22 +19,27 @@ oldText="Dyalog APL/TIO Version " + version + "\n" +
          Date().split(" ").slice(0,5).join(" ") + 
       "\nCopyright (c) Dyalog Limited 1982-" + Date().split(" ")[3] + 
       "\n      ";
+firstText = oldText;      
 lastText = oldText;
 
 window.onload = function() {  
-  console.log("tio.html v." + version);
+  console.log("tio.html v." + version);  
   document.addEventListener("keydown", function(event) {     
+    console.log(event.keyCode);
     if (!disabled && event.keyCode === 13) {  
       submitLine();           
       event.preventDefault();
       session.disabled = true;
       disabled = true;
       init = false;
-    };    
+    }
+    if (!disabled && event.keyCode === 27) {
+      session.value = firstText;
+    }      
   });
   session.value=oldText;
   session.onscroll = function(e) {
-    // console.log(session.scrollTop);
+    console.log(session.scrollTop);
   }
 }
  
