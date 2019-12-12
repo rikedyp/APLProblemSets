@@ -50,14 +50,16 @@ joined uptext vectors
 └───────────────────┴──────────────────────────┘      
       </pre>      
     </div>    
+    
     <div class="tab">
-      <h3>1: Back to school</h3>
       <div class="description">
-        <p>
-          <strong>a)</strong> Write a function to produce the multiplication table from <code class="apl">1</code> to <code class="apl">⍵</code>.
-        </p>
-      </div>
-      <pre class="apl">
+        <ol>
+          <li>
+            <h3>Back to school</h3>
+            <ol type="a">
+              <li>
+                Write a function to produce the multiplication table from <code class="apl">1</code> to <code class="apl">⍵</code>.
+                <pre class="apl">
       MulTable 7
 1  2  3  4  5  6  7
 2  4  6  8 10 12 14
@@ -66,13 +68,11 @@ joined uptext vectors
 5 10 15 20 25 30 35
 6 12 18 24 30 36 42
 7 14 21 28 35 42 49      
-      </pre>
-      <div class="description">
-        <p>
-          <strong>b)</strong> Write a function to produce the addition table from <code class="apl">0</code> to <code class="apl">⍵</code>.
-        </p>
-      </div>
-      <pre class="apl">
+                </pre>
+              </li>
+              <li>
+                Write a function to produce the addition table from <code class="apl">0</code> to <code class="apl">⍵</code>.
+                <pre class="apl">
       AddTable 6
 0 1 2 3  4  5  6
 1 2 3 4  5  6  7
@@ -81,16 +81,13 @@ joined uptext vectors
 4 5 6 7  8  9 10
 5 6 7 8  9 10 11
 6 7 8 9 10 11 12     
-      </pre>
-    </div>
-    <div class="tab">
-      <h3>Reduce down</h3>
-      <div class="description">
-        <p>
+                </pre>
+              </li>
+            </ol>
+          </li>
+          <h3>Reduce down</h3>
           Reduce-first <code class="apl">⌿</code> on a matrix will reduce along columns instead of rows.
-        </p>
-      </div>
-      <pre class="apl">
+          <pre class="apl">
       ∘.÷⍨⍳3
 1 0.5 0.3333333333
 2 1   0.6666666667
@@ -101,72 +98,61 @@ joined uptext vectors
 
       +⌿∘.÷⍨⍳3               ⍝ Sum of columns
 6 3 2      
-      </pre>
-    </div>
-    <div class="tab">
-      <h3>2: Making the Grade</h3>
-      <div class="description">
-        <table class="border">
-          <tr>
-            <td><strong>Score Range</strong></td>
-            <td><strong>Letter Grade</strong></td>
-          </tr>
-          <tr>
-            <td>0-64</td>
-            <td>F</td>
-          </tr>
-          <tr>
-            <td>65-69</td>
-            <td>D</td>
-          </tr>
-          <tr>
-            <td>70-79</td>
-            <td>C</td>
-          </tr>
-          <tr>
-            <td>80-89</td>
-            <td>B</td>
-          </tr>
-          <tr>
-            <td>90-100</td>
-            <td>A</td>
-          </tr>
-        </table>
-        <p>
-          Write a function that, given an array of integer test scores in the inclusive range <code class="apl">0</code> to <code class="apl">100</code>, returns a list of letter grades according to the table to the left.
-          <br /><br />           
-        </p>
-      </div>
-      <pre class="apl">
+          </pre>
+          <br><br>
+          <li>
+            <h3>Making the Grade</h3>
+            <div class="description">
+            <table class="border">
+              <tr>
+                <td><strong>Score Range</strong></td>
+                <td><strong>Letter Grade</strong></td>
+              </tr>
+              <tr>
+                <td>0-64</td>
+                <td>F</td>
+              </tr>
+              <tr>
+                <td>65-69</td>
+                <td>D</td>
+              </tr>
+              <tr>
+                <td>70-79</td>
+                <td>C</td>
+              </tr>
+              <tr>
+                <td>80-89</td>
+                <td>B</td>
+              </tr>
+              <tr>
+                <td>90-100</td>
+                <td>A</td>
+              </tr>
+            </table>
+            <p>
+              Write a function that, given an array of integer test scores in the inclusive range <code class="apl">0</code> to <code class="apl">100</code>, returns a list of letter grades according to the table to the left.
+            </p>
+            </div>
+            <pre class="apl">
       Grade 0 64 65 69 70 79 80 89 90 100      
 FFDDCCBBAA      
-      </pre>
-    </div>
-    <div class="tab">
-      <h3>3: Optimus Prime</h3>
-      <div class="description">
-        <p>
-        A prime number is divisible by only itself and <code class="apl">1</code>.
-        <br><br>
-        Write a dfn which returns all of the prime numbers between <code class="apl">1</code> and <code class="apl">⍵</code>.
-        </p>
-      </div>
-      <pre class="apl">
+            </pre>
+          </li>
+          <li>
+            <h3>Optimus Prime</h3>
+            A prime number is divisible by only itself and <code class="apl">1</code>.
+            <br><br>
+            Write a dfn which returns all of the prime numbers between <code class="apl">1</code> and <code class="apl">⍵</code>.
+            <pre class="apl">
       Primes 10
 2 3 5 7
       Primes 30
 2 3 5 7 11 13 17 19 23 29      
-      </pre>
-      <br><br>
-    </div>
-    <!-- <div class="tab"> -->
-      <!-- <h3>4: 28 Days Later</h3> -->
-      <!-- <div class="description">       -->
-        <!-- <p> -->
-          
-        <!-- </p> -->
-      <!-- </div> -->
-    <!-- </div> -->
+            </pre>
+          </li>
+        </ol>
+      </div>
+    </div>    
     <!-- <a class="apl nav right" href="problems.html">Next →</a> -->
     <a class="apl nav left" href="selection.html">← Back</a>
   </body>
