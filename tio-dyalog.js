@@ -1,4 +1,4 @@
-var version = 2.6;
+var version = 2.7;
 var lastRequest;
 var lastResponse;
 var oldText;

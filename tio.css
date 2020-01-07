@@ -18,3 +18,10 @@ textarea{
   border-bottom:solid #999 2px;padding:2px;word-wrap:break-word}
 .ngn_lb b{cursor:pointer;padding:0 2px;font-weight:normal}
 .ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#777;color:#fff}
+
+.ngn_x{float:right;color:#999;cursor:pointer;margin-top:-3px}
+.ngn_x:hover{color:#f00}
+
+.ngn_o.ngn_o {position: fixed;right: -1px;top: -2px;background: #eee;border: 1px solid #999;
+  padding: 0 3px;cursor: pointer;color:#999;}
+.ngn_o:hover{color:#0f0}

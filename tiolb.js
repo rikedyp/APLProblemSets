@@ -27,13 +27,13 @@ let lbh='';for(let i=0;i<lbs.length;i++){
   for(let j=0;j<bqk.length;j++)if(lbs[i][0]===bqv[j])ks.push('\n` '+bqk[j])
   lbh+='<b title="'+he(lbs[i].slice(1)+(ks.length?'\n'+ks.join(''):''))+'">'+lbs[i][0]+'</b>'
 }
-let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb>${lbh}</div>`
+let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb><span class=ngn_x title=Close>❌&#xFE0E;</span>${lbh}</div>`
 d.body.appendChild(el)
 let t,ts=[],lb=el.firstChild,bqm=0 //t:textarea or input, lb:language bar, bqm:backquote mode
 let pd=x=>x.preventDefault()
 let ev=(x,t,f,c)=>x.addEventListener(t,f,c)
 ev(lb,'mousedown',x=>{
-  if(x.target.classList.contains('ngn_x')){lb.hidden=1;upd();pd(x);return}
+  if(x.target.classList.contains('ngn_x')){hide();upd();pd(x);return}
   if(x.target.nodeName==='B'&&t){
     let i=t.selectionStart,j=t.selectionEnd,v=t.value,s=x.target.textContent
     if(i!=null&&j!=null){t.value=v.slice(0,i)+s+v.slice(j);t.selectionStart=t.selectionEnd=i+s.length}
@@ -62,3 +62,11 @@ let upd=_=>{d.body.style.marginTop=lb.clientHeight+'px';session.style.height="ca
 upd();ev(window,'resize',upd)
 ev(d,'focus',ff,!0);let ae=d.activeElement;ae&&ff({type:'focus',target:ae})
 })();
+show=_=>{document.querySelector(".ngn_lb").style.display = ''
+          session.style.height="calc(-58px + 100vh)"
+          document.querySelector("body").style["margin-top"]="58px"
+         }
+hide=_=>{document.querySelector(".ngn_lb").style.display = 'none'
+         session.style.height="100vh"
+         document.querySelector("body").style["margin-top"]="0"
+        }
