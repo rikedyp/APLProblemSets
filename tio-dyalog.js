@@ -33,9 +33,6 @@ window.onload = function() {
       disabled = true;
       init = false;
     }
-    if (!disabled && event.keyCode === 27) {
-      session.value = firstText;
-    }      
   });
   session.value=oldText;
   session.onscroll = function(e) {
@@ -66,9 +63,9 @@ function submitLine() {
   
   quadSE = "⎕SE.(⎕WS'Event'('SessionPrint' 'd')⊣⎕CY'dfns')\n⎕SE.d←{(1=≡⍺)∧⍬≡⍴⍺:⎕←⍺dft 0⋄⎕←disp⍺}\n";   
   
-  exportWS  = "\n∆WS∆←(⎕D,⎕A)[,⍉⎕IO+16 16⊤256|⊃⌽2 9(219⌶)1(220⌶)⎕NS⎕NL-⍳9]\n";  
+  exportWS  = "\n∆WS∆←(⎕D,⎕A)[,⍉⎕IO+16 16⊤256|⎕IO⊃⌽2 9(219⌶)1(220⌶)⎕NS⎕NL-⍳9]\n";  
   exportWS += "∆GUWSID∆←(⎕A,⎕D)[?12⍴36]\n";
-  exportWS += "∆WS∆←100{((≢⍵)⍴⍺↑1)⊂⍵}∆WS∆\n";
+  exportWS += "∆WS∆←2048{((≢⍵)⍴⍺↑1)⊂⍵}∆WS∆\n";
   exportWS += "⍞←∊(⊂∆GUWSID∆),¨∆WS∆\n⍞←" + oneTimeToken + "\n⍞←∆GUWSID∆\n"
 
   lastRequest = quadSE + importWS + "⍞←" + oneTimeToken + "\n" + currentLine + "\n⍞←" + oneTimeToken + "\n" + exportWS;
@@ -132,12 +129,10 @@ function runRequestOnReadyState() {
   var newLine = splitOut[0];
   newLine = newLine.slice(0, newLine.length - 1);
   console.log("NEW: " + newLine);
-  try {
+  newLine=splitOut[0].slice(0,splitOut[0].length-1)+splitOut[1].slice(!splitOut[0],splitOut[1].length-1)
+  if(splitOut.length == 4) {
     GUWSID = splitOut[3].slice(1, splitOut[3].length - 1);
-    currentWS = splitOut[2].split("\n");
-    currentWS = currentWS[1].split(GUWSID);
-  } catch(err) {
-    newLine = splitOut[1];
+    currentWS = splitOut[2].split("\n")[1].split(GUWSID);
   }
   if (!init) {
     session.value = lastText + "";
@@ -146,7 +141,7 @@ function runRequestOnReadyState() {
     console.log("no result");
     // session.value = session.value.slice(0,session.value.length - 7);
     // session.value = lastText + "\n" + currentLine + "\n      ";
-    session.value = lastText.slice(0, lastText.length - 7) + "\n" + currentLine + "\n      ";
+    session.value = lastText.slice(0, lastText.length - 7) + currentLine + "\n      ";
   } else if (cursorPos > session.value.length - session.value.split("\n").slice(-1).length) {
     session.value = session.value.slice(0,session.value.length - 7)
     session.value = oldText + "\n" + newLine + "\n      "
