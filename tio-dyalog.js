@@ -1,7 +1,11 @@
-var version = 2.8;
-var debug = false
+var version = 2.9;
+var ctrld = false;
+var shiftd = false;
+var debug = false;
+var help = true;
 var lastRequest;
 var lastResponse;
+var submittedLines = [];
 var oldText;
 var lastText;
 var init = true;
@@ -23,23 +27,33 @@ lastText = oldText;
 
 window.onload = function() {
   console.log("tio.html v." + version);  
-  document.addEventListener("keydown", function(event) {
-    log(event.keyCode)
-    if (!session.disabled && event.keyCode === 13) {  
+  document.addEventListener("keydown", function(event) {     
+    log(event.keyCode);
+    if (!shiftd && !ctrld && !session.disabled && event.keyCode === 13) {  
+      prevCount = submittedLines.length + 1;
       submitLine();           
       event.preventDefault();
       session.disabled = true;
       init = false;
-    } else if (event.keyCode === 27) {
-      cursorPos = session.selectionStart;r = new RegExp("(.|\n){0," + cursorPos + "}\n")
-      beginCur=session.value.match(r)[0].length
-      head = session.value.slice(0,beginCur)
-      tail = session.value.slice(beginCur,-1).replace(/.*/,"      ")
-      session.value=head+tail
-      putCursor(beginCur+6)
-  } else if (event.keyCode === 112) {
+    } else if (shiftd && event.keyCode === 27) {
+      replaceCurrentLine("");
+    } else if (help && event.keyCode === 112) {
+      // Open help
       window.open("https://help.dyalog.com")
+    } else if (shiftd && ctrld) {
+      if (event.keyCode === 8 || event.keyCode === 13) {       
+        log("prevCount0:"+prevCount)
+        prevCount = Math.min(Math.max(-1, prevCount + (event.keyCode - 10.5) / 2.5), submittedLines.length); // 8:-1, 13:+1;        
+        log("prevCount1:"+prevCount)
+        replaceCurrentLine(submittedLines.concat("").slice(prevCount)[0])
+      }      
     }
+    if (event.keyCode === 17) {ctrld = true;}
+    if (event.keyCode === 16) {shiftd = true;}
+  });
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 17) {ctrld = false;}
+    if (event.keyCode === 16) {shiftd = false;}
   });
   session.value=oldText;
   padSession()
@@ -48,6 +62,17 @@ window.onload = function() {
 log=text=>{if(debug){console.log(text)}}
 
 putCursor=p=>session.selectionEnd=session.selectionStart=p
+
+replaceCurrentLine=text=>{
+  cursorPos = session.selectionStart
+  r = new RegExp("(.|\n){0," + (cursorPos-1) + "}\n")
+  beginCur=session.value.match(r)[0].length
+  head = session.value.slice(0,beginCur)
+  tail = session.value.slice(beginCur,session.value.length).replace(/.*/,"      ")
+  log(tail)
+  session.value=head + text + tail
+  putCursor(beginCur+6)
+}
 
 padSession=_=>{
   cursorPos = session.selectionStart;
@@ -65,16 +90,19 @@ strip=what=>{
   putCursor(cursorPos);
 }
 
-function submitLine() {
-  oldText=session.value
+getCurrentLine=_=>{
   cursorPos = session.selectionStart;
-  strip("oldText")
-  
+  strip("oldText")  
   r = new RegExp("(.|\n){0," + cursorPos + "}\n");  
-  currentLine = ("\n" + session.value).replace(r,'').split("\n")[0];  
+  return ("\n" + session.value).replace(r,'').split("\n")[0];   
+}
+
+function submitLine() {
+  oldText=session.value 
+  currentLine = getCurrentLine();
+  if (currentLine.replace(/\s/g, '').length) {submittedLines.push(currentLine);}
   log(currentLine);
-  session.value += "\n";
-  //session.scrollTop = session.scrollHeight;
+  session.value += "\n";  
   
   oneTimeToken = "'" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "'";
   
