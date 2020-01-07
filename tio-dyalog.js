@@ -23,12 +23,14 @@ lastText = oldText;
 window.onload = function() {
   console.log("tio.html v." + version);  
   document.addEventListener("keydown", function(event) {     
-    //console.log(event.keyCode);
+    console.log(event.keyCode);
     if (!session.disabled && event.keyCode === 13) {  
       submitLine();           
       event.preventDefault();
       session.disabled = true;
       init = false;
+    } else if (event.keyCode === 112) {
+      window.open("https://help.dyalog.com")
     }
   });
   session.value=oldText;

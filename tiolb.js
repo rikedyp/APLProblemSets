@@ -27,7 +27,7 @@ let lbh='';for(let i=0;i<lbs.length;i++){
   for(let j=0;j<bqk.length;j++)if(lbs[i][0]===bqv[j])ks.push('\n` '+bqk[j])
   lbh+='<b title="'+he(lbs[i].slice(1)+(ks.length?'\n'+ks.join(''):''))+'">'+lbs[i][0]+'</b>'
 }
-let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb><span class=ngn_x title=Close>❌&#xFE0E;</span>${lbh}</div>`
+let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb><span class=ngn_x title=Close>❌&#xFE0E;</span><a class=help href=https://help.dyalog.com target=_blank>❓&#xFE0E;</a>${lbh}</div>`
 d.body.appendChild(el)
 let t,ts=[],lb=el.firstChild,bqm=0 //t:textarea or input, lb:language bar, bqm:backquote mode
 let pd=x=>x.preventDefault()
