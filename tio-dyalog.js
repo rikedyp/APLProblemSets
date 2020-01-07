@@ -1,8 +1,11 @@
 var version = 2.8;
-var debug = false
-var help = true;
+var ctrld = false;
+var shiftd = false;
+var debug = true;
+var help = false;
 var lastRequest;
 var lastResponse;
+var submittedLines = [];
 var oldText;
 var lastText;
 var init = true;
@@ -25,14 +28,34 @@ lastText = oldText;
 window.onload = function() {
   console.log("tio.html v." + version);  
   document.addEventListener("keydown", function(event) {     
-    if (!session.disabled && event.keyCode === 13) {  
+    log(event.keyCode);
+    if (!shiftd && !ctrld && !session.disabled && event.keyCode === 13) {  
+      prevCount = submittedLines.length + 1;
       submitLine();           
       event.preventDefault();
       session.disabled = true;
       init = false;
     } else if (help && event.keyCode === 112) {
+      // Open help
       window.open("https://help.dyalog.com")
+    } else if ((prevCount > 0) && shiftd && ctrld && event.keyCode === 8) {
+      // Cycle back through submittedLines
+      log("--BACK ONE--");
+      prevCount -= 1;
+      log(prevCount);
+      log(submittedLines[prevCount]);      
+    } else if ((prevCount < submittedLines.length) && shiftd && ctrld && event.keyCode === 13) {
+      // Cycle forwards through submittedLines
+      log("--UP ONE--");
+      prevCount += 1;
+      log(submittedLines[prevCount]);      
     }
+    if (event.keyCode === 17) {ctrld = true;}
+    if (event.keyCode === 16) {shiftd = true;}
+  });
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 17) {ctrld = false;}
+    if (event.keyCode === 16) {shiftd = false;}
   });
   session.value=oldText;
   padSession()
@@ -56,16 +79,19 @@ strip=what=>{
   session.selectionEnd=session.selectionStart=cursorPos;
 }
 
-function submitLine() {
-  oldText=session.value
+getCurrentLine=_=>{
   cursorPos = session.selectionStart;
-  strip("oldText")
-  
+  strip("oldText")  
   r = new RegExp("(.|\n){0," + cursorPos + "}\n");  
-  currentLine = ("\n" + session.value).replace(r,'').split("\n")[0];  
+  return ("\n" + session.value).replace(r,'').split("\n")[0];   
+}
+
+function submitLine() {
+  oldText=session.value 
+  currentLine = getCurrentLine();
+  if (currentLine.replace(/\s/g, '').length) {submittedLines.push(currentLine);}
   log(currentLine);
-  session.value += "\n";
-  //session.scrollTop = session.scrollHeight;
+  session.value += "\n";  
   
   oneTimeToken = "'" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "'";
   
