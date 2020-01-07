@@ -1,4 +1,5 @@
-var version = 2.7;
+var version = 2.8;
+var debug = false
 var lastRequest;
 var lastResponse;
 var oldText;
@@ -23,7 +24,6 @@ lastText = oldText;
 window.onload = function() {
   console.log("tio.html v." + version);  
   document.addEventListener("keydown", function(event) {     
-    console.log(event.keyCode);
     if (!session.disabled && event.keyCode === 13) {  
       submitLine();           
       event.preventDefault();
@@ -36,6 +36,8 @@ window.onload = function() {
   session.value=oldText;
   padSession()
 }
+
+log=text=>{if(debug){console.log(text)}}
 
 padSession=_=>{
   cursorPos = session.selectionStart;
@@ -55,12 +57,12 @@ strip=what=>{
 
 function submitLine() {
   oldText=session.value
-  strip("oldText")
   cursorPos = session.selectionStart;
+  strip("oldText")
   
   r = new RegExp("(.|\n){0," + cursorPos + "}\n");  
-  currentLine = ("\n" + oldText).replace(r,'').split("\n")[0];  
-  //console.log(currentLine);
+  currentLine = ("\n" + session.value).replace(r,'').split("\n")[0];  
+  log(currentLine);
   session.value += "\n";
   //session.scrollTop = session.scrollHeight;
   
@@ -140,8 +142,8 @@ function runRequestOnReadyState() {
   var splitOut = output.split(oneTimeToken.slice(1,oneTimeToken.length -1));
   var newLine = splitOut[0];
   newLine = newLine.slice(0, newLine.length - 1);
-  //console.log("NEW: " + newLine);
-  console.log(splitOut)
+  log("NEW: " + newLine);
+  log(splitOut)
   newLine=splitOut[0].slice(0,splitOut[0].length-1)+splitOut[1].slice(!splitOut[0],splitOut[1].length-1)
   if(splitOut.length == 4) {
     GUWSID = splitOut[3].slice(1, splitOut[3].length - 1);
@@ -151,20 +153,20 @@ function runRequestOnReadyState() {
   //  session.value = lastText + "";
   //}
   if (newLine === "") {
-    console.log("no result");
+    log("no result");
     session.value = lastText.slice(0, lastText.length - 6) + currentLine + "\n      ";
   }  // user pressed enter with cursor inside last line of session
                         //← session length→//   //←       length of last line            →//
   else if (cursorPos > oldText.length - oldText.split("\n").slice(-1).length) {
-    console.log("else if:"+(cursorPos > session.value.length - session.value.split("\n").slice(-1).length))
+    log("else if:"+(cursorPos > session.value.length - session.value.split("\n").slice(-1).length))
     session.value = session.value.slice(0,session.value.length - 7)
     session.value = oldText + "\n" + newLine + "\n      "
-    console.log("fresh");
+    log("fresh");
   } else { // user pressed enter on old line (input or output) in session
     session.value = lastText.slice(0,lastText.length - 7)
     strip("session")
     session.value += "\n" + currentLine + "\n" + newLine + "\n      ";
-    console.log("stale");
+    log("stale");
   }
   padSession()
   lastText = session.value;
