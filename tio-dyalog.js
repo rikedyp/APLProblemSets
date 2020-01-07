@@ -1,4 +1,4 @@
-var version = 2.4;
+var version = 2.5;
 var lastRequest;
 var lastResponse;
 var oldText;
@@ -25,7 +25,7 @@ lastText = oldText;
 window.onload = function() {  
   console.log("tio.html v." + version);  
   document.addEventListener("keydown", function(event) {     
-    console.log(event.keyCode);
+    //console.log(event.keyCode);
     if (!disabled && event.keyCode === 13) {  
       submitLine();           
       event.preventDefault();
@@ -35,9 +35,6 @@ window.onload = function() {
     }
   });
   session.value=oldText;
-  session.onscroll = function(e) {
-    console.log(session.scrollTop);
-  }
 }
  
 
@@ -48,7 +45,7 @@ function submitLine() {
   cursorPos = session.selectionStart;
   r = new RegExp("(.|\n){0," + cursorPos + "}\n");  
   currentLine = ("\n" + oldText).replace(r,'').split("\n")[0];  
-  console.log(currentLine);
+  //console.log(currentLine);
   session.value += "\n";
   session.scrollTop = session.scrollHeight;
   
@@ -128,7 +125,7 @@ function runRequestOnReadyState() {
   var splitOut = output.split(oneTimeToken.slice(1,oneTimeToken.length -1));
   var newLine = splitOut[0];
   newLine = newLine.slice(0, newLine.length - 1);
-  console.log("NEW: " + newLine);
+  //console.log("NEW: " + newLine);
   newLine=splitOut[0].slice(0,splitOut[0].length-1)+splitOut[1].slice(!splitOut[0],splitOut[1].length-1)
   if(splitOut.length == 4) {
     GUWSID = splitOut[3].slice(1, splitOut[3].length - 1);
@@ -145,11 +142,11 @@ function runRequestOnReadyState() {
   } else if (cursorPos > session.value.length - session.value.split("\n").slice(-1).length) {
     session.value = session.value.slice(0,session.value.length - 7)
     session.value = oldText + "\n" + newLine + "\n      "
-    console.log("fresh");
+    //console.log("fresh");
   } else {
     session.value = session.value.slice(0,session.value.length - 7)
     session.value += "\n" + currentLine + "\n" + newLine + "\n      ";
-    console.log("stale");
+    //console.log("stale");
   }
   lastText = session.value;
   session.scrollTop = session.scrollHeight + 100;
