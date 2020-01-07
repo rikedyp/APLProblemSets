@@ -23,13 +23,21 @@ lastText = oldText;
 
 window.onload = function() {
   console.log("tio.html v." + version);  
-  document.addEventListener("keydown", function(event) {     
+  document.addEventListener("keydown", function(event) {
+    log(event.keyCode)
     if (!session.disabled && event.keyCode === 13) {  
       submitLine();           
       event.preventDefault();
       session.disabled = true;
       init = false;
-    } else if (event.keyCode === 112) {
+    } else if (event.keyCode === 27) {
+      cursorPos = session.selectionStart;r = new RegExp("(.|\n){0," + cursorPos + "}\n")
+      beginCur=session.value.match(r)[0].length
+      head = session.value.slice(0,beginCur)
+      tail = session.value.slice(beginCur,-1).replace(/.*/,"      ")
+      session.value=head+tail
+      putCursor(beginCur+6)
+  } else if (event.keyCode === 112) {
       window.open("https://help.dyalog.com")
     }
   });
@@ -39,10 +47,12 @@ window.onload = function() {
 
 log=text=>{if(debug){console.log(text)}}
 
+putCursor=p=>session.selectionEnd=session.selectionStart=p
+
 padSession=_=>{
   cursorPos = session.selectionStart;
   session.value+="\n      ".repeat(0)
-  session.selectionEnd=session.selectionStart=cursorPos;
+  putCursor(cursorPos);
 }
 
 strip=what=>{
@@ -52,7 +62,7 @@ strip=what=>{
   }else{
     session.value=session.value.replace(/\s+$/,"");
   }
-  session.selectionEnd=session.selectionStart=cursorPos;
+  putCursor(cursorPos);
 }
 
 function submitLine() {
