@@ -35,28 +35,32 @@ window.onload = function() {
   padSession()
 }
 
-padSession=_=>{return
+padSession=_=>{
   cursorPos = session.selectionStart;
-  session.value+="\n      ".repeat(12)
+  session.value+="\n      ".repeat(0)
   session.selectionEnd=session.selectionStart=cursorPos;
 }
 
-stripSession=_=>{return
+strip=what=>{
   cursorPos = session.selectionStart;
-  session.value=session.value.replace(/\s+$/,"");
+  if (what==="oldText"){
+    oldText=oldText.replace(/\s+$/,"");
+  }else{
+    session.value=session.value.replace(/\s+$/,"");
+  }
   session.selectionEnd=session.selectionStart=cursorPos;
 }
 
 function submitLine() {
-  stripSession()
   oldText=session.value
+  strip("oldText")
   cursorPos = session.selectionStart;
   
   r = new RegExp("(.|\n){0," + cursorPos + "}\n");  
   currentLine = ("\n" + oldText).replace(r,'').split("\n")[0];  
   //console.log(currentLine);
   session.value += "\n";
-  session.scrollTop = session.scrollHeight;
+  //session.scrollTop = session.scrollHeight;
   
   oneTimeToken = "'" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + "'";
   
@@ -65,13 +69,13 @@ function submitLine() {
     CW += "∆WS∆,←'" + line + "'\n";
   });  
   
-  importWS = CW + "'#' ⎕NS 0(220⌶)¯2(219⌶)¯128+256|128+16⊥⍉(⊢⍴⍨2,⍨2÷⍨≢)⎕IO-⍨(⎕D,⎕A)⍳∆WS∆\n⎕EX'∆WS∆'\n";
+  importWS = CW + "'#' ⎕NS 0(220⌶)¯2(219⌶)¯128+256|128+16⊥⍉(⊢⍴⍨2,⍨2÷⍨≢)⎕IO-⍨(⎕D,⎕A)⍳(⎕EX⊢⍎)'∆WS∆'\n";
   
   quadSE = "⎕SE.(⎕WS'Event'('SessionPrint' 'd')⊣⎕CY'dfns')\n⎕SE.d←{(1=≡⍺)∧⍬≡⍴⍺:⎕←⍺dft 0⋄⎕←disp⍺}\n";   
   
   exportWS  = "\n∆WS∆←(⎕D,⎕A)[,⍉⎕IO+16 16⊤256|⎕IO⊃⌽2 9(219⌶)1(220⌶)⎕NS⎕NL-⍳9]\n";  
   exportWS += "∆GUWSID∆←(⎕A,⎕D)[?12⍴36]\n";
-  exportWS += "∆WS∆←2048{((≢⍵)⍴⍺↑1)⊂⍵}∆WS∆\n";
+  exportWS += "∆WS∆←2000{((≢⍵)⍴⍺↑1)⊂⍵}∆WS∆\n";
   exportWS += "⍞←∊(⊂∆GUWSID∆),¨∆WS∆\n⍞←" + oneTimeToken + "\n⍞←∆GUWSID∆\n"
 
   lastRequest = quadSE + importWS + "⍞←" + oneTimeToken + "\n" + currentLine + "\n⍞←" + oneTimeToken + "\n" + exportWS;
@@ -135,6 +139,7 @@ function runRequestOnReadyState() {
   var newLine = splitOut[0];
   newLine = newLine.slice(0, newLine.length - 1);
   //console.log("NEW: " + newLine);
+  console.log(splitOut)
   newLine=splitOut[0].slice(0,splitOut[0].length-1)+splitOut[1].slice(!splitOut[0],splitOut[1].length-1)
   if(splitOut.length == 4) {
     GUWSID = splitOut[3].slice(1, splitOut[3].length - 1);
@@ -154,11 +159,13 @@ function runRequestOnReadyState() {
     session.value = oldText + "\n" + newLine + "\n      "
     console.log("fresh");
   } else { // user pressed enter on old line (input or output) in session
-    session.value = session.value.slice(0,session.value.length - 7)
-    session.value += currentLine + "\n" + newLine + "\n      ";
+    session.value = lastText.slice(0,lastText.length - 7)
+    strip("session")
+    session.value += "\n" + currentLine + "\n" + newLine + "\n      ";
     console.log("stale");
   }
   padSession()
   lastText = session.value;
+  session.scrollTop = session.scrollHeight;
   session.disabled = false;
 }
