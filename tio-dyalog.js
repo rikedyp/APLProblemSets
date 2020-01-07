@@ -1,8 +1,8 @@
-var version = 2.8;
+var version = 2.9;
 var ctrld = false;
 var shiftd = false;
-var debug = true;
-var help = false;
+var debug = false;
+var help = true;
 var lastRequest;
 var lastResponse;
 var submittedLines = [];
@@ -35,20 +35,18 @@ window.onload = function() {
       event.preventDefault();
       session.disabled = true;
       init = false;
+    } else if (shiftd && event.keyCode === 27) {
+      replaceCurrentLine("");
     } else if (help && event.keyCode === 112) {
       // Open help
       window.open("https://help.dyalog.com")
-    } else if ((prevCount > 0) && shiftd && ctrld && event.keyCode === 8) {
-      // Cycle back through submittedLines
-      log("--BACK ONE--");
-      prevCount -= 1;
-      log(prevCount);
-      log(submittedLines[prevCount]);      
-    } else if ((prevCount < submittedLines.length) && shiftd && ctrld && event.keyCode === 13) {
-      // Cycle forwards through submittedLines
-      log("--UP ONE--");
-      prevCount += 1;
-      log(submittedLines[prevCount]);      
+    } else if (shiftd && ctrld) {
+      if (event.keyCode === 8 || event.keyCode === 13) {       
+        log("prevCount0:"+prevCount)
+        prevCount = Math.min(Math.max(-1, prevCount + (event.keyCode - 10.5) / 2.5), submittedLines.length); // 8:-1, 13:+1;        
+        log("prevCount1:"+prevCount)
+        replaceCurrentLine(submittedLines.concat("").slice(prevCount)[0])
+      }      
     }
     if (event.keyCode === 17) {ctrld = true;}
     if (event.keyCode === 16) {shiftd = true;}
@@ -63,10 +61,23 @@ window.onload = function() {
 
 log=text=>{if(debug){console.log(text)}}
 
+putCursor=p=>session.selectionEnd=session.selectionStart=p
+
+replaceCurrentLine=text=>{
+  cursorPos = session.selectionStart
+  r = new RegExp("(.|\n){0," + (cursorPos-1) + "}\n")
+  beginCur=session.value.match(r)[0].length
+  head = session.value.slice(0,beginCur)
+  tail = session.value.slice(beginCur,session.value.length).replace(/.*/,"      ")
+  log(tail)
+  session.value=head + text + tail
+  putCursor(beginCur+6)
+}
+
 padSession=_=>{
   cursorPos = session.selectionStart;
   session.value+="\n      ".repeat(0)
-  session.selectionEnd=session.selectionStart=cursorPos;
+  putCursor(cursorPos);
 }
 
 strip=what=>{
@@ -76,7 +87,7 @@ strip=what=>{
   }else{
     session.value=session.value.replace(/\s+$/,"");
   }
-  session.selectionEnd=session.selectionStart=cursorPos;
+  putCursor(cursorPos);
 }
 
 getCurrentLine=_=>{
