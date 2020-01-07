@@ -1,5 +1,6 @@
 var version = 2.8;
 var debug = false
+var help = true;
 var lastRequest;
 var lastResponse;
 var oldText;
@@ -29,7 +30,7 @@ window.onload = function() {
       event.preventDefault();
       session.disabled = true;
       init = false;
-    } else if (event.keyCode === 112) {
+    } else if (help && event.keyCode === 112) {
       window.open("https://help.dyalog.com")
     }
   });
