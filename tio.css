@@ -14,6 +14,8 @@ textarea{
   padding: 0 0.5ex;
   margin: 0;
 }
+.b{filter:invert(1)}  .g{filter:invert(0.85)}
+
 .ngn_lb{position:fixed;top:0;left:0;right:0;background-color:#eee;color:#000;
   border-bottom:solid #999 2px;padding:2px;word-wrap:break-word;user-select:none}
 .ngn_lb b{cursor:pointer;padding:0 2px;font-weight:normal}

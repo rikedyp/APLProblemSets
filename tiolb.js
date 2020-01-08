@@ -27,13 +27,13 @@ let lbh='';for(let i=0;i<lbs.length;i++){
   for(let j=0;j<bqk.length;j++)if(lbs[i][0]===bqv[j])ks.push('\n` '+bqk[j])
   lbh+='<b title="'+he(lbs[i].slice(1)+(ks.length?'\n'+ks.join(''):''))+'">'+lbs[i][0]+'</b>'
 }
-let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb><span class=ngn_x title=Close>❌&#xFE0E;</span><a class=help href=https://help.dyalog.com target=_blank>❓&#xFE0E;</a>${lbh}</div>`
+let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb><span class=ngn_x title="Hide language bar (access-key: X)" onclick=hide();upd();pd(x) accesskey=x>❌&#xFE0E;</span><a class=help title="Languge help (access-key: H)" href=http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm target=_blank>❓&#xFE0E;</a>${lbh}</div>`
 d.body.appendChild(el)
 let t,ts=[],lb=el.firstChild,bqm=0 //t:textarea or input, lb:language bar, bqm:backquote mode
 let pd=x=>x.preventDefault()
 let ev=(x,t,f,c)=>x.addEventListener(t,f,c)
 ev(lb,'mousedown',x=>{
-  if(x.target.classList.contains('ngn_x')){hide();upd();pd(x);return}
+  //if(x.target.classList.contains('ngn_x')){hide();upd();pd(x);return}
   if(x.target.nodeName==='B'&&t){
     let i=t.selectionStart,j=t.selectionEnd,v=t.value,s=x.target.textContent
     if(i!=null&&j!=null){t.value=v.slice(0,i)+s+v.slice(j);t.selectionStart=t.selectionEnd=i+s.length}

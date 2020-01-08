@@ -1,4 +1,4 @@
-var version = 2.9;
+var version = 2.10;
 var ctrld = false;
 var shiftd = false;
 var debug = false;
@@ -27,6 +27,8 @@ lastText = oldText;
 
 window.onload = function() {
   console.log("tio.html v." + version);  
+  var s=new URLSearchParams(location.search)
+  html.className=0==s.get("g")?"g":0==s.get("b")?"b":""
   document.addEventListener("keydown", function(event) {     
     log(event.keyCode);
     if (!shiftd && !ctrld && !session.disabled && event.keyCode === 13) {  

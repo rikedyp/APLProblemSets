@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id=html>
   <head>
     <title>Try APL online!</title>
     <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -8,7 +8,12 @@
     <script src="pako.min.js"></script> 
   </head>
   <body>
-    <div class=minibar><a class=help href=https://help.dyalog.com target=_blank>❓&#xFE0E;</a><span class=ngn_o onclick=show()>➕&#xFE0E;</span></div>
+    <div class=minibar>
+      <a class=help href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm" target=_blank title="Languge help (access-key: H)" accesskey=h>❓&#xFE0E;</a><span title="Show language bar (access-key: S)" accesskey=s class=ngn_o onclick=show()>➕&#xFE0E;</span>
+      <i accesskey="w" onclick="html.className=this.accessKey"></i>
+      <i accesskey="g" onclick="html.className=this.accessKey"></i>
+      <i accesskey="b" onclick="html.className=this.accessKey"></i>
+    </div>
     <textarea spellcheck=false id="session" autofocus wrap="off"></textarea>
     <script src="tiolb.js"></script>
   </body>
