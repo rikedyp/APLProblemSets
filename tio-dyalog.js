@@ -1,4 +1,4 @@
-var version = 2.10;
+var version = 2.11;
 var ctrld = false;
 var shiftd = false;
 var debug = false;
