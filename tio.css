@@ -18,14 +18,14 @@ textarea{
 .b{filter:invert(1) hue-rotate(180deg)}  .g{filter:invert(0.85) hue-rotate(180deg)}
 
 .ngn_lb{position:fixed;top:0;left:0;right:0;background-color:#eee;color:#000;
-  border-bottom:solid #999 2px;padding:2px;word-wrap:break-word;user-select:none}
+  border-bottom:solid #ddd 2px;padding:2px;word-wrap:break-word;user-select:none}
 .ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;}
 .ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#777;color:#fff}
 
 .ngn_x,.help{float:right;color:#999;cursor:pointer;margin-top:-3px}
 .ngn_x:hover{color:#f00}
 
-.minibar {position: fixed;right: -2px;top: -2px;background: #eee;border: 2px solid #999;
+.minibar {position: fixed;right: -2px;top: -2px;background: #eee;border: 2px solid #ddd;
   padding: 0 3px;cursor: pointer;color:#999;user-select:none}
 .minibar {margin-top:-1px}
 
