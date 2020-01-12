@@ -22,9 +22,10 @@ textarea{
 .ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;}
 .ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#777;color:#fff}
 
-.ngn_x,.help{float:right;color:#999;cursor:pointer;margin-top:-3px}
+.ngn_x,.help,.ngn_o{float:right;color:#999;cursor:pointer}
+.ngn_x{margin-top:-3px}
 .ngn_x:hover{color:#f00}
-
+.ngn_lb .help {margin: -3px 1px}
 .minibar {position: fixed;right: -2px;top: -2px;background: #eee;border: 2px solid #ddd;
   padding: 0 3px;cursor: pointer;color:#999;user-select:none}
 .minibar {margin-top:-1px}
