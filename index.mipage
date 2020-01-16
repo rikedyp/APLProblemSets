@@ -1,0 +1,6 @@
+﻿:Class index : MiPage
+    ∇ Compose
+      :Access public
+      Add _.Redirect'/index.html'
+    ∇
+:EndClass

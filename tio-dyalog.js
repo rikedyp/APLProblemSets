@@ -1,4 +1,5 @@
-var version = 2.11;
+var version = 2.14;
+var prevCount = 0;
 var ctrld = false;
 var shiftd = false;
 var debug = false;
@@ -28,10 +29,12 @@ lastText = oldText;
 window.onload = function() {
   console.log("tio.html v." + version);  
   var s=new URLSearchParams(location.search)
-  html.className=0==s.get("g")?"g":0==s.get("b")?"b":""
+  html.className=0==s.get("g")?"g":0==s.get("b")?"b":""  
+  // Handle keyboard input
   document.addEventListener("keydown", function(event) {     
     log(event.keyCode);
     if (!shiftd && !ctrld && !session.disabled && event.keyCode === 13) {  
+      // Recall submittedLines
       prevCount = submittedLines.length + 1;
       submitLine();           
       event.preventDefault();
@@ -48,7 +51,7 @@ window.onload = function() {
         prevCount = Math.min(Math.max(-1, prevCount + (event.keyCode - 10.5) / 2.5), submittedLines.length); // 8:-1, 13:+1;        
         log("prevCount1:"+prevCount)
         replaceCurrentLine(submittedLines.concat("").slice(prevCount)[0])
-      }      
+      } 
     }
     if (event.keyCode === 17) {ctrld = true;}
     if (event.keyCode === 16) {shiftd = true;}
@@ -58,7 +61,13 @@ window.onload = function() {
     if (event.keyCode === 16) {shiftd = false;}
   });
   session.value=oldText;
-  padSession()
+  // Handle URL queries
+  if (expr = s.get("a")) {session.value += decodeURIComponent(expr); if(null!=s.get("run")) {submitLine();prevCount += 1;}}   
+}
+
+permaLink=_=>{
+  currentLine = getCurrentLine()
+  history.replaceState({},document.title,location.pathname + "?a=" + encodeURIComponent(currentLine.trim()) + "&run");
 }
 
 log=text=>{if(debug){console.log(text)}}
