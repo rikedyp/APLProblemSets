@@ -53,10 +53,11 @@ sessionFS=_=>{
   fs = !fs;
 }
 
-nbnext=_=>{
+nbnext=dir=>{
   log("next");
   cell = currentBook.cells[currentCell]
   log(cell);
+  if (dir) {
   switch (cell.cell_type) {
     case "code":
       session.value += cell.source;
@@ -69,6 +70,9 @@ nbnext=_=>{
       MathJax.typeset(["#mdrender"]);      
   }
   currentCell += 1;
+  } else {
+    log("backwards");
+  }
 }
 
 clickAPL=code=>{
@@ -78,11 +82,22 @@ clickAPL=code=>{
 nbload=id=> {
   url = $(id).value;
   log("running notebook @:" + url);  
-  fetch(nburl(url)).then((response)=>{
-    return response.json();
-  }).then((json)=>{   
-    currentBook = json;      
+  fetch(nburl(url)).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("Error loading notebook");
+    }
+  })    
+  .then((json) => {   
+    currentBook = json;  
+    nbnext(1);
   })
+  .catch((err) => {
+    log("the bad bad");
+    log(err);
+    mdrender.innerHTML = "Error loading notebook";
+  });  
 }
 
 nburl=url=> {
