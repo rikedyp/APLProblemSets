@@ -84,6 +84,7 @@ nbLoad=id=> {
 nbNext=dir=>{
   // Render (∧,∨) execute next ∨ previous cell
   log("next");
+  mdrender.style.display = "block";
   cell = currentBook.cells[currentCell]
   log(cell);
   if (dir) {
@@ -93,7 +94,7 @@ nbNext=dir=>{
         session.value += cell.source;
         putCursor(session.value.length);
         submitLine();
-      default:
+      default:        
         var div = document.createElement("div");
         div.innerHTML += marked(cell.source[0]);
         mdrender.appendChild(div);
@@ -115,6 +116,7 @@ nbReload=_=>{
   mdrender.innerHTML = "";
   currentCell = 0;
   nbNext(1);  
+  mdrender.style.display = "none";
 }
 
 nbClose=_=>{

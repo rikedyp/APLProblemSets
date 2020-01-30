@@ -18,12 +18,12 @@
         <button class="tablink" id="hiTab" onclick="showTab('hi')">Hi!</button>
         <button class="tablink" id="learnTab" onclick="showTab('learn')">Learn</button>
         <button class="tablink" id="linksTab" onclick="showTab('links')">Links</button>
+        <button class="tablink" id="layoutTab" onclick="showTab('layout')">Layout</button>
       </div>
       <div class="content" id="hi">
         <h3>Hi!</h3>        
       </div>      
-      <div class="content" id="learn">        
-        <div id="mdrender"></div>
+      <div class="content grid" id="learn">                
         <div id="loadnb">
           <h2>Learn APL with Dyalog Jupyter notebooks</h2>
           <input type="text" placeholder="Notebook URL" id="nbURL"/>
@@ -31,13 +31,24 @@
           <h4>APL Basics</h4>
           <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
         </div>
-        <br><br>
-        <div class="hidden" id="learnButtons">
-          <button onclick="nbNext(0)" title="Previous cell">←</button>
-          <button onclick="nbNext(1)" title="Next cell">→</button>      
-          <button onclick="nbReload()" title="Restart notebook">↻</button> 
-          <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
-        </div>
+        
+        <!-- <table border="solid 1px"> -->
+          <!-- <tr> -->
+            <!-- <td> -->
+            <div id="mdrender"></div>
+            <!-- </td> -->
+          <!-- </tr> -->
+          <!-- <tr></tr> -->
+          <!-- <tr> -->
+            <div class="hidden" id="learnButtons">
+              <button onclick="nbNext(0)" title="Previous cell">←</button>
+              <button onclick="nbNext(1)" title="Next cell">→</button>      
+              <button onclick="nbReload()" title="Restart notebook">↻</button> 
+              <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
+            </div>
+            <div></div>
+          <!-- </tr> -->
+        </table>
       </div>
       <div class="content" id="links">
         <h3>Hi!</h3>   
@@ -46,6 +57,12 @@
         $$a = \sum_{n=1}^{100}n $$ <br>
         aslhfuskehfjslkefhlase hfkalseihf esf aslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esf
       </div>  
+      <div class="content grid" id="layout">
+        <div>Top content <button>button</button>
+        </div>        
+        <div>Middle flexible content</div>
+        </div><button>left</button><button>right</button></div>
+      </div>
     </div>
       <div id="rightPane" class="split">
         <div class=minibar>

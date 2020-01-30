@@ -31,6 +31,8 @@ pre, code {
 .hidden {
   visibility: hidden;  
   opacity: 0;
+  position: absolute;
+  top: -1000em;  
 }
 .split, .gutter.gutter-horizontal {
   float: left;
@@ -54,6 +56,9 @@ pre, code {
 .content.active {
   display: block;
 }
+.grid.active {
+  display: grid;
+}
 .tablink {
   border-radius: 1em 1em 0 0;
   border-bottom: none;
@@ -71,24 +76,27 @@ pre, code {
   overflow-y:auto;  
 }
 #tabs {
-  height: 2em;  
+  height: 1.5em;  
   overflow: hidden;
-  display: flex;
+  display: flex;  
 }
 #loadnb a {
   text-decoration: underline;
   cursor: pointer;
 }
 #learnButtons {  
-  bottom: 3em;
-  margin: auto;
-  /* display: block; */
+  bottom: 1.5em;
+  margin: auto;  
 }
 #learnButtons button {  
   height: 2em;
   width: 3em;
   font-size: larger;    
   padding-bottom: 0.3em;
+}
+#mdrender {
+  min-height: calc(100vh - 7em);
+  display: none;
 }
 #mdrender > *{
   padding: 0;
