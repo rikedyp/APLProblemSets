@@ -110,6 +110,14 @@ pre, code {
   resize: none;
   padding:0.2em 0 0.2em 1em;
 }
+code.apl {
+  font-family: "APL385";
+  cursor: pointer;
+  color: #800080;
+}
+code.apl:hover {
+  color: #420042;
+}
 #full {
   position: relative;
   top: calc(50% - 70px);

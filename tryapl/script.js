@@ -27,6 +27,10 @@ window.onload=_=>{
   gutter.innerHTML += "<span id='full' onmousedown='leftPane.style.transition = \"width 0.15s\";sessionFS();'><svg width='8' height='16' id='triangle'><polygon points='0,8 8,16 8,0'/></svg></span>";
   hi.classList.add("active");
   hiTab.classList.add("active"); 
+  $$("code.apl").forEach(fn=el=>{
+    el.onclick = clickAPL;
+    console.log(el);
+  });
 }
 
 paneDrag=s=>{
@@ -68,7 +72,10 @@ sessionFS=_=>{
 }
 
 clickAPL=code=>{
-  log("clicked APL code");
+  log("clicked APL code " + code.target.innerHTML);
+  // session.value += code.target.innerHTML;
+  replaceCurrentLine("      " + code.target.innerHTML);
+  putCursor(session.value.length);
 }
 
 nbLoad=id=> {
