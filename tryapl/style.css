@@ -61,6 +61,7 @@ pre, code {
 }
 #leftPane{
   overflow-y:auto;
+  transition: width 0.15s;
 }
 #tabs {
   height: 2em;  
