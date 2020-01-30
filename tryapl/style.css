@@ -120,10 +120,10 @@ pre, code {
 
 .b{filter:invert(1) hue-rotate(180deg)}  .g{filter:invert(0.85) hue-rotate(180deg)}
 
-.ngn_lb{position:fixed;top:0;left:0;right:0;background: linear-gradient(140deg,#9040b4 20%,#c577d2 50%,#9040b4 95%,white 110%);color:#fff;
-  border-bottom:solid #ddd 2px;padding:2px;word-wrap:break-word;user-select:none}
-.ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;font-family:"APL385";font-size:1.2em}
-.ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#7f00b9;color:#fff}
+.ngn_lb{position:fixed;top:0;left:0;right:0;background:radial-gradient(farthest-corner at 100% 100%,#fff -30%,#c577d2 30%,#9040b4 100%);color:#fff;
+  ;padding:2px;word-wrap:break-word;user-select:none}
+.ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;font-family:"APL385";font-size:1.2em;text-shadow:0px 0px 2px black}
+.ngn_lb b:hover,.ngn_bq .ngn_lb{background:#7f00b9;color:#fff}
 
 .ngn_x,.help,.ngn_o{float:right;color:#999;cursor:pointer}
 .ngn_x{margin-top:-3px}
