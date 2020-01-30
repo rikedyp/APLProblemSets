@@ -22,9 +22,13 @@ window.onload=_=>{
     minSize: [0,250]
   })    
   loadTioDyalog();
-  $(".gutter").innerHTML += "<span id='full' onclick='sessionFS()'>◀</span>";
+  gutter = $(".gutter");  
+  gutter.innerHTML += "<span id='full' onmousedown='leftPane.style.transition = \"width 0.15s\";sessionFS();' onmouseup='leftPane.style.transition = \"unset\"'>◀</span>";
   hi.classList.add("active");
   hiTab.classList.add("active");
+  // full.mousedown(_=>{leftPane.style.transition = "width 0.15s"});
+  // full.mouseup(_=>{leftPane.style.transition = "unset"});
+  
 }
 
 showTab=id=>{
@@ -39,18 +43,18 @@ showTab=id=>{
   })
 }
 
-sessionFS=_=>{  
+sessionFS=_=>{    
   if (fs) {    
     // session spit screen
     splitPanes.setSizes(paneSizes);
     full.innerHTML = "◀"; // Left triangle     
   } else {
-    // session full screen 
+    // session full screen     
     paneSizes = splitPanes.getSizes();
     splitPanes.setSizes([0,100]);    
-    $("#full").innerHTML = "▶"; // Right triangle    
+    $("#full").innerHTML = "▶"; // Right triangle        
   }  
-  fs = !fs;
+  fs = !fs;  
 }
 
 nbnext=dir=>{

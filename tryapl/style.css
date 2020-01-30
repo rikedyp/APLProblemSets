@@ -14,8 +14,8 @@
   font-family: "APL385";
   src: url("assets/apl385.ttf");
 }
-* {
-  font-family: "SC";
+body, h1, h2, h3 {
+  font-family: sans-serif;
 }
 body {
   margin: 0;
@@ -60,8 +60,7 @@ pre, code {
   color: #000;
 }
 #leftPane{
-  overflow-y:auto;
-  transition: width 0.15s;
+  overflow-y:auto;  
 }
 #tabs {
   height: 2em;  
