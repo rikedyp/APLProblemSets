@@ -39,14 +39,13 @@ showTab=id=>{
   })
 }
 
-sessionFS=_=>{
-  // Full screen session pane  
-  if (fs) {
-    log("from FS")
+sessionFS=_=>{  
+  if (fs) {    
+    // session spit screen
     splitPanes.setSizes(paneSizes);
     full.innerHTML = "◀"; // Left triangle     
   } else {
-    log("to FS");
+    // session full screen 
     paneSizes = splitPanes.getSizes();
     splitPanes.setSizes([0,100]);    
     $("#full").innerHTML = "▶"; // Right triangle    
@@ -67,8 +66,7 @@ nbnext=_=>{
       mdrender.innerHTML += marked(cell.source[0]) + " <br>";
       MathJax.texReset();
       MathJax.typesetClear();
-      MathJax.typeset(["#mdrender"]);
-      // mdrender.innerHTML = marked(mdrender.innerHTML);
+      MathJax.typeset(["#mdrender"]);      
   }
   currentCell += 1;
 }
