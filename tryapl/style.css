@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "iosevka";
+  src: url("assets/iosevka-ss09-regular.ttf");
+}
+@font-face {
+  font-family: "SC";
+  src: url("assets/SourceCodeVariable-Roman.ttf");
+}
+@font-face {
+  font-family: "DV";
+  src: url("assets/DejaVuSansMono.ttf");
+}
+@font-face {
+  font-family: "APL385";
+  src: url("assets/apl385.ttf");
+}
+* {
+  font-family: "SC";
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+pre, code {
+  font-family: "iosevka";
+}
+.split, .gutter.gutter-horizontal {
+    float: left;
+}
+.gutter.gutter-horizontal {
+  cursor: ew-resize;
+  background: #ccc;
+  height: 100vh;  
+}
+.gutter-horizontal:before {
+  content: "║";
+  top: calc(50% - 4.5ex);
+  position: relative;
+}
+.content {
+  padding: 1ex 1em;
+  overflow-y: auto;
+  display: none;
+  height: calc(100vh - 3em);
+}
+.content.active {
+  display: block;
+}
+.tablink {
+  border-radius: 1em 1em 0 0;
+  border-bottom: none;
+  background: #eee;
+}
+.tablink:hover {
+  background: #b264c7;
+  color: white;
+}
+.tablink.active{
+  background: white;
+  color: #000;
+}
+#leftPane{
+  overflow-y:auto;
+}
+#tabs {
+  height: 3em;  
+  overflow: hidden;
+  display: flex;
+}
+#session {
+  font-family: "APL385";
+  /* letter-spacing: 0.1ex; */
+  width: calc(100% - 5ex);
+  height: calc(100vh - 2.1em)!important;
+  border: none;
+  resize: none;
+  padding:0.2em 1em;
+}
+#full {
+  position: relative;
+  top: calc(50% - 4.15em);
+  padding: 1.5ex 0.1em 0 0;
+  background: 
+  #999;
+  border-radius: 0 1ex 1ex 0;
+  height: 2em;
+  cursor: pointer;
+  display: inline-block;
+  left: 10px;
+}
+.gutter, #full {
+  opacity: 0.7;
+}
+.gutter:hover, #full:hover {
+  opacity: 1;
+}
+/* language bar */
+
+.b{filter:invert(1) hue-rotate(180deg)}  .g{filter:invert(0.85) hue-rotate(180deg)}
+
+.ngn_lb{position:fixed;top:0;left:0;right:0;background: linear-gradient(140deg,#9040b4 20%,#c577d2 50%,#9040b4 95%,white 110%);color:#fff;
+  border-bottom:solid #ddd 2px;padding:2px;word-wrap:break-word;user-select:none}
+.ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;font-family:"APL385";font-size:1.2em}
+.ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#7f00b9;color:#fff}
+
+.ngn_x,.help,.ngn_o{float:right;color:#999;cursor:pointer}
+.ngn_x{margin-top:-3px}
+.ngn_x:hover{color:#f00}
+.ngn_lb .help {margin: -4px 1px}
+.minibar {position: fixed;right: -2px;top: -2px;background: #eee;border: 2px solid #ddd;
+  padding: 0 3px;cursor: pointer;color:#999;user-select:none}
+.minibar {margin-top:-1px}
+
+.ngn_o:hover{color:#0f0}

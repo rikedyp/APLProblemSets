@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en" id=html>
+  <head>
+    <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Try APL 2020!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>    
+    <script src="lib/pako.min.js"></script> 
+    <script src="lib/split.min.js"></script> 
+    <script src="lib/tio-dyalog.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>   
+    <div id="leftPane" class="split">
+      <div id="tabs">
+        <button class="tablink" id="hiTab" onclick="showTab('hi')">Hi!</button>
+        <button class="tablink" id="learnTab" onclick="showTab('learn')">Learn</button>
+        <button class="tablink" id="linksTab" onclick="showTab('links')">Links</button>
+      </div>
+      <div class="content" id="hi">
+        <h3>Hi!</h3>        
+      </div>      
+      <div class="content" id="learn">
+        <h3>Render & execute Dyalog Jupyter NB</h3>
+        <input type="text" value="https://github.com/rikedyp/LearnAPL/blob/master/Introductions/Maths/IntroProblems.ipynb" id="nbURL"/>
+        <button onclick="nbload('#nbURL')">Load Notebook</button>
+        <br><br>
+        <button onclick="nbnext()">Next</button>
+        <div id="mdrender"></div>
+      </div>
+      <div class="content" id="links">
+        <h3>Hi!</h3>   
+        Here is some text <br>
+        Inline maths $a = \sum_{n=1}^{100}n $        ←←←
+        $$a = \sum_{n=1}^{100}n $$
+      </div>  
+    </div>
+      <div id="rightPane" class="split">
+        <div class=minibar>
+          <span title="Show language bar (access-key: s)" accesskey=s class=ngn_o onclick=show()>➕&#xFE0E;</span>
+          <!-- <i accesskey="w" onclick="html.className=this.accessKey"></i> -->
+          <!-- <i accesskey="g" onclick="html.className=this.accessKey"></i> -->
+          <!-- <i accesskey="b" onclick="html.className=this.accessKey"></i> -->
+          <i accesskey="l" onclick="permaLink()"></i>
+        </div>
+        <textarea spellcheck=false id="session" autofocus wrap="off"></textarea>
+        
+    </div>
+    <script src="lib/tiolb.js"></script>
+  </body>
+</html>
