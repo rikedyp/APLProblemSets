@@ -2,7 +2,7 @@ var apltioversion = 2.15;
 var prevCount = 0;
 var ctrld = false;
 var shiftd = false;
-var debug = true;
+var debug = false;
 var help = false;
 var lastRequest;
 var lastResponse;
