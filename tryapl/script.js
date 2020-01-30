@@ -19,13 +19,19 @@ window.onload=_=>{
   log("TryAPL v." + version);
   splitPanes = Split(["#leftPane", "#rightPane"], {
     sizes: [40, 60],
-    minSize: [0,250]
+    minSize: [0,250],
+    onDrag: paneDrag
   })    
   loadTioDyalog();
   gutter = $(".gutter");  
-  gutter.innerHTML += "<span id='full' onmousedown='leftPane.style.transition = \"width 0.15s\";sessionFS();' onmouseup='leftPane.style.transition = \"unset\"'>◀</span>";
+  gutter.innerHTML += "<span id='full' onmousedown='leftPane.style.transition = \"width 0.15s\";sessionFS();' onmouseup='leftPane.style.transition = \"unset\"'><svg width='8' height='16' id='triangle'><polygon points='0,8 8,16 8,0'/></svg></span>";
   hi.classList.add("active");
   hiTab.classList.add("active"); 
+}
+
+paneDrag=_=>{
+  log("draggg")
+  log(_);
 }
 
 showTab=id=>{
@@ -42,14 +48,14 @@ showTab=id=>{
 
 sessionFS=_=>{    
   if (fs) {    
-    // session spit screen
-    splitPanes.setSizes(paneSizes);
-    full.innerHTML = "◀"; // Left triangle     
+    // session split screen
+    triangle.classList.remove("flip");
+    splitPanes.setSizes(paneSizes);       
   } else {
     // session full screen     
+    triangle.classList.add("flip")
     paneSizes = splitPanes.getSizes();
     splitPanes.setSizes([0,100]);    
-    $("#full").innerHTML = "▶"; // Right triangle        
   }  
   fs = !fs;  
 }
@@ -97,8 +103,7 @@ nbNext=dir=>{
       default:        
         var div = document.createElement("div");
         div.innerHTML += marked(cell.source[0]);
-        mdrender.appendChild(div);
-        // mdrender.innerHTML += marked(cell.source[0]) + " <br>";
+        mdrender.appendChild(div);        
         MathJax.texReset();
         MathJax.typesetClear();
         MathJax.typeset(["#mdrender"]);      
@@ -115,14 +120,14 @@ nbNext=dir=>{
 nbReload=_=>{
   mdrender.innerHTML = "";
   currentCell = 0;
-  nbNext(1);  
-  mdrender.style.display = "none";
+  nbNext(1);    
 }
 
 nbClose=_=>{
   log("close");
   learnButtons.classList.add("hidden");
   loadnb.classList.remove("hidden");
+  mdrender.style.display = "none";
   mdrender.innerHTML = "";
   currentCell = 0;
 }

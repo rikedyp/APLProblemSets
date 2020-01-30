@@ -31,24 +31,14 @@
           <h4>APL Basics</h4>
           <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
         </div>
-        
-        <!-- <table border="solid 1px"> -->
-          <!-- <tr> -->
-            <!-- <td> -->
-            <div id="mdrender"></div>
-            <!-- </td> -->
-          <!-- </tr> -->
-          <!-- <tr></tr> -->
-          <!-- <tr> -->
-            <div class="hidden" id="learnButtons">
-              <button onclick="nbNext(0)" title="Previous cell">←</button>
-              <button onclick="nbNext(1)" title="Next cell">→</button>      
-              <button onclick="nbReload()" title="Restart notebook">↻</button> 
-              <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
-            </div>
-            <div></div>
-          <!-- </tr> -->
-        </table>
+        <div id="mdrender"></div>
+        <div class="hidden" id="learnButtons">
+          <button onclick="nbNext(0)" title="Previous cell">←</button>
+          <button onclick="nbNext(1)" title="Next cell">→</button>      
+          <button onclick="nbReload()" title="Restart notebook">↻</button> 
+          <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
+        </div>
+        <div style="height:1em"></div>                 
       </div>
       <div class="content" id="links">
         <h3>Hi!</h3>   

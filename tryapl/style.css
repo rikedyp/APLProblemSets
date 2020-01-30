@@ -93,6 +93,7 @@ pre, code {
   width: 3em;
   font-size: larger;    
   padding-bottom: 0.3em;
+  background: linear-gradient(140deg,#9040b4 20%,#c577d2 50%,#9040b4 95%,white 110%);
 }
 #mdrender {
   min-height: calc(100vh - 7em);
@@ -111,15 +112,17 @@ pre, code {
 }
 #full {
   position: relative;
-  top: calc(50% - 4.15em);
-  padding: 1.5ex 0.1em 0 0;
-  background: 
-  #999;
-  border-radius: 0 1ex 1ex 0;
-  height: 2em;
+  top: calc(50% - 70px);
+  padding: 16px 3px 12.5px 1px;
+  background: #999;
+  border-radius: 0 10px 10px 0;
   cursor: pointer;
   display: inline-block;
   left: 10px;
+  /* font-size: 0.9em;   */
+}
+#triangle.flip {
+  transform: scaleX(-1);
 }
 .gutter, #full {
   opacity: 0.7;
