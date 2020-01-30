@@ -131,7 +131,7 @@ pre, code {
 
 .b{filter:invert(1) hue-rotate(180deg)}  .g{filter:invert(0.85) hue-rotate(180deg)}
 
-.ngn_lb{position:fixed;top:0;left:0;right:0;box-shadow:0 -1em 1em inset #c472cfbackground:radial-gradient(farthest-corner at 100% 100%,#fff 0%,#ba63d0 30%,#9244b9 100%);color:#fff;
+.ngn_lb{position:fixed;top:0;left:0;right:0;box-shadow:0 -1em 1em inset #c472cfbackground;radial-gradient(farthest-corner at 100% 100%,#fff 0%,#ba63d0 30%,#9244b9 100%);color:#fff;
   padding:2px;word-wrap:break-word;user-select:none}
 
 .ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;font-family:"APL385";font-size:1.2em}
