@@ -118,6 +118,27 @@ code.apl {
 code.apl:hover {
   color: #420042;
 }
+#primerGlyphs td .tba {
+    height: 28px;
+    font-family: APLFont, monospace;
+    background: #e6e6e6;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 1px 4px;
+    margin: 0px 3px 0px 0px;
+    border-radius: 3px;
+    border: none;
+    background: none;
+    margin: 0;
+    color: 
+    purple;
+    cursor: pointer;
+}
+#primerGlyphs td .tba:hover {
+  background: #c06ece;
+  color: #fff;
+}
 #full {
   position: relative;
   top: calc(50% - 70px);
