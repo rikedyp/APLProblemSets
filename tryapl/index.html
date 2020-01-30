@@ -17,13 +17,17 @@
       <div id="tabs">
         <button class="tablink" id="hiTab" onclick="showTab('hi')">Hi!</button>
         <button class="tablink" id="learnTab" onclick="showTab('learn')">Learn</button>
+        <button class="tablink" id="primerTab" onclick="showTab('primer')">Primer</button>
         <button class="tablink" id="linksTab" onclick="showTab('links')">Links</button>
         <button class="tablink" id="layoutTab" onclick="showTab('layout')">Layout</button>
       </div>
       <div class="content" id="hi">
-        <h3>Hi!</h3>        
+        <h3>Got a minute? - Try APL!</h3>
+        APL is an array-oriented programming language that will change the way you think about problems and data. With a powerful, concise syntax, APL lets you develop shorter programs that enable you to think more about the problem you're trying to solve rather than how to express it to a computer. You can <a target="_blank" href="http://www.dyalog.com/download-zone.htm">get a free copy</a> to install on your own computer, or try APL now by entering an expression, or clicking one of these expressions, to see it in action:        
+        <hr>
+        <code class="apl">2 + 2</code>   ⍝ No points for guessing the answer to this
       </div>      
-      <div class="content grid" id="learn">                
+      <div class="content grid" id="learn">       
         <div id="loadnb">
           <h2>Learn APL with Dyalog Jupyter notebooks</h2>
           <input type="text" placeholder="Notebook URL" id="nbURL"/>
@@ -39,6 +43,147 @@
           <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
         </div>
         <div style="height:1em"></div>                 
+      </div>
+      <div class="content" id="primer">
+        <h3>APL Cheat Sheet</h3>        
+        <div id="primerGlyphs">
+          <h4>Mathematics</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('+');" type="button" value="+"></td>
+                <td><input class="tba" onclick="insertLine('-');" type="button" value="-"></td>
+                <td><input class="tba" onclick="insertLine('÷');" type="button" value="÷"></td>
+                <td><input class="tba" onclick="insertLine('×');" type="button" value="×"></td>
+                <td><input class="tba" onclick="insertLine('⌈');" type="button" value="⌈"></td>
+                <td><input class="tba" onclick="insertLine('⌊');" type="button" value="⌊"></td>
+                <td><input class="tba" onclick="insertLine('*');" type="button" value="*"></td>
+                <td><input class="tba" onclick="insertLine('!');" type="button" value="!"></td>
+                <td><input class="tba" onclick="insertLine('|');" type="button" value="|"></td>
+                <td><input class="tba" onclick="insertLine('⍟');" type="button" value="⍟"></td>
+                <td><input class="tba" onclick="insertLine('○');" type="button" value="○"></td>
+                <td><input class="tba" onclick="insertLine('⌹');" type="button" value="⌹"></td>
+                <td><input class="tba" onclick="insertLine('⊥');" type="button" value="⊥"></td>
+                <td><input class="tba" onclick="insertLine('⊤');" type="button" value="⊤"></td>
+                <td><input class="tba" onclick="insertLine('?');" type="button" value="?"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Logic and Comparison</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('∧');" type="button" value="∧"></td>
+                <td><input class="tba" onclick="insertLine('∨');" type="button" value="∨"></td>
+                <td><input class="tba" onclick="insertLine('⍲');" type="button" value="⍲"></td>
+                <td><input class="tba" onclick="insertLine('⍱');" type="button" value="⍱"></td>
+                <td><input class="tba" onclick="insertLine('<');" type="button" value="<"></td>
+                <td><input class="tba" onclick="insertLine('>');" type="button" value=">"></td>
+                <td><input class="tba" onclick="insertLine('≤');" type="button" value="≤"></td>
+                <td><input class="tba" onclick="insertLine('≥');" type="button" value="≥"></td>
+                <td><input class="tba" onclick="insertLine('=');" type="button" value="="></td>
+                <td><input class="tba" onclick="insertLine('≠');" type="button" value="≠"></td>
+                <td><input class="tba" onclick="insertLine('≡');" type="button" value="≡"></td>
+                <td><input class="tba" onclick="insertLine('≢');" type="button" value="≢"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Structural</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('⍴');" type="button" value="⍴"></td>
+                <td><input class="tba" onclick="insertLine(',');" type="button" value=","></td>
+                <td><input class="tba" onclick="insertLine('⍪');" type="button" value="⍪"></td>
+                <td><input class="tba" onclick="insertLine('⌽');" type="button" value="⌽"></td>
+                <td><input class="tba" onclick="insertLine('⊖');" type="button" value="⊖"></td>
+                <td><input class="tba" onclick="insertLine('⍉');" type="button" value="⍉"></td>
+                <td><input class="tba" onclick="insertLine('↑');" type="button" value="↑"></td>
+                <td><input class="tba" onclick="insertLine('↓');" type="button" value="↓"></td>
+                <td><input class="tba" onclick="insertLine('⊂');" type="button" value="⊂"></td>
+                <td><input class="tba" onclick="insertLine('⊆');" type="button" value="⊆"></td>
+                <td><input class="tba" onclick="insertLine('≡');" type="button" value="≡"></td>
+                <td><input class="tba" onclick="insertLine('∊');" type="button" value="∊"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Selection and Set Operations</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('⌷');" type="button" value="⌷"></td>
+                <td><input class="tba" onclick="insertLine('⊃');" type="button" value="⊃"></td>
+                <td><input class="tba" onclick="insertLine('/');" type="button" value="/"></td>
+                <td><input class="tba" onclick="insertLine('⌿');" type="button" value="⌿"></td>
+                <td><input class="tba" onclick="insertLine('\\');" type="button" value="\"></td>
+                <td><input class="tba" onclick="insertLine('⍀');" type="button" value="⍀"></td>
+                <td><input class="tba" onclick="insertLine('~');" type="button" value="~"></td>
+                <td><input class="tba" onclick="insertLine('∪');" type="button" value="∪"></td>
+                <td><input class="tba" onclick="insertLine('∩');" type="button" value="∩"></td>
+                <td><input class="tba" onclick="insertLine('⊣');" type="button" value="⊣"></td>
+                <td><input class="tba" onclick="insertLine('⊢');" type="button" value="⊢"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Search and Sort</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('⍳');" type="button" value="⍳"></td>
+                <td><input class="tba" onclick="insertLine('⍸');" type="button" value="⍸"></td>
+                <td><input class="tba" onclick="insertLine('∊');" type="button" value="∊"></td>
+                <td><input class="tba" onclick="insertLine('⍷');" type="button" value="⍷"></td>
+                <td><input class="tba" onclick="insertLine('⍋');" type="button" value="⍋"></td>
+                <td><input class="tba" onclick="insertLine('⍒');" type="button" value="⍒"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Miscellaneous</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('¯');" type="button" value="¯"></td>
+                <td><input class="tba" onclick="insertLine('\'');" type="button" value="'"></td>
+                <!-- <td><input class="tba" onclick="insertLine('→');" type="button" value="→" /></td> -->
+                <td><input class="tba" onclick="insertLine('←');" type="button" value="←"></td>
+                <td><input class="tba" onclick="insertLine('⍬');" type="button" value="⍬"></td>
+                <td><input class="tba" onclick="insertLine('⍎');" type="button" value="⍎"></td>
+                <td><input class="tba" onclick="insertLine('⍕');" type="button" value="⍕"></td>
+                <td><input class="tba" onclick="insertLine('⋄');" type="button" value="⋄"></td>
+                <td><input class="tba" onclick="insertLine('⍝');" type="button" value="⍝"></td>
+                <td><input class="tba" onclick="insertLine('∇');" type="button" value="∇"></td>
+                <td><input class="tba" onclick="insertLine('⍺');" type="button" value="⍺"></td>
+                <td><input class="tba" onclick="insertLine('⍵');" type="button" value="⍵"></td>
+                <td><input class="tba" onclick="insertLine('⎕');" type="button" value="⎕"></td>
+                <!-- <td><input class="tba" onclick="insertLine('⍞');" type="button" value="⍞" /></td> -->
+                <td><input class="tba" onclick="insertLine('[]');" type="button" value="[]"></td>
+                <td><input class="tba" onclick="insertLine('{}');" type="button" value="{}"></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Operators</h4>
+          <table cellspacing="0px" cellpadding="0px">
+            <tbody>
+              <tr>
+                <td><input class="tba" onclick="insertLine('¨');" type="button" value="¨"></td>
+                <td><input class="tba" onclick="insertLine('⍨');" type="button" value="⍨"></td>
+                <td><input class="tba" onclick="insertLine('⍣');" type="button" value="⍣"></td>
+                <td><input class="tba" onclick="insertLine('.');" type="button" value="."></td>
+                <td><input class="tba" onclick="insertLine('∘');" type="button" value="∘"></td>
+                <td><input class="tba" onclick="insertLine('/');" type="button" value="/"></td>
+                <td><input class="tba" onclick="insertLine('\\');" type="button" value="\"></td>
+                <td><input class="tba" onclick="insertLine('⌿');" type="button" value="⌿"></td>
+                <td><input class="tba" onclick="insertLine('⍀');" type="button" value="⍀"></td>
+                <td><input class="tba" onclick="insertLine('⌸');" type="button" value="⌸"></td>
+                <td><input class="tba" onclick="insertLine('⍤');" type="button" value="⍤"></td>
+                <td><input class="tba" onclick="insertLine('⌺');" type="button" value="⌺"></td>
+                <td><input class="tba" onclick="insertLine('@');" type="button" value="@"></td>
+                <td><input class="tba" onclick="insertLine('⍠');" type="button" value="⍠"></td>
+                <td><input class="tba" onclick="insertLine('⌶');" type="button" value="⌶"></td>
+              </tr>
+            </tbody>
+          </table>        
+        </div>
       </div>
       <div class="content" id="links">
         <h3>Hi!</h3>   
