@@ -2,6 +2,9 @@
 var version = 3.0;
 var currentBook;
 var currentCell = 0;
+var splitPanes;
+var paneSizes = [40, 60];
+var fs = false;
 
 $=s=>document.querySelector(s);
 $$=s=>document.querySelectorAll(s);
@@ -14,9 +17,10 @@ window.MathJax = {
 
 window.onload=_=>{
   log("TryAPL v." + version);
-  Split(["#leftPane", "#rightPane"], {
+  splitPanes = Split(["#leftPane", "#rightPane"], {
     sizes: [40, 60],
-  })  
+    minSize: [0,250]
+  })    
   loadTioDyalog();
   $(".gutter").innerHTML += "<span id='full' onclick='sessionFS()'>◀</span>";
   hi.classList.add("active");
@@ -36,7 +40,18 @@ showTab=id=>{
 }
 
 sessionFS=_=>{
-  // Full screen session pane
+  // Full screen session pane  
+  if (fs) {
+    log("from FS")
+    splitPanes.setSizes(paneSizes);
+    full.innerHTML = "◀"; // Left triangle     
+  } else {
+    log("to FS");
+    paneSizes = splitPanes.getSizes();
+    splitPanes.setSizes([0,100]);    
+    $("#full").innerHTML = "▶"; // Right triangle    
+  }  
+  fs = !fs;
 }
 
 nbnext=_=>{
