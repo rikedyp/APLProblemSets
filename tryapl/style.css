@@ -63,15 +63,14 @@ pre, code {
   overflow-y:auto;
 }
 #tabs {
-  height: 3em;  
+  height: 2em;  
   overflow: hidden;
   display: flex;
 }
 #session {
   font-family: "APL385";
   /* letter-spacing: 0.1ex; */
-  width: calc(100% - 5ex);
-  height: calc(100vh - 2.1em)!important;
+  width: calc(100% - 5ex);  
   border: none;
   resize: none;
   padding:0.2em 1em;

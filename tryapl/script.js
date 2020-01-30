@@ -58,20 +58,22 @@ nbnext=dir=>{
   cell = currentBook.cells[currentCell]
   log(cell);
   if (dir) {
-  switch (cell.cell_type) {
-    case "code":
-      session.value += cell.source;
-      putCursor(session.value.length);
-      submitLine();
-    default:
-      mdrender.innerHTML += marked(cell.source[0]) + " <br>";
-      MathJax.texReset();
-      MathJax.typesetClear();
-      MathJax.typeset(["#mdrender"]);      
-  }
-  currentCell += 1;
+    log("next cell");
+    switch (cell.cell_type) {
+      case "code":
+        session.value += cell.source;
+        putCursor(session.value.length);
+        submitLine();
+      default:
+        mdrender.innerHTML += marked(cell.source[0]) + " <br>";
+        MathJax.texReset();
+        MathJax.typesetClear();
+        MathJax.typeset(["#mdrender"]);      
+    }
+    currentCell += 1;
+    learn.scrollTop = mdrender.clientHeight;
   } else {
-    log("backwards");
+    log("previous cell");
   }
 }
 

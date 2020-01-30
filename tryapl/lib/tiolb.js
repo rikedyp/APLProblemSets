@@ -58,7 +58,7 @@ let ff=x=>{
   if(nn!=='textarea'&&(nn!=='input'||t0.type!=='text'&&t0.type!=='search'))return
   t=t0;if(!t.ngn){t.ngn=1;ts.push(t);ev(t,'keydown',fk)}
 }
-let upd=_=>{d.body.style.marginTop=lb.clientHeight+'px';session.style.height="calc(100vh - " + lb.clientHeight+'px)';$('.content').style.height="calc(100vh - 4em - " + lb.clientHeight+'px)'}
+let upd=_=>{d.body.style.marginTop=lb.clientHeight+'px';session.style.height="calc(100vh - 7px - " + lb.clientHeight+'px)';$$(".content").forEach(fn=node=>{node.style.height="calc(100vh - 3em - " + lb.clientHeight+'px)'})}
 upd();ev(window,'resize',upd)
 ev(d,'focus',ff,!0);let ae=d.activeElement;ae&&ff({type:'focus',target:ae})
 })();
