@@ -2,7 +2,7 @@ var apltioversion = 2.15;
 var prevCount = 0;
 var ctrld = false;
 var shiftd = false;
-var debug = false;
+var debug = true;
 var help = false;
 var lastRequest;
 var lastResponse;
@@ -20,10 +20,11 @@ var runRequest;
 $=s=>document.querySelector(s);
 $$=s=>document.querySelectorAll(s);
 
-oldText="Dyalog APL/TIO Version " + apltioversion + "\n" + 
+firstText="Dyalog APL/TIO Version " + apltioversion + "\n" + 
          Date().split(" ").slice(0,5).join(" ") + 
       "\nCopyright (c) Dyalog Limited 1982-" + Date().split(" ")[3] + 
       "\n      ";
+oldText = firstText;      
 lastText = oldText;
 
 function loadTioDyalog() {

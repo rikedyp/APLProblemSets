@@ -25,10 +25,7 @@ window.onload=_=>{
   gutter = $(".gutter");  
   gutter.innerHTML += "<span id='full' onmousedown='leftPane.style.transition = \"width 0.15s\";sessionFS();' onmouseup='leftPane.style.transition = \"unset\"'>◀</span>";
   hi.classList.add("active");
-  hiTab.classList.add("active");
-  // full.mousedown(_=>{leftPane.style.transition = "width 0.15s"});
-  // full.mouseup(_=>{leftPane.style.transition = "unset"});
-  
+  hiTab.classList.add("active"); 
 }
 
 showTab=id=>{
@@ -57,7 +54,35 @@ sessionFS=_=>{
   fs = !fs;  
 }
 
-nbnext=dir=>{
+clickAPL=code=>{
+  log("clicked APL code");
+}
+
+nbLoad=id=> {
+  url = $(id).value;
+  log("running notebook @:" + url);  
+  fetch(cleanURL(url)).then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("Error loading notebook");
+    }
+  })    
+  .then((json) => {   
+    currentBook = json;  
+    learnButtons.classList.remove("hidden");
+    loadnb.classList.add ("hidden");
+    nbNext(1);
+  })
+  .catch((err) => {
+    log("the bad bad");
+    log(err);
+    mdrender.innerHTML = "Error loading notebook";
+  });  
+}
+
+nbNext=dir=>{
+  // Render (∧,∨) execute next ∨ previous cell
   log("next");
   cell = currentBook.cells[currentCell]
   log(cell);
@@ -78,35 +103,26 @@ nbnext=dir=>{
     learn.scrollTop = mdrender.clientHeight;
   } else {
     log("previous cell");
+    marked(currentBook.cells[currentCell - 1].source[0]) + " <br>";
   }
 }
 
-clickAPL=code=>{
-  log("clicked APL code");
+nbReload=_=>{
+  mdrender.innerHTML = "";
+  currentCell = 0;
+  nbNext(1);
+  session.value = firstText;
 }
 
-nbload=id=> {
-  url = $(id).value;
-  log("running notebook @:" + url);  
-  fetch(nburl(url)).then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("Error loading notebook");
-    }
-  })    
-  .then((json) => {   
-    currentBook = json;  
-    nbnext(1);
-  })
-  .catch((err) => {
-    log("the bad bad");
-    log(err);
-    mdrender.innerHTML = "Error loading notebook";
-  });  
+nbClose=_=>{
+  log("close");
+  learnButtons.classList.add("hidden");
+  loadnb.classList.remove("hidden");
+  mdrender.innerHTML = "";
+  currentCell = 0;
 }
 
-nburl=url=> {
+cleanURL=url=>{
   log(url);
   if (url.includes("github") && !url.includes("raw.githubusercontent")) {
     log("https://raw.githubusercontent.com" + url.split("https://github.com")[1].split("/blob").join(""));

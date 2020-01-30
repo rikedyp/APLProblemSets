@@ -22,18 +22,21 @@
       <div class="content" id="hi">
         <h3>Hi!</h3>        
       </div>      
-      <div class="content" id="learn">
-        <h3>Learn APL with Dyalog Jupyter notebooks</h3>
+      <div class="content" id="learn">        
         <div id="mdrender"></div>
         <div id="loadnb">
-          <input type="text" value="https://github.com/rikedyp/LearnAPL/blob/master/Introductions/Maths/IntroProblems.ipynb" id="nbURL"/>
-          <button onclick="nbload('#nbURL')">Load</button>
+          <h2>Learn APL with Dyalog Jupyter notebooks</h2>
+          <input type="text" placeholder="Notebook URL" id="nbURL"/>
+          <button onclick="nbLoad('#nbURL')">Run</button>
+          <h4>APL Basics</h4>
+          <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
         </div>
         <br><br>
-        <div id="learnButtons">
-          <button onclick="nbnext(0)">Previous</button>
-          <button onclick="nbnext(1)">Next</button>      
-          <button onclick="nbclose">Close</button>
+        <div class="hidden" id="learnButtons">
+          <button onclick="nbNext(0)" title="Previous cell">←</button>
+          <button onclick="nbNext(1)" title="Next cell">→</button>      
+          <button onclick="nbReload()" title="Restart notebook">↻</button> 
+          <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
         </div>
       </div>
       <div class="content" id="links">

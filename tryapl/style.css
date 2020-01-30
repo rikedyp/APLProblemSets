@@ -24,8 +24,16 @@ body {
 pre, code {
   font-family: "iosevka";
 }
+* {
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 1;
+}
+.hidden {
+  visibility: hidden;  
+  opacity: 0;
+}
 .split, .gutter.gutter-horizontal {
-    float: left;
+  float: left;
 }
 .gutter.gutter-horizontal {
   cursor: ew-resize;
@@ -67,13 +75,28 @@ pre, code {
   overflow: hidden;
   display: flex;
 }
+#loadnb a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#learnButtons {  
+  bottom: 3em;
+  margin: auto;
+  /* display: block; */
+}
+#learnButtons button {  
+  height: 2em;
+  width: 3em;
+  font-size: larger;    
+  padding-bottom: 0.3em;
+}
 #session {
   font-family: "APL385";
   /* letter-spacing: 0.1ex; */
-  width: calc(100% - 5ex);  
+  width: calc(100% - 2ex);  
   border: none;
   resize: none;
-  padding:0.2em 1em;
+  padding:0.2em 0 0.2em 1em;
 }
 #full {
   position: relative;
