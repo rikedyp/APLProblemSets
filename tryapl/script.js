@@ -94,7 +94,10 @@ nbNext=dir=>{
         putCursor(session.value.length);
         submitLine();
       default:
-        mdrender.innerHTML += marked(cell.source[0]) + " <br>";
+        var div = document.createElement("div");
+        div.innerHTML += marked(cell.source[0]);
+        mdrender.appendChild(div);
+        // mdrender.innerHTML += marked(cell.source[0]) + " <br>";
         MathJax.texReset();
         MathJax.typesetClear();
         MathJax.typeset(["#mdrender"]);      
@@ -103,15 +106,15 @@ nbNext=dir=>{
     learn.scrollTop = mdrender.clientHeight;
   } else {
     log("previous cell");
-    marked(currentBook.cells[currentCell - 1].source[0]) + " <br>";
+    currentCell -= 1;
+    mdrender.removeChild(mdrender.lastChild);
   }
 }
 
 nbReload=_=>{
   mdrender.innerHTML = "";
   currentCell = 0;
-  nbNext(1);
-  session.value = firstText;
+  nbNext(1);  
 }
 
 nbClose=_=>{

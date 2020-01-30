@@ -125,6 +125,7 @@ pre, code {
 
 .ngn_lb{position:fixed;top:0;left:0;right:0;background: linear-gradient(140deg,#9040b4 20%,#c577d2 50%,#9040b4 95%,white 110%);color:#fff;
   border-bottom:solid #ddd 2px;padding:2px;word-wrap:break-word;user-select:none}
+
 .ngn_lb b,.help{cursor:pointer;padding:0 2px;font-weight:normal;text-decoration:none;font-family:"APL385";font-size:1.2em}
 .ngn_lb b:hover,.ngn_bq .ngn_lb{background-color:#7f00b9;color:#fff}
 
