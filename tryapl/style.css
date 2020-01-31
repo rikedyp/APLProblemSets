@@ -14,7 +14,7 @@
   font-family: "APL385";
   src: local("APL385 Unicode"),url("assets/apl385.ttf");
 }
-body, h1, h2, h3 {
+body, h1, h2, h3, h4, h5 {
   font-family: sans-serif;
 }
 body {
@@ -23,6 +23,14 @@ body {
 }
 pre, code {
   font-family: "iosevka";
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
+    background-image: -moz-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
+    background-image: -ms-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
+    background-image: -o-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
 }
 .hidden {
   visibility: hidden;  
@@ -141,6 +149,9 @@ code.apl {
 }
 code.apl:hover {
   color: #420042;
+}
+#primerGlyphs h2, h3, h4, h5 {
+  margin: 1ex 0;
 }
 #primerGlyphs td .tba {
     height: 28px;

@@ -27,8 +27,72 @@
       <div class="content" id="hi">
         <h3>Got a minute? - Try APL!</h3>
         APL is an array-oriented programming language that will change the way you think about problems and data. With a powerful, concise syntax, APL lets you develop shorter programs that enable you to think more about the problem you're trying to solve rather than how to express it to a computer. You can <a target="_blank" href="http://www.dyalog.com/download-zone.htm">get a free copy</a> to install on your own computer, or try APL now by entering an expression, or clicking one of these expressions, to see it in action:        
+        <table id="hiTable">
+          <tr>
+            <td><code class="apl">2 + 2</code></td>
+            <td>⍝ No points for guessing the answer to this</td>                        
+          </tr>          
+          <tr>    
+            <td><code class="apl">4 2 3 + 8 5 7</code></td>
+            <td>⍝ Functions apply to arrays</td>
+          </tr>
+          <tr><td colspan="2"><hr></td></tr>
+          <tr>
+            <td><code class="apl">⍳10</code></td>
+            <td>⍝ Generate the first ten integers</td>
+          </tr>
+          <tr> 
+            <td><code class="apl">+/⍳100000</code></td>
+            <td>⍝ Sum the first 100,000 integers</td>
+          </tr>
+          <tr> 
+            <td><code class="apl">×/⍳10</code></td>
+            <td>⍝ A long, slow way to write <code class="apl">!10</code></td>
+          </tr>
+          <tr><td colspan="2"><hr></td></tr>
+          <tr> 
+            <td><code class="apl">Avg←{(+⌿⍵)÷≢⍵}</code></td>
+            <td>⍝ Average is the sum divided by the count</td>
+          </tr>          
+          <tr> 
+            <td><code class="apl">Avg 1 6 3 4</code></td>
+            <td>⍝ ... and apply it</td>
+          </tr>
+          <tr><td colspan="2"><hr></td></tr>
+          <tr> 
+            <td><code class="apl">throws←?10000⍴6</code></td>
+            <td>⍝ Store 10,000 dice throws</td>
+          </tr>
+          <tr> 
+            <td><code class="apl">+/1=throws</code></td>
+            <td>⍝ Of 10,000 throws, how many 1s?</td>
+          </tr>
+          <tr> 
+            <td><code class="apl">+/(⍳6)∘.=throws</code></td>
+            <td>⍝ Frequency of all 6 possibilities</td>
+          </tr>
+          <tr><td colspan="2"><hr></td></tr>
+          <tr> 
+            <td><code class="apl">'Hello, World!'</code></td>
+            <td>⍝ APL is not just about maths!</td>
+          </tr>
+          <tr> 
+            <td><code class="apl">{⍺,≢⍵}⌸'Mississippi'</code></td>
+            <td>⍝ See?</td>
+          </tr>
+          <tr><td colspan="2"><hr></td></tr>
+        </table>
         <hr>
-        <code class="apl">2 + 2</code>   ⍝ No points for guessing the answer to this
+        <code class="apl">2 + 2   ⍝ No points for guessing the answer to this</code><br>
+        <code class="apl">4 2 3 + 8 5 7</code>   ⍝ Functions apply to arrays
+        <hr>
+        <code class="apl">⍳10</code>      ⍝ Generate the first ten integers<br>
+        <code class="apl">+/⍳100000</code> ⍝ Sum the first 100,000 integers<br>         
+        <code class="apl">×/⍳10</code>   ⍝ A long, slow way to write <code class="apl">!10</code>
+        <hr>
+        <code class="apl"></code>   ⍝ 
+        <code class="apl"></code>   ⍝ 
+        <code class="apl"></code>   ⍝ 
       </div>      
       <div class="content grid" id="learn">       
         <div id="loadnb">
