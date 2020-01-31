@@ -32,7 +32,7 @@ window.onload=_=>{
   // Go to tab from URL  
   if (expr = s.get("tab")) {showTab(expr);}  
   // Open notebook from URL
-  if (expr = s.get("notebook")) {showTab("learn");};
+  if (expr = s.get("notebook")) {showTab("learn");nbURL.value=expr;nbLoad("#nbURL")};
 }
 
 paneDrag=s=>{
