@@ -115,13 +115,15 @@ nbNext=dir=>{
   log(cell);
   if (dir) {
     log("next cell");
+    newLine = cell.source[0];
     switch (cell.cell_type) {
       case "code":
-        insertLine(cell.source);
+        insertLine(newLine);
+        newLine = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + newLine + "</code>"
         submitLine();
       default:        
         var div = document.createElement("div");
-        div.innerHTML += marked(cell.source[0]);
+        div.innerHTML += marked(newLine);
         mdrender.appendChild(div);        
         MathJax.texReset();
         MathJax.typesetClear();
