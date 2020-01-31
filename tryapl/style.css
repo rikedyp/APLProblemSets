@@ -105,6 +105,7 @@ hr {
 .tablink.active {
   cursor: unset;
   border-color: #fff;
+  font-weight: bold;
 }
 
 #leftPane {
