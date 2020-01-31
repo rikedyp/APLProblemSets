@@ -31,7 +31,13 @@ body {
   margin: 0;
   overflow: hidden;
 }
-
+.b {
+  color: #fff;
+  background: #000;
+}
+b.a{
+  
+}
 pre,
 code {
   font-family: "iosevka";
@@ -40,10 +46,7 @@ code {
 hr {
   border: 0;
   height: 1px;
-  background-image: -webkit-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
-  background-image: -moz-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
-  background-image: -ms-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
-  background-image: -o-linear-gradient(left, #fff2cc, #be6ccd, #fff2cc);
+  background-image: linear-gradient(to right,transparent, #a54cce, transparent);
 }
 
 .hidden {
@@ -105,7 +108,6 @@ hr {
 .tablink.active {
   cursor: unset;
   border-color: #fff;
-  font-weight: bold;
 }
 
 #leftPane {
@@ -177,24 +179,26 @@ hr {
   color: inherit;
   background: inherit;
 }
-
+.b a {
+  color: #66f;
+}
+.b a:visited {
+  color: #f0f;
+}
 code.apl {
   font-family: "APL385";
   cursor: pointer;
   color: #800080;
 }
-
-code.apl:hover {
-  color: #420042;
+.b code.apl {
+  color: #f0f;
 }
-
 #primerGlyphs h2,
 h3,
 h4,
 h5 {
   margin: 1ex 0;
 }
-
 #primerGlyphs td .tba {
   height: 28px;
   font-family: APLFont, monospace;
@@ -210,6 +214,9 @@ h5 {
   margin: 0;
   color: purple;
   cursor: pointer;
+}
+.b #primerGlyphs td .tba {
+  color: #a54cce; 
 }
 
 #primerGlyphs td .tba:hover {
@@ -244,11 +251,6 @@ h5 {
 }
 
 /* language bar */
-
-.b {
-  color: #fff;
-  background: #000;
-}
 
 .ngn_lb{
   position: fixed;
