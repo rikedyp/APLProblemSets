@@ -115,12 +115,15 @@ nbNext=dir=>{
   log(cell);
   if (dir) {
     log("next cell");
-    newLine = cell.source[0];
-    switch (cell.cell_type) {
+    newLine = cell.source;
+    log(cell.cell_type);
+    switch (cell.cell_type) {      
       case "code":
         insertLine(newLine);
         newLine = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + newLine + "</code>"
         submitLine();
+      case undefined:
+        log("woah");
       default:        
         var div = document.createElement("div");
         div.innerHTML += marked(newLine);
