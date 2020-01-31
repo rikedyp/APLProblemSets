@@ -249,13 +249,14 @@ h5 {
   background: #000;
 }
 
-.ngn_lb {
+.ngn_lb{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  box-shadow: 0 -1em 1em inset #c472cf, 0 0 5px rgba(0, 0, 0, 0.5);
-  background: radial-gradient(farthest-corner at 100% 100%, #fff 0%, #ba63d0 30%, #9244b9 100%);
+  box-shadow: 1ex -1ex 1ex inset #a54cce,0 0 5px rgba(0,0,0,0.5);
+  background: radial-gradient(farthest-corner at 70% 80%,#a54cce6e 0%,#ba63d0d9 30%,#9244b9de 100%);
+  border-bottom: 1px solid #a54cce;
   color: #fff;
   padding: 2px;
   word-wrap: break-word;
