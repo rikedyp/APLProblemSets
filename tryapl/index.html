@@ -12,7 +12,10 @@
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
-  <body>   
+  <body>
+    <i accesskey="w" onclick="html.className=this.accessKey"></i>
+    <i accesskey="b" onclick="html.className=this.accessKey"></i>
+    <i accesskey="l" onclick="permaLink()"></i>
     <div id="leftPane" class="split">
       <div id="tabs">
         <button class="tablink" id="hiTab" onclick="showTab('hi')">Hi!</button>
@@ -30,7 +33,7 @@
       <div class="content grid" id="learn">       
         <div id="loadnb">
           <h2>Learn APL with Dyalog Jupyter notebooks</h2>
-          <input type="text" placeholder="Notebook URL" id="nbURL"/>
+          <input type="text" placeholder="Jupyter Notebook URL" id="nbURL"/>
           <button onclick="nbLoad('#nbURL')">Run</button>
           <h4>APL Basics</h4>
           <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
@@ -42,7 +45,6 @@
           <button onclick="nbReload()" title="Restart notebook">↻</button> 
           <button id="nbclose" onclick="nbClose()" title="Close notebook">⌂</button>
         </div>
-        <div style="height:1em"></div>                 
       </div>
       <div class="content" id="primer">
         <h3>APL Cheat Sheet</h3>        
@@ -200,16 +202,8 @@
       </div>
     </div>
       <div id="rightPane" class="split">
-        <div class=minibar>
-          <span title="Show language bar (access-key: s)" accesskey=s class=ngn_o onclick=show()>➕&#xFE0E;</span>
-          <!-- <i accesskey="w" onclick="html.className=this.accessKey"></i> -->
-          <!-- <i accesskey="g" onclick="html.className=this.accessKey"></i> -->
-          <!-- <i accesskey="b" onclick="html.className=this.accessKey"></i> -->
-          <i accesskey="l" onclick="permaLink()"></i>
-        </div>
-        <textarea spellcheck=false id="session" autofocus wrap="off"></textarea>
-        
-    </div>
+        <textarea spellcheck="false" id="session" autofocus wrap="off"></textarea>
+      </div>
     <script src="lib/tiolb.js"></script>
   </body>
 </html>

@@ -24,10 +24,6 @@ body {
 pre, code {
   font-family: "iosevka";
 }
-vhjvhj {
-  transition: visibility 0s, opacity 0.5s linear;
-  opacity: 1;
-}
 .hidden {
   visibility: hidden;  
   opacity: 0;
@@ -50,7 +46,7 @@ vhjvhj {
 }
 .content {
   padding: 1ex 1em;
-  overflow-y: auto;
+  overflow: hidden auto;
   display: none;
   height: calc(100vh - 3em);
 }
@@ -80,6 +76,7 @@ vhjvhj {
 }
 #leftPane{
   overflow-y:auto;  
+  z-index: -2;
 }
 #tabs {
   height: 2em;  
@@ -88,24 +85,42 @@ vhjvhj {
   background: #a54cce;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
+#nbURL {
+  width:calc(100% - 5em)
+}
 #loadnb a {
   text-decoration: underline;
   cursor: pointer;
 }
 #learnButtons {  
-  bottom: 1.5em;
-  margin: auto;  
+  overflow-x: auto;
+  white-space: nowrap;
+  background: #a54cce;
+  width: calc(100% + 2em);
+  text-align: center;
+  margin-left: -1em;
+  margin-top: -5ex;
 }
 #learnButtons button {  
-  height: 2em;
+  height: 2.25em;
   width: 3em;
   font-size: larger;    
-  padding-bottom: 0.3em;
-  background: linear-gradient(140deg,#9040b4 20%,#c577d2 50%,#9040b4 95%,white 110%);
+  padding-bottom: 0.5em;
+  background:unset;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+  margin-bottom: -10px;
 }
 #mdrender {
-  min-height: calc(100vh - 7em);
+  height: calc(100vh - 8em);
   display: none;
+  overflow: auto;
+  margin: -1ex -1em;
+  padding: 1ex 1em 0 1em;
+}
+#learnButtons button:hover{
+  background: #7f00b9
 }
 #mdrender > *{
   padding: 0;
@@ -164,14 +179,14 @@ code.apl:hover {
   transform: scaleX(-1);
 }
 #full:hover {
-  background: rgba(127,0,185,1);
+  background: #7f00b9;
 }
 .gutter:hover, #full:hover {
-  background: rgba(127,0,185,1);
+  background: #7f00b9;
 }
 /* language bar */
 
-.b{filter:invert(1) hue-rotate(180deg)}  .g{filter:invert(0.85) hue-rotate(180deg)}
+.b{color:#fff;background:#000}
 
 .ngn_lb{position:fixed;top:0;left:0;right:0;box-shadow:0 -1em 1em inset #c472cf,0 0 5px rgba(0,0,0,0.5);background:radial-gradient(farthest-corner at 100% 100%,#fff 0%,#ba63d0 30%,#9244b9 100%);color:#fff;
   padding:2px;word-wrap:break-word;user-select:none;
