@@ -115,18 +115,47 @@ nbNext=dir=>{
   log(cell);
   if (dir) {
     log("next cell");
-    newLine = cell.source;
+    newCell = cell.source;
     log(cell.cell_type);
     switch (cell.cell_type) {      
       case "code":
-        insertLine(newLine);
-        newLine = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + newLine + "</code>"
-        submitLine();
+        // todo: multiple lines
+        insertLine(newCell);
+        newCell = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + newCell + "</code>"
+        submitLine();      
+      case "markdown":
+        // imgURL = newCell.match(/src=\S+/)[0];
+        // log(newCell.match(/src=\S+/)[0].slice(5,-1));
+        log(newCell);
+        for (var i = 0; i < newCell.length; i++) {
+          log(newCell[i]);
+          line = newCell[i];
+          if (0 < line.search(/src=\S+/)) {
+            log("---");
+                        
+            src = cleanURL(nbURL.value);
+            imgURL = src.slice(0,src.lastIndexOf("/") + 1) + line.match(/src=\S+/)[0].slice(5,-1);            
+            // log(line.replace(/src=\S+/, "src=\"" + imgURL + "\""));
+            newCell[i] = line.replace(/src=\S+/, "src=\"" + imgURL + "\"");
+            
+            log("---");
+            
+            // todo: handle multiple images in one line 
+            // todo: store cleanURL(nbURL) on Run for use here 
+            // todo: what about 
+            // Make sure images use absolute URLs
+            // todo: What about e.g. <script src="">?
+          } else {
+            // Imageless 
+          }
+        }
+
       case undefined:
         log("woah");
       default:        
-        var div = document.createElement("div");
-        div.innerHTML += marked(newLine);
+        var div = document.createElement("div");        
+        newCell.forEach(fn=line=>{div.innerHTML += marked(line)});
+        // div.innerHTML += marked(newLine);
         mdrender.appendChild(div);        
         MathJax.texReset();
         MathJax.typesetClear();
