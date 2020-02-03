@@ -111,32 +111,38 @@ nbNext=dir=>{
   // Render (∧,∨) execute next ∨ previous cell
   log("next");
   mdrender.style.display = "block";
-  cell = currentBook.cells[currentCell]
-  log(cell);
+  newCell = currentBook.cells[currentCell]
+  log(newCell);
   if (dir) {
     log("next cell");
-    newCell = cell.source;
-    log(cell.cell_type);
-    switch (cell.cell_type) {      
+    cellSource = newCell.source;
+    log(newCell.cell_type);
+    switch (newCell.cell_type) {      
       case "code":
         // todo: multiple lines
-        insertLine(newCell);
-        newCell = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + newCell + "</code>"
+        insertLine(cellSource);
+        // cellSource = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + cellSource + "</code>"
+        var div = document.createElement("div");      
+        cellSource.forEach(fn=line=>{
+          div.innerHTML += "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + line + "</code>"
+        });
+        mdrender.appendChild(div);   
         submitLine();      
+        break;
       case "markdown":
-        // imgURL = newCell.match(/src=\S+/)[0];
-        // log(newCell.match(/src=\S+/)[0].slice(5,-1));
-        log(newCell);
-        for (var i = 0; i < newCell.length; i++) {
-          log(newCell[i]);
-          line = newCell[i];
-          if (0 < line.search(/src=\S+/)) {
+        // imgURL = cellSource.match(/src=\S+/)[0];
+        // log(cellSource.match(/src=\S+/)[0].slice(5,-1));
+        log(cellSource);
+        for (var i = 0; i < cellSource.length; i++) {
+          log(cellSource[i]);
+          line = cellSource[i];
+          if (0 < line.search(/src=\S+/) && 0 > line.search(/src=\"http\S+/)) {
             log("---");
                         
             src = cleanURL(nbURL.value);
             imgURL = src.slice(0,src.lastIndexOf("/") + 1) + line.match(/src=\S+/)[0].slice(5,-1);            
             // log(line.replace(/src=\S+/, "src=\"" + imgURL + "\""));
-            newCell[i] = line.replace(/src=\S+/, "src=\"" + imgURL + "\"");
+            cellSource[i] = line.replace(/src=\S+/, "src=\"" + imgURL + "\"");
             
             log("---");
             
@@ -145,24 +151,22 @@ nbNext=dir=>{
             // todo: what about 
             // Make sure images use absolute URLs
             // todo: What about e.g. <script src="">?
-          } else {
-            // Imageless 
+          } else {            
+            log("No relative image URL to make absolute");
           }
-        }
-
+        }        
       case undefined:
-        log("woah");
+        log("woah");        
       default:        
         var div = document.createElement("div");        
-        newCell.forEach(fn=line=>{div.innerHTML += marked(line)});
-        // div.innerHTML += marked(newLine);
+        cellSource.forEach(fn=line=>{div.innerHTML += marked(line)});        
         mdrender.appendChild(div);        
         MathJax.texReset();
         MathJax.typesetClear();
         MathJax.typeset(["#mdrender"]);      
     }
     currentCell += 1;
-    learn.scrollTop = mdrender.clientHeight;
+    mdrender.scrollTop = mdrender.clientHeight;
   } else {
     log("previous cell");
     currentCell -= 1;
