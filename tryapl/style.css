@@ -140,6 +140,7 @@ hr {
   text-align: center;
   margin-left: -1em;
   margin-top: -4ex;
+  fill: #fff;
 }
 
 #learnButtons button {
@@ -152,6 +153,11 @@ hr {
   color: #fff;
   cursor: pointer;
   margin-bottom: -10px;
+  padding-top: 6px
+}
+
+#learnButtons button:first-child svg{
+  transform: scaleX(-1);
 }
 
 #mdrender {
