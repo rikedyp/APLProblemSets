@@ -176,6 +176,10 @@ hr {
   padding: 0;
 }
 
+#mdrender img{
+  float: unset;
+}
+
 #session {
   font-family: "APL385";
   width: calc(100% - 1em);
