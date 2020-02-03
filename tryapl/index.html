@@ -16,13 +16,14 @@
     <i accesskey="w" onclick="html.className=this.accessKey"></i>
     <i accesskey="b" onclick="html.className=this.accessKey"></i>
     <i accesskey="l" onclick="permaLink()"></i>
+    <a accesskey="h" target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm"></a>
     <div id="leftPane" class="split">
       <div id="tabs">
         <button class="tablink" id="hiTab" onclick="showTab('hi')">Hi!</button>
         <button class="tablink" id="learnTab" onclick="showTab('learn')">Learn</button>
         <button class="tablink" id="primerTab" onclick="showTab('primer')">Primer</button>
         <button class="tablink" id="linksTab" onclick="showTab('links')">Links</button>
-        <button class="tablink" id="layoutTab" onclick="showTab('layout')">Layout</button>
+        <button class="tablink" id="aboutTab" onclick="showTab('about')">About</button>
       </div>
       <div class="content" id="hi">
         <h3>Got a minute? - Try APL!</h3>
@@ -98,16 +99,16 @@
         </div>
         <div id="mdrender"></div>
         <div class="hidden" id="learnButtons">
-          <button onclick="nbNext(0)" title="Previous cell">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg></button>
-          <button onclick="nbNext(1)" title="Next cell">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg>
-          </button>
-          <button onclick="nbReload()" title="Restart notebook">
-            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"/></svg>
-          </button> 
-          <button id="nbclose" onclick="nbClose()" title="Close notebook">
+          <button id="s" accesskey="s" id="nbclose" onclick="nbClose()" title="Stop lesson">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+          </button>
+          <button id="r" accesskey="r" onclick="nbReload()" title="Restart lesson">
+            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"/></svg>
+          </button>
+          <button id="p" accesskey="p" onclick="nbNext(0)" title="Previous step">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg></button>
+          <button id="n" accesskey="n" onclick="nbNext(1)" title="Next step">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg>
           </button>
         </div>
       </div>
@@ -257,8 +258,33 @@
         Here is some text <br>
         Inline maths $a = \sum_{n=1}^{100}n $        ←←←
         $$a = \sum_{n=1}^{100}n $$ <br>
-        aslhfuskehfjslkefhlase hfkalseihf esf aslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esfaslhfuskehfjslkefhlase hfkalseihf esf
-      </div>  
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.</p>
+<p>Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.</p>
+<p>In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.</p>
+      </div>
+      <div class="content" id="about">
+        <h1>About TryAPL</h1>
+        <p>TryAPL</b> is thin client for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL<a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
+        <p class="ipynbinfo">Tutorials on the <a href="#" onclick="$('#leftpanel').tabs('option', 'active', 1);"><b>Learn</b></a> tab are Jupyter notebooks and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
+        
+        <h1>Limitations</h1>
+        <p><b>All of Dyalog APL is supported</b>, but input is limited on a single line at a time.</p>
+        <p>Execution of any single input line must not exceed <b>1 minute</b> nor <b>128 MB</b>. However, the session storage is limited to about <b>20 MB</b>. Exceeding the maximum time or space for execution of an expression causes the execution to be cancelled and the session will remain as it was before the expression was entered.</p>
+        <p><b>No information is kept</b> server-side or in cookies, so the session does not persist.</p>
+        
+        <h1>Credits</h1>
+        <p>Inspiration: <b>Joel Hough</b><br />
+        Perspiration: <b>Brian Becker</b><br />
+        Style sheets and design: <b>Brian McCormick</b><br />
+        Sandbox framework: <b>Morten Kromberg</b><br />
+        Expression parser: <b>Dan Baronet</b><br />
+        System Admin and Linux Guru: <b>Jason Rivers</b><br />
+        Additional tutorials: <b>Will Robertson</b><br />
+        Reimplementation: <b>Richard Park</b><br />
+        Various enhancements: <b>Adám Brudzewsky</b></p>
+        <p>Good ideas: <b>John Scholes, Andy Shiers, Roger Hui, John Daintree</b><br />
+        <p>Special thanks: <b>Shaun Gilchrist</b> for the domain</p>
+      </div>
     </div>
       <div id="rightPane" class="split">
         <textarea spellcheck="false" id="session" autofocus wrap="off"></textarea>
