@@ -35,10 +35,23 @@ function loadTioDyalog() {
   document.addEventListener("keydown", function(event) {     
     // log(event.keyCode);
     if (!shiftd && !ctrld && !session.disabled && event.keyCode === 13) {  
-      // Recall submittedLines
-      prevCount = submittedLines.length + 1;
-      submitLine();           
-      event.preventDefault();      
+      if (!getCurrentLine().replace(/\s/g, '').length) {
+        log("blank line")
+        if (!Array.from(learnButtons.classList).includes("hidden")) {
+          log("nb open")
+          // Running a notebook, submitting a blank line, show next cell
+          nbNext(1);
+        } else {
+          log("nb close")
+          // Just add newlines to session
+          session.value += "\n      ";
+        }
+      } else {
+        // Recall submittedLines
+        prevCount = submittedLines.length + 1;
+        submitLine();                      
+      }
+      event.preventDefault();  
     } else if (shiftd && event.keyCode === 27) {
       replaceCurrentLine("");
     } else if (shiftd && ctrld) {
