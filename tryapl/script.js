@@ -165,12 +165,17 @@ nbNext=dir=>{
         MathJax.typesetClear();
         MathJax.typeset(["#mdrender"]);      
     }
-    currentCell += 1;
-    mdrender.scrollTop = mdrender.clientHeight;
+    currentCell += 1;        
+    // Calculate mdrender height to set scrollTop 
+    mdh = 0; // mdrender height
+    Array.from(mdrender.children).forEach(fn=el=>{mdh += el.clientHeight;});
+    log("MDR height: " + String(mdh));
+    mdrender.scrollTop = mdh;
   } else {
     log("previous cell");
     currentCell -= 1;
     mdrender.removeChild(mdrender.lastChild);
+    
   }
 }
 
