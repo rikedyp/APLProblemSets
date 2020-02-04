@@ -99,6 +99,9 @@ hr {
   width: 20%;
   font-size: 100%;
   overflow-x: hidden;
+  font-family: unset;
+  text-overflow: ellipsis;
+  padding: 0;
 }
 
 .tablink:hover {
@@ -126,6 +129,10 @@ hr {
 
 #nbURL {
   width: calc(100% - 5em);
+  height: 2em;
+  border: none;
+  padding: 0 1px;
+  vertical-align: middle;
 }
 
 #loadnb a {
@@ -179,6 +186,12 @@ hr {
 
 #mdrender img{
   float: unset;
+}
+
+#links p{
+  margin: 0;
+  padding-left: 2em;
+  text-indent: -2em;
 }
 
 #session {

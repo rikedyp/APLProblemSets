@@ -19,11 +19,11 @@
     <a accesskey="h" target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm"></a>
     <div id="leftPane" class="split">
       <div id="tabs">
-        <button class="tablink" id="hiTab" onclick="showTab('hi')">Hello</button>
-        <button class="tablink" id="learnTab" onclick="showTab('learn')">Learn</button>
-        <button class="tablink" id="primerTab" onclick="showTab('primer')">Primer</button>
-        <button class="tablink" id="linksTab" onclick="showTab('links')">Links</button>
-        <button class="tablink" id="aboutTab" onclick="showTab('about')">About</button>
+        <button class="tablink" title="Introduction" id="hiTab" onclick="showTab('hi')">Intro</button>
+        <button class="tablink" title="Learn with interactive lessons" id="learnTab" onclick="showTab('learn')">Learn</button>
+        <button class="tablink" title="Primer on the langauge" id="primerTab" onclick="showTab('primer')">Primer</button>
+        <button class="tablink" title="Links to useful resources" id="linksTab" onclick="showTab('links')">Links</button>
+        <button class="tablink" title="About the techology used" id="aboutTab" onclick="showTab('about')">About</button>
       </div>
       <div class="content" id="hi">
         <h3>Got a minute? - Try APL!</h3>
@@ -32,64 +32,64 @@
           <tr><td colspan="2"><hr></td></tr>
           <tr>
             <td><code class="apl">2 + 2</code></td>
-            <td>⍝ No points for guessing the answer to this</td>                        
+            <td>No points for guessing the answer to this</td>                        
           </tr>          
           <tr>    
             <td><code class="apl">4 2 3 + 8 5 7</code></td>
-            <td>⍝ Functions apply to arrays</td>
+            <td>Functions apply to arrays</td>
           </tr>
           <tr><td colspan="2"><hr></td></tr>
           <tr>
             <td><code class="apl">⍳10</code></td>
-            <td>⍝ Generate the first ten integers</td>
+            <td>Generate the first ten integers</td>
           </tr>
           <tr> 
             <td><code class="apl">+/⍳100000</code></td>
-            <td>⍝ Sum the first 100,000 integers</td>
+            <td>Sum the first 100,000 integers</td>
           </tr>
           <tr> 
             <td><code class="apl">×/⍳10</code></td>
-            <td>⍝ A long, slow way to write <code class="apl">!10</code></td>
+            <td>A long, slow way to write <code class="apl">!10</code></td>
           </tr>
           <tr><td colspan="2"><hr></td></tr>
           <tr> 
             <td><code class="apl">Avg←{(+⌿⍵)÷≢⍵}</code></td>
-            <td>⍝ Average is the sum divided by the count</td>
+            <td>Average is the sum divided by the count</td>
           </tr>          
           <tr> 
             <td><code class="apl">Avg 1 6 3 4</code></td>
-            <td>⍝ ... and apply it</td>
+            <td>... and apply it</td>
           </tr>
           <tr><td colspan="2"><hr></td></tr>
           <tr> 
             <td><code class="apl">throws←?10000⍴6</code></td>
-            <td>⍝ Store 10,000 dice throws</td>
+            <td>Store 10,000 dice throws</td>
           </tr>
           <tr> 
             <td><code class="apl">+/1=throws</code></td>
-            <td>⍝ Of 10,000 throws, how many 1s?</td>
+            <td>Of 10,000 throws, how many 1s?</td>
           </tr>
           <tr> 
             <td><code class="apl">+/(⍳6)∘.=throws</code></td>
-            <td>⍝ Frequency of all 6 possibilities</td>
+            <td>Frequency of all 6 possibilities</td>
           </tr>
           <tr><td colspan="2"><hr></td></tr>
           <tr> 
             <td><code class="apl">'Hello, World!'</code></td>
-            <td>⍝ APL is not just about maths!</td>
+            <td>APL is not just about maths!</td>
           </tr>
           <tr> 
             <td><code class="apl">{⍺,≢⍵}⌸'Mississippi'</code></td>
-            <td>⍝ See?</td>
+            <td>See?</td>
           </tr>
           <tr><td colspan="2"><hr></td></tr>
         </table>
         <h4>What can APL do for you?</h4>
         Are you a Problem Solver (a domain or subject matter expert with problems to solve) or a Programmer (someone who translates those solutions into a computer-executable format)? Problem Solvers benefit from APL's ability to concisely express advanced concepts without getting bogged down with a lot of computerese syntax. Programmers benefit from APL's productivity and brevity. Shorter programs means quicker development time and less code to maintain and debug.
         <br><br>
-        In either case, concepts that take several lines of code in other languages can often be reduced to a few characters in APL. You'll quickly find that APL's symbols are organized in a logical, mnemonic manner that makes it easy to express advanced concepts clearly and concisely, and makes it easy to learn too. Move to the <a href="">Learn tab</a> and get started!
+        In either case, concepts that take several lines of code in other languages can often be reduced to a few characters in APL. You'll quickly find that APL's symbols are organized in a logical, mnemonic manner that makes it easy to express advanced concepts clearly and concisely, and makes it easy to learn too. Move to the <a href="#" onclick="$('#learnTab').click()">Learn</a> tab and get started!
       </div>      
-      <div class="content grid" id="learn">       
+      <div class="content grid" id="learn">
         <div id="loadnb">
           <h2>Learn APL with Dyalog Jupyter notebooks</h2>
           <input type="text" placeholder="Jupyter Notebook URL" id="nbURL"/>
@@ -242,13 +242,55 @@
         </div>
       </div>
       <div class="content" id="links">
-        <h3>Hi!</h3>   
-        Here is some text <br>
-        Inline maths $a = \sum_{n=1}^{100}n $        ←←←
-        $$a = \sum_{n=1}^{100}n $$ <br>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.</p>
-<p>Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem.</p>
-<p>In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.</p>
+        <a class="socialicon" title="Dyalog Blog" href="http://www.dyalog.com/blog/" target="_blank"><img src="assets/blog-icon.png" alt="Blog"></a>
+        <a class="socialicon" title="Dyalog on Twitter" href="http://www.twitter.com/DyalogAPL" target="_blank"><img src="assets/twitter.png" alt="Twitter"></a>
+        <a class="socialicon" title="Dyalog on Facebook" href="http://www.facebook.com/DyalogAPL" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
+        <a class="socialicon" title="Dyalog on LinkedIn" href="http://www.linkedin.com/company/dyalog-ltd-" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+        
+        <h2>Getting Started</h2>
+        <p>
+        <a target="_blank" href="http://www.dyalog.com/mastering-dyalog-apl.htm">Mastering Dyalog APL</a> complete guide to Dyalog (free PDF)<p>
+        Wikipedia on <a target="_blank" href="https://en.wikipedia.org/wiki/APL_(programming_language)">the language</a> and its <a target="_blank" href="https://en.wikipedia.org/wiki/APL_syntax_and_symbols">syntax and symbols</a><p>
+        <a target="_blank" href="https://chat.stackexchange.com/rooms/info/52405/the-apl-orchard?tab=conversations">APL Cultivation</a> 29 chat lessons of 90 minutes<p>
+        <a target="_blank" href="http://www.dyalog.com/apl-font-keyboard.htm">APL Fonts and Keyboards</a><p>
+        <a target="_blank" href="https://abrudz.github.io/lb/apl">In-browser language bar</a><p>
+        <a target="_blank" href="http://www.youtube.com/user/APLtrainer">APL Trainer</a> how-to YouTube channel<br/>
+        </p>
+        
+        <h2>Dyalog Environments</h2>
+        <p>
+        <a target="_blank" href="http://www.dyalog.com/download-zone.htm">Download Dyalog APL</a> free for personal use<p>
+        Jupyter: <a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel">Dyalog Jupyter kernel</a> and ready-made <a target="_blank" href="http://github.com/Dyalog/dyalog-jupyter-notebooks">notebooks</a><p>
+        Dyalog APL on <a target="_blank" href="https://tio.run/#apl-dyalog">Try It Online</a></p>
+        
+        <h2>Dyalog Documentation</h2>
+        <p>
+        <a target="_blank" href="http://docs.dyalog.com/latest/ReferenceCard.pdf">Reference Card</a><p>
+        <a target="_blank" href="http://help.dyalog.com">Online Language Documentation</a><p>
+        <a target="_blank" href="http://docs.dyalog.com">Full Documentation Set</a> including PDFs</p>
+        
+        <h2>How do I&hellip;?</h2>
+        <p>
+        <a target="_blank" href="https://aplcart.info/">APLcart</a><p>
+        <a target="_blank" href="http://forums.dyalog.com/">Dyalog Forums</a><p>
+        <a target="_blank" href="http://aplwiki.com">The APL Wiki</a><p>
+        Stack Overflow: <a target="_blank" href="http://stackoverflow.com/questions/tagged/apl">existing questions</a> or ask a <a target="_blank" href="https://stackoverflow.com/questions/ask?tags=apl">new question</a><p>
+        <a target="_blank" href="http://chat.stackexchange.com/rooms/52405/the-apl-orchard">The APL Orchard</a> a very active chat room<p>
+        <a target="_blank" href="http://groups.google.com/group/comp.lang.apl/">comp.lang.apl</a> Usenet newsgroup<p>
+        <a target="_blank" href="http://miserver.dyalog.com/Examples/Applications/Idiom_Search.mipage?nowrapper=1">Search idiomatic APL expressions</a><br/>
+        </p>
+        
+        <h2>Recommended APL Videos</h2>
+        <p>
+        <a target="_blank" href="http://www.youtube.com/watch?v=a9xAKttWgP4">Conway's Game of Life in APL</a><p>
+        <a target="_blank" href="http://www.youtube.com/watch?v=X3bv4Iu1aEg">Palindromic Expression for Phi in APL</a><p>
+        <a target="_blank" href="https://www.youtube.com/watch?v=DmT80OseAGs">A Sudoku Solver in APL</a><p>
+        <a target="_blank" href="https://www.youtube.com/watch?v=_DTpQ4Kk2wA">APL demonstration 1975</a><p>
+        <a target="_blank" href="https://www.infoq.com/presentations/Why-APL-is-Still-Cool">Why APL Is Still Cool</a> (at QCon 2011)<p>
+        <a target="_blank" href="https://www.youtube.com/watch?v=v7Mt0GYHU9A">Design Patterns vs Anti pattern in APL</a> (at FnConf17)<p>
+        <a target="_blank" href="https://www.youtube.com/watch?v=PlM9BXfu7UY">Pragmatic Functional Programming</a> with Dyalog's CTO (Talks at Google, 2015)</a><p>
+        <a target="_blank" href="https://dyalog.tv/">Dyalog TV</a> (webinars and user meetings)
+        </p>
       </div>
       <div class="content" id="about">
         <p><b>TryAPL</b> is a thin client-side interface for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
