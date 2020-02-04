@@ -240,13 +240,7 @@ hr {
   float: unset;
 }
 
-#links p{
-  margin: 0;
-  padding-left: 2em;
-  text-indent: -2em;
-}
-
-#session {
+  #session {
   font-family: "APL385";
   width: calc(100% - 1em);
   border: none;
@@ -270,33 +264,29 @@ code.apl {
   color: #f0f;
 }
 
-#primerGlyphs td .tba {
-  height: 28px;
-  font-family: APLFont, monospace;
-  background: #e6e6e6;
-  border: 1px solid #d3d3d3;
-  text-align: center;
-  font-size: 1.3em;
-  padding: 1px 4px;
-  margin: 0px 3px 0px 0px;
-  border-radius: 3px;
+#primerGlyphs .tba {
+  font-family: APL385, monospace;
+  background: unset;
   border: none;
-  background: none;
+  font-size: 3ex;
+  padding: 0 0.25em;
   margin: 0;
   color: purple;
   cursor: pointer;
+  height: 3ex;
 }
-.b #primerGlyphs td .tba {
+.b #primerGlyphs .tba {
   color: #a54cce; 
 }
 
-#primerGlyphs td .tba:hover {
+#primerGlyphs .tba:hover {
   background: #c06ece;
   color: #fff;
 }
 
 .creditsTable td:nth-child(2) {
   font-weight: bold;
+  padding-left: 1em;
 }
 
 #full {

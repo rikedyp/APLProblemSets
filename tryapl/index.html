@@ -27,7 +27,7 @@
       </div>
       <div class="content" id="hi">
         <h1>Got a minute? &mdash; Try APL!</h1>
-        APL is an array-oriented programming language that will change the way you think about problems and data. With a powerful, concise syntax, it lets you develop shorter programs that enable you to think more about the problem you're trying to solve than how to express it to a computer. You can <a target="_blank" href="http://www.dyalog.com/download-zone.htm">install a free copy</a>, or try it now by entering an expression, or clicking one of these expressions, followed by <kbd>Enter</kbd>, to see it in action:
+        APL is an array-oriented programming language that will change the way you think about problems and data. With a powerful, concise syntax, it lets you develop shorter programs that enable you to think more about the problem you're trying to solve than how to express it to a computer. You can <a target="_blank" href="http://www.dyalog.com/download-zone.htm">install a free copy</a>, or try it now by entering an expression (use the language bar above to type the special APL symbols), or clicking one of these expressions, followed by <kbd>Enter</kbd>, to see it in action:
         <table class="hiTable">
           <tr>
             <td><code class="apl">2 + 2</code></td>
@@ -38,7 +38,7 @@
             <td>Functions apply to arrays</td>
           </tr>
         </table>
-        <hr>
+        
         <table class="hiTable">
           <tr>
             <td><code class="apl">⍳10</code></td>
@@ -53,7 +53,7 @@
             <td>A long, slow way to write <code class="apl">!10</code></td>
           </tr>
         </table>
-        <hr>
+        
         <table class="hiTable">
           <tr>
             <td><code class="apl">Avg←{(+⌿⍵)÷≢⍵}</code></td>
@@ -64,7 +64,7 @@
             <td>… and apply it</td>
           </tr>
         </table>
-        <hr>
+        
         <table class="hiTable">
           <tr>
             <td><code class="apl">throws←?10000⍴6</code></td>
@@ -79,7 +79,7 @@
             <td>Frequency of all 6 possibilities</td>
           </tr>
         </table>
-        <hr>
+        
         <table class="hiTable">
           <tr>
             <td><code class="apl">'Hello, World!'</code></td>
@@ -97,8 +97,9 @@
       </div>
       <div class="content grid" id="learn">
         <div id="loadnb">
-          <h1>Learn APL with Dyalog Jupyter notebooks</h1>
-          <input type="text" placeholder="Jupyter Notebook URL" id="nbURL"/><button id="run" onclick="nbLoad('#nbURL')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg></button>
+          <h1>Interactive lessons</h1>
+          TryAPL uses the Jupyter Notebook format to provide interactive lessons. Use one of the listed, or bring your own. Most documents based on the <a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel">Dyalog Jupyter Kernel</a> work fine here.
+          <p><input type="text" placeholder="Jupyter Notebook URL" id="nbURL"/><button id="run" onclick="nbLoad('#nbURL')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg></button></p>
           <h2>APL Basics</h2>
           <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
         </div>
@@ -107,198 +108,139 @@
       </div>
       <div class="content" id="primer">
         <h1>APL Cheat Sheet</h1>
+        Hover over a glyph to display basic usage.
         <div id="primerGlyphs">
-          <h2>Mathematics</h2>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('+');" type="button" value="+"></td>
-                <td><input class="tba" onclick="insertLine('-');" type="button" value="-"></td>
-                <td><input class="tba" onclick="insertLine('÷');" type="button" value="÷"></td>
-                <td><input class="tba" onclick="insertLine('×');" type="button" value="×"></td>
-                <td><input class="tba" onclick="insertLine('⌈');" type="button" value="⌈"></td>
-                <td><input class="tba" onclick="insertLine('⌊');" type="button" value="⌊"></td>
-                <td><input class="tba" onclick="insertLine('*');" type="button" value="*"></td>
-                <td><input class="tba" onclick="insertLine('!');" type="button" value="!"></td>
-                <td><input class="tba" onclick="insertLine('|');" type="button" value="|"></td>
-                <td><input class="tba" onclick="insertLine('⍟');" type="button" value="⍟"></td>
-                <td><input class="tba" onclick="insertLine('○');" type="button" value="○"></td>
-                <td><input class="tba" onclick="insertLine('⌹');" type="button" value="⌹"></td>
-                <td><input class="tba" onclick="insertLine('⊥');" type="button" value="⊥"></td>
-                <td><input class="tba" onclick="insertLine('⊤');" type="button" value="⊤"></td>
-                <td><input class="tba" onclick="insertLine('?');" type="button" value="?"></td>
-              </tr>
-            </tbody>
-          </table>
+          <h3>Mathematics</h3>
+          <input class="tba" onclick="insertLine('+');" type="button" value="+">
+          <input class="tba" onclick="insertLine('-');" type="button" value="-">
+          <input class="tba" onclick="insertLine('÷');" type="button" value="÷">
+          <input class="tba" onclick="insertLine('×');" type="button" value="×">
+          <input class="tba" onclick="insertLine('⌈');" type="button" value="⌈">
+          <input class="tba" onclick="insertLine('⌊');" type="button" value="⌊">
+          <input class="tba" onclick="insertLine('*');" type="button" value="*">
+          <input class="tba" onclick="insertLine('!');" type="button" value="!">
+          <input class="tba" onclick="insertLine('|');" type="button" value="|">
+          <input class="tba" onclick="insertLine('⍟');" type="button" value="⍟">
+          <input class="tba" onclick="insertLine('○');" type="button" value="○">
+          <input class="tba" onclick="insertLine('⌹');" type="button" value="⌹">
+          <input class="tba" onclick="insertLine('⊥');" type="button" value="⊥">
+          <input class="tba" onclick="insertLine('⊤');" type="button" value="⊤">
+          <input class="tba" onclick="insertLine('?');" type="button" value="?">
           <h3>Logic and Comparison</h3>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('∧');" type="button" value="∧"></td>
-                <td><input class="tba" onclick="insertLine('∨');" type="button" value="∨"></td>
-                <td><input class="tba" onclick="insertLine('⍲');" type="button" value="⍲"></td>
-                <td><input class="tba" onclick="insertLine('⍱');" type="button" value="⍱"></td>
-                <td><input class="tba" onclick="insertLine('<');" type="button" value="<"></td>
-                <td><input class="tba" onclick="insertLine('>');" type="button" value=">"></td>
-                <td><input class="tba" onclick="insertLine('≤');" type="button" value="≤"></td>
-                <td><input class="tba" onclick="insertLine('≥');" type="button" value="≥"></td>
-                <td><input class="tba" onclick="insertLine('=');" type="button" value="="></td>
-                <td><input class="tba" onclick="insertLine('≠');" type="button" value="≠"></td>
-                <td><input class="tba" onclick="insertLine('≡');" type="button" value="≡"></td>
-                <td><input class="tba" onclick="insertLine('≢');" type="button" value="≢"></td>
-              </tr>
-            </tbody>
-          </table>
-          <h4>Structural</h4>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('⍴');" type="button" value="⍴"></td>
-                <td><input class="tba" onclick="insertLine(',');" type="button" value=","></td>
-                <td><input class="tba" onclick="insertLine('⍪');" type="button" value="⍪"></td>
-                <td><input class="tba" onclick="insertLine('⌽');" type="button" value="⌽"></td>
-                <td><input class="tba" onclick="insertLine('⊖');" type="button" value="⊖"></td>
-                <td><input class="tba" onclick="insertLine('⍉');" type="button" value="⍉"></td>
-                <td><input class="tba" onclick="insertLine('↑');" type="button" value="↑"></td>
-                <td><input class="tba" onclick="insertLine('↓');" type="button" value="↓"></td>
-                <td><input class="tba" onclick="insertLine('⊂');" type="button" value="⊂"></td>
-                <td><input class="tba" onclick="insertLine('⊆');" type="button" value="⊆"></td>
-                <td><input class="tba" onclick="insertLine('≡');" type="button" value="≡"></td>
-                <td><input class="tba" onclick="insertLine('∊');" type="button" value="∊"></td>
-              </tr>
-            </tbody>
-          </table>
-          <h4>Selection and Set Operations</h4>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('⌷');" type="button" value="⌷"></td>
-                <td><input class="tba" onclick="insertLine('⊃');" type="button" value="⊃"></td>
-                <td><input class="tba" onclick="insertLine('/');" type="button" value="/"></td>
-                <td><input class="tba" onclick="insertLine('⌿');" type="button" value="⌿"></td>
-                <td><input class="tba" onclick="insertLine('\\');" type="button" value="\"></td>
-                <td><input class="tba" onclick="insertLine('⍀');" type="button" value="⍀"></td>
-                <td><input class="tba" onclick="insertLine('~');" type="button" value="~"></td>
-                <td><input class="tba" onclick="insertLine('∪');" type="button" value="∪"></td>
-                <td><input class="tba" onclick="insertLine('∩');" type="button" value="∩"></td>
-                <td><input class="tba" onclick="insertLine('⊣');" type="button" value="⊣"></td>
-                <td><input class="tba" onclick="insertLine('⊢');" type="button" value="⊢"></td>
-              </tr>
-            </tbody>
-          </table>
+          <input class="tba" onclick="insertLine('∧');" type="button" value="∧">
+          <input class="tba" onclick="insertLine('∨');" type="button" value="∨">
+          <input class="tba" onclick="insertLine('⍲');" type="button" value="⍲">
+          <input class="tba" onclick="insertLine('⍱');" type="button" value="⍱">
+          <input class="tba" onclick="insertLine('<');" type="button" value="<">
+          <input class="tba" onclick="insertLine('>');" type="button" value=">">
+          <input class="tba" onclick="insertLine('≤');" type="button" value="≤">
+          <input class="tba" onclick="insertLine('≥');" type="button" value="≥">
+          <input class="tba" onclick="insertLine('=');" type="button" value="=">
+          <input class="tba" onclick="insertLine('≠');" type="button" value="≠">
+          <input class="tba" onclick="insertLine('≡');" type="button" value="≡">
+          <input class="tba" onclick="insertLine('≢');" type="button" value="≢">
+          <h3>Structural</h3>
+          <input class="tba" onclick="insertLine('⍴');" type="button" value="⍴">
+          <input class="tba" onclick="insertLine(',');" type="button" value=",">
+          <input class="tba" onclick="insertLine('⍪');" type="button" value="⍪">
+          <input class="tba" onclick="insertLine('⌽');" type="button" value="⌽">
+          <input class="tba" onclick="insertLine('⊖');" type="button" value="⊖">
+          <input class="tba" onclick="insertLine('⍉');" type="button" value="⍉">
+          <input class="tba" onclick="insertLine('↑');" type="button" value="↑">
+          <input class="tba" onclick="insertLine('↓');" type="button" value="↓">
+          <input class="tba" onclick="insertLine('⊂');" type="button" value="⊂">
+          <input class="tba" onclick="insertLine('⊆');" type="button" value="⊆">
+          <input class="tba" onclick="insertLine('≡');" type="button" value="≡">
+          <input class="tba" onclick="insertLine('∊');" type="button" value="∊">
+          <h3>Selection and Set Operations</h3>
+          <input class="tba" onclick="insertLine('⌷');" type="button" value="⌷">
+          <input class="tba" onclick="insertLine('⊃');" type="button" value="⊃">
+          <input class="tba" onclick="insertLine('/');" type="button" value="/">
+          <input class="tba" onclick="insertLine('⌿');" type="button" value="⌿">
+          <input class="tba" onclick="insertLine('\\');" type="button" value="\">
+          <input class="tba" onclick="insertLine('⍀');" type="button" value="⍀">
+          <input class="tba" onclick="insertLine('~');" type="button" value="~">
+          <input class="tba" onclick="insertLine('∪');" type="button" value="∪">
+          <input class="tba" onclick="insertLine('∩');" type="button" value="∩">
+          <input class="tba" onclick="insertLine('⊣');" type="button" value="⊣">
+          <input class="tba" onclick="insertLine('⊢');" type="button" value="⊢">
           <h4>Search and Sort</h4>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('⍳');" type="button" value="⍳"></td>
-                <td><input class="tba" onclick="insertLine('⍸');" type="button" value="⍸"></td>
-                <td><input class="tba" onclick="insertLine('∊');" type="button" value="∊"></td>
-                <td><input class="tba" onclick="insertLine('⍷');" type="button" value="⍷"></td>
-                <td><input class="tba" onclick="insertLine('⍋');" type="button" value="⍋"></td>
-                <td><input class="tba" onclick="insertLine('⍒');" type="button" value="⍒"></td>
-              </tr>
-            </tbody>
-          </table>
+          <input class="tba" onclick="insertLine('⍳');" type="button" value="⍳">
+          <input class="tba" onclick="insertLine('⍸');" type="button" value="⍸">
+          <input class="tba" onclick="insertLine('∊');" type="button" value="∊">
+          <input class="tba" onclick="insertLine('⍷');" type="button" value="⍷">
+          <input class="tba" onclick="insertLine('⍋');" type="button" value="⍋">
+          <input class="tba" onclick="insertLine('⍒');" type="button" value="⍒">
           <h4>Miscellaneous</h4>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('¯');" type="button" value="¯"></td>
-                <td><input class="tba" onclick="insertLine('\'');" type="button" value="'"></td>
-                <!-- <td><input class="tba" onclick="insertLine('→');" type="button" value="→" /></td> -->
-                <td><input class="tba" onclick="insertLine('←');" type="button" value="←"></td>
-                <td><input class="tba" onclick="insertLine('⍬');" type="button" value="⍬"></td>
-                <td><input class="tba" onclick="insertLine('⍎');" type="button" value="⍎"></td>
-                <td><input class="tba" onclick="insertLine('⍕');" type="button" value="⍕"></td>
-                <td><input class="tba" onclick="insertLine('⋄');" type="button" value="⋄"></td>
-                <td><input class="tba" onclick="insertLine('⍝');" type="button" value="⍝"></td>
-                <td><input class="tba" onclick="insertLine('∇');" type="button" value="∇"></td>
-                <td><input class="tba" onclick="insertLine('⍺');" type="button" value="⍺"></td>
-                <td><input class="tba" onclick="insertLine('⍵');" type="button" value="⍵"></td>
-                <td><input class="tba" onclick="insertLine('⎕');" type="button" value="⎕"></td>
-                <!-- <td><input class="tba" onclick="insertLine('⍞');" type="button" value="⍞" /></td> -->
-                <td><input class="tba" onclick="insertLine('[]');" type="button" value="[]"></td>
-                <td><input class="tba" onclick="insertLine('{}');" type="button" value="{}"></td>
-              </tr>
-            </tbody>
-          </table>
-          <h4>Operators</h4>
-          <table cellspacing="0px" cellpadding="0px">
-            <tbody>
-              <tr>
-                <td><input class="tba" onclick="insertLine('¨');" type="button" value="¨"></td>
-                <td><input class="tba" onclick="insertLine('⍨');" type="button" value="⍨"></td>
-                <td><input class="tba" onclick="insertLine('⍣');" type="button" value="⍣"></td>
-                <td><input class="tba" onclick="insertLine('.');" type="button" value="."></td>
-                <td><input class="tba" onclick="insertLine('∘');" type="button" value="∘"></td>
-                <td><input class="tba" onclick="insertLine('/');" type="button" value="/"></td>
-                <td><input class="tba" onclick="insertLine('\\');" type="button" value="\"></td>
-                <td><input class="tba" onclick="insertLine('⌿');" type="button" value="⌿"></td>
-                <td><input class="tba" onclick="insertLine('⍀');" type="button" value="⍀"></td>
-                <td><input class="tba" onclick="insertLine('⌸');" type="button" value="⌸"></td>
-                <td><input class="tba" onclick="insertLine('⍤');" type="button" value="⍤"></td>
-                <td><input class="tba" onclick="insertLine('⌺');" type="button" value="⌺"></td>
-                <td><input class="tba" onclick="insertLine('@');" type="button" value="@"></td>
-                <td><input class="tba" onclick="insertLine('⍠');" type="button" value="⍠"></td>
-                <td><input class="tba" onclick="insertLine('⌶');" type="button" value="⌶"></td>
-              </tr>
-            </tbody>
-          </table>
+          <input class="tba" onclick="insertLine('¯');" type="button" value="¯">
+          <input class="tba" onclick="insertLine('\'');" type="button" value="'">
+          <!-- <input class="tba" onclick="insertLine('→');" type="button" value="→" /> -->
+          <input class="tba" onclick="insertLine('←');" type="button" value="←">
+          <input class="tba" onclick="insertLine('⍬');" type="button" value="⍬">
+          <input class="tba" onclick="insertLine('⍎');" type="button" value="⍎">
+          <input class="tba" onclick="insertLine('⍕');" type="button" value="⍕">
+          <input class="tba" onclick="insertLine('⋄');" type="button" value="⋄">
+          <input class="tba" onclick="insertLine('⍝');" type="button" value="⍝">
+          <input class="tba" onclick="insertLine('∇');" type="button" value="∇">
+          <input class="tba" onclick="insertLine('⍺');" type="button" value="⍺">
+          <input class="tba" onclick="insertLine('⍵');" type="button" value="⍵">
+          <input class="tba" onclick="insertLine('⎕');" type="button" value="⎕">
+          <input class="tba" onclick="insertLine('⍞');" type="button" value="⍞">
+          <input class="tba" onclick="insertLine('[]');" type="button" value="[]">
+          <input class="tba" onclick="insertLine('{}');" type="button" value="{}">
+          <h3>Operators</h3>
+          <input class="tba" onclick="insertLine('¨');" type="button" value="¨">
+          <input class="tba" onclick="insertLine('⍨');" type="button" value="⍨">
+          <input class="tba" onclick="insertLine('⍣');" type="button" value="⍣">
+          <input class="tba" onclick="insertLine('.');" type="button" value=".">
+          <input class="tba" onclick="insertLine('∘');" type="button" value="∘">
+          <input class="tba" onclick="insertLine('/');" type="button" value="/">
+          <input class="tba" onclick="insertLine('\\');" type="button" value="\">
+          <input class="tba" onclick="insertLine('⌿');" type="button" value="⌿">
+          <input class="tba" onclick="insertLine('⍀');" type="button" value="⍀">
+          <input class="tba" onclick="insertLine('⌸');" type="button" value="⌸">
+          <input class="tba" onclick="insertLine('⍤');" type="button" value="⍤">
+          <input class="tba" onclick="insertLine('⌺');" type="button" value="⌺">
+          <input class="tba" onclick="insertLine('@');" type="button" value="@">
+          <input class="tba" onclick="insertLine('⍠');" type="button" value="⍠">
+          <input class="tba" onclick="insertLine('⌶');" type="button" value="⌶">
         </div>
       </div>
       <div class="content" id="links">
         <h1>Useful links</h1>
-        Most information is available via <a target="_blank" href="https://aplwiki.com">APL Wiki</a>.
-        <h2>Social media</h2>
-        <a class="socialicon" title="Dyalog Blog" href="http://www.dyalog.com/blog/" target="_blank"><img src="assets/blog-icon.png" alt="Blog"></a>
-        <a class="socialicon" title="Dyalog on Twitter" href="http://www.twitter.com/DyalogAPL" target="_blank"><img src="assets/twitter.png" alt="Twitter"></a>
-        <a class="socialicon" title="Dyalog on Facebook" href="http://www.facebook.com/DyalogAPL" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
-        <a class="socialicon" title="Dyalog on LinkedIn" href="http://www.linkedin.com/company/dyalog-ltd-" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
-
-        <h2>Getting started</h2>
-        <p>
-        <a target="_blank" href="http://www.dyalog.com/mastering-dyalog-apl.htm">Mastering Dyalog APL</a> complete guide to Dyalog (free PDF)<p>
-        Wikipedia on <a target="_blank" href="https://en.wikipedia.org/wiki/APL_(programming_language)">the language</a> and its <a target="_blank" href="https://en.wikipedia.org/wiki/APL_syntax_and_symbols">syntax and symbols</a><p>
-        <a target="_blank" href="https://chat.stackexchange.com/rooms/info/52405/the-apl-orchard?tab=conversations">APL Cultivation</a> 29 chat lessons of 90 minutes<p>
-        <a target="_blank" href="http://www.dyalog.com/apl-font-keyboard.htm">APL Fonts and Keyboards</a><p>
-        <a target="_blank" href="https://abrudz.github.io/lb/apl">In-browser language bar</a><p>
-        <a target="_blank" href="http://www.youtube.com/user/APLtrainer">APL Trainer</a> how-to YouTube channel<br/>
-        </p>
-
-        <h2>Dyalog environments</h2>
-        <p>
-        <a target="_blank" href="http://www.dyalog.com/download-zone.htm">Download Dyalog APL</a> free for personal use<p>
-        Jupyter: <a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel">Dyalog Jupyter kernel</a> and ready-made <a target="_blank" href="http://github.com/Dyalog/dyalog-jupyter-notebooks">notebooks</a><p>
-        Dyalog APL on <a target="_blank" href="https://tio.run/#apl-dyalog">Try It Online</a></p>
-
-        <h2>Dyalog documentation</h2>
-        <p>
-        <a target="_blank" href="http://docs.dyalog.com/latest/ReferenceCard.pdf">Reference Card</a><p>
-        <a target="_blank" href="http://help.dyalog.com">Online Language Documentation</a><p>
-        <a target="_blank" href="http://docs.dyalog.com">Full Documentation Set</a> including PDFs</p>
-
-        <h2>How do I&hellip;?</h2>
-        <p>
-        <a target="_blank" href="https://aplcart.info/">APLcart</a><p>
-        <a target="_blank" href="http://forums.dyalog.com/">Dyalog Forums</a><p>
-        <a target="_blank" href="http://aplwiki.com">The APL Wiki</a><p>
-        Stack Overflow: <a target="_blank" href="http://stackoverflow.com/questions/tagged/apl">existing questions</a> or ask a <a target="_blank" href="https://stackoverflow.com/questions/ask?tags=apl">new question</a><p>
-        <a target="_blank" href="http://chat.stackexchange.com/rooms/52405/the-apl-orchard">The APL Orchard</a> a very active chat room<p>
-        <a target="_blank" href="http://groups.google.com/group/comp.lang.apl/">comp.lang.apl</a> Usenet newsgroup<p>
-        <a target="_blank" href="http://miserver.dyalog.com/Examples/Applications/Idiom_Search.mipage?nowrapper=1">Search idiomatic APL expressions</a><br/>
-        </p>
+        <h2>APL Wiki</h2>
+        Most information is available via <a target="_blank" href="https://aplwiki.com">APL Wiki</a>, for example:
+        <ul>
+          <li><a target="_blank" href="https://aplwiki.com/wiki/Learning_resources">Learning resources</a></li>
+          <li><a target="_blank" href="https://aplwiki.com/wiki/Running_APL
+">How to run APL</a></li>
+          <li><a target="_blank" href="https://aplwiki.com/wiki/Documentation_suites">Online documentation</a></li>
+        </ul>
+        <h2>Getting help</h2>
+        If you just need to know how to do something relatively simple, check out <a target="_blank" href="https://aplcart.info/">APLcart</a>. You can also <a target="_blank" href="http://stackoverflow.com/questions/tagged/apl">browse Stack Overflow</a>. If that didn't do it, just get in touch the welcoming community:
+        <ul>
+          <li>Chat in <a target="_blank" href="http://chat.stackexchange.com/rooms/52405/the-apl-orchard">the APL Orchard</a>, a very active chat room</li>
+          <li><a target="_blank" href="https://stackoverflow.com/questions/ask?tags=apl">Ask a question</a> on Stack Overflow</li>
+          <li>Post on <a target="_blank" href="http://forums.dyalog.com/">the Dyalog Forums</a></li>
+          <li>Participate in the <a target="_blank" href="http://groups.google.com/group/comp.lang.apl/">comp.lang.apl</a> group</li>
+          <li>Dyalog social media: <a href="http://www.twitter.com/DyalogAPL" target="_blank">Twitter</a>, 
+            <a href="http://www.facebook.com/DyalogAPL" target="_blank">Facebook</a>, 
+            <a href="http://www.linkedin.com/company/dyalog-ltd-" target="_blank">LinkedIn</a>
+        </ul>
 
         <h2>Recommended videos</h2>
-        <p>
-        <a target="_blank" href="http://www.youtube.com/watch?v=a9xAKttWgP4">Conway's Game of Life in APL</a><p>
-        <a target="_blank" href="http://www.youtube.com/watch?v=X3bv4Iu1aEg">Palindromic Expression for Phi in APL</a><p>
-        <a target="_blank" href="https://www.youtube.com/watch?v=DmT80OseAGs">A Sudoku Solver in APL</a><p>
-        <a target="_blank" href="https://www.youtube.com/watch?v=_DTpQ4Kk2wA">APL demonstration 1975</a><p>
-        <a target="_blank" href="https://www.infoq.com/presentations/Why-APL-is-Still-Cool">Why APL Is Still Cool</a> (at QCon 2011)<p>
-        <a target="_blank" href="https://www.youtube.com/watch?v=v7Mt0GYHU9A">Design Patterns vs Anti pattern in APL</a> (at FnConf17)<p>
-        <a target="_blank" href="https://www.youtube.com/watch?v=PlM9BXfu7UY">Pragmatic Functional Programming</a> with Dyalog's CTO (Talks at Google, 2015)</a><p>
-        <a target="_blank" href="https://dyalog.tv/">Dyalog TV</a> (webinars and user meetings)
+        There are lots of good APL videos out there, including these hand-picked masterpieces:
+        <ul>
+          <li><a target="_blank" href="http://www.youtube.com/watch?v=a9xAKttWgP4">Conway's Game of Life in APL</a></li>
+          <li><a target="_blank" href="http://www.youtube.com/watch?v=X3bv4Iu1aEg">Palindromic Expression for Phi in APL</a></li>
+          <li><a target="_blank" href="https://www.youtube.com/watch?v=DmT80OseAGs">A Sudoku Solver in APL</a></li>
+          <li><a target="_blank" href="https://www.youtube.com/watch?v=_DTpQ4Kk2wA">APL demonstration 1975</a></li>
+          <li><a target="_blank" href="https://www.infoq.com/presentations/Why-APL-is-Still-Cool">Why APL Is Still Cool</a> (at QCon 2011)</li>
+          <li><a target="_blank" href="https://www.youtube.com/watch?v=v7Mt0GYHU9A">Design Patterns vs Anti pattern in APL</a> (at FnConf17)</li>
+          <li><a target="_blank" href="https://www.youtube.com/watch?v=PlM9BXfu7UY">Pragmatic Functional Programming</a> with Dyalog's CTO (Talks at Google, 2015)</a></li>
+          <li><a target="_blank" href="https://dyalog.tv/">Dyalog TV</a> (webinars and user meetings)
         </p>
+        </ul>
       </div>
       <div class="content" id="about">
         <h1>About TryAPL</h1>
@@ -318,7 +260,7 @@
           <tr><td>Redesign</td><td>Adám Brudzewsky</td></tr>
           <tr><td>Additional tutorials</td><td>Will Robertson</td></tr>
         </table>
-        <hr>
+        
         <table class="creditsTable">
           <tr><td>Ideas</td><td colspan="2">John Scholes, Andy Shiers, Roger Hui, John Daintree</td></tr>
           <tr><td>Domain</td><td>Shaun Gilchrist</td></tr>
