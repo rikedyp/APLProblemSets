@@ -1,52 +1,73 @@
-@font-face {
-  font-family: "iosevka";
-  src: url("assets/iosevka-ss09-regular.ttf");
-}
-
-@font-face {
-  font-family: "SC";
-  src: url("assets/SourceCodeVariable-Roman.ttf");
-}
-
-@font-face {
-  font-family: "DV";
-  src: url("assets/DejaVuSansMono.ttf");
-}
+@import url('https://fonts.googleapis.com/css?family=Nunito:600,600i,700,700i&display=swap');
 
 @font-face {
   font-family: "APL385";
   src: local("APL385 Unicode"), url("assets/apl385.ttf");
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: sans-serif;
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+pre,
+code {
+  font-family: "APL385";
 }
 
 body {
   margin: 0;
   overflow: hidden;
 }
+
 .b {
   color: #fff;
   background: #000;
 }
-b.a{
-  
+
+h1 {
+  font-size: 1.73em;
 }
-pre,
-code {
-  font-family: "iosevka";
+
+h2 {
+  font-size: 1.44em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.69em;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: bold;
+  margin-block-start: 1.5ex;
+  margin-block-end: 0.5ex;  
+}
+
+kbd{
+  padding: 0 4px;
+  border-radius: 4px;
+  background: rgba(127,127,127,0.4);
+  padding-bottom: 0;
+  margin: 1px;
 }
 
 hr {
   border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right,transparent, #a54cce, transparent);
+  height: 0.1ex;
+  background: #a54cce;
+  opacity: 0.5;
+  margin: 3px;
 }
 
 .hidden {
@@ -101,7 +122,7 @@ hr {
   overflow-x: hidden;
   font-family: unset;
   text-overflow: ellipsis;
-  padding: 0;
+  padding: 6px 2px;
 }
 
 .tablink:hover {
@@ -127,16 +148,43 @@ hr {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-#hiTable {
+.hiTable {
   width: 100%
 }
 
+.hiTable td:first-child {
+  white-space: pre;
+  padding-right: 1em;
+}
+
 #nbURL {
-  width: calc(100% - 5em);
-  height: 2em;
-  border: none;
-  padding: 0 1px;
+  width: calc(100% - 4em);
+  height: calc(2.25em - 2px);
+  padding: 0 0.5em;
   vertical-align: middle;
+  border: 1px solid #a54cce !important;
+  font-size: 1em;
+}
+
+#nbURL:hover, #nbURL:focus {
+  border: 1px solid #7f00b9;  
+}
+
+#run {
+  height: 2.25em;
+  background: #a54cce;
+  border: 1px solid #a54cce;
+  color: #fff;
+  width: 2.75em;
+  padding: 5px 0;
+  text-transform: uppercase;
+  fill: #fff;
+  vertical-align: middle;
+  font-size: 1em;
+}
+
+#run:hover{
+  background: #7f00b9;
 }
 
 #loadnb a {
@@ -221,12 +269,7 @@ code.apl {
 .b code.apl {
   color: #f0f;
 }
-#primerGlyphs h2,
-h3,
-h4,
-h5 {
-  margin: 1ex 0;
-}
+
 #primerGlyphs td .tba {
   height: 28px;
   font-family: APLFont, monospace;
@@ -252,12 +295,16 @@ h5 {
   color: #fff;
 }
 
+.creditsTable td:nth-child(2) {
+  font-weight: bold;
+}
+
 #full {
   position: relative;
-  top: calc(50% - 72px);
+  top: calc(50% - 70px);
   padding: 16px 3px 12.5px 1px;
   background: #a54cce;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 16px 16px 0;
   cursor: pointer;
   display: inline-block;
   left: 10px;
