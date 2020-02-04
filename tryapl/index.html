@@ -19,7 +19,7 @@
     <a accesskey="h" target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm"></a>
     <div id="leftPane" class="split">
       <div id="tabs">
-        <button class="tablink" id="hiTab" onclick="showTab('hi')">Hi!</button>
+        <button class="tablink" id="hiTab" onclick="showTab('hi')">Hello</button>
         <button class="tablink" id="learnTab" onclick="showTab('learn')">Learn</button>
         <button class="tablink" id="primerTab" onclick="showTab('primer')">Primer</button>
         <button class="tablink" id="linksTab" onclick="showTab('links')">Links</button>
@@ -93,7 +93,7 @@
         <div id="loadnb">
           <h2>Learn APL with Dyalog Jupyter notebooks</h2>
           <input type="text" placeholder="Jupyter Notebook URL" id="nbURL"/>
-          <button onclick="nbLoad('#nbURL')">Run</button>
+          <button id="run" onclick="nbLoad('#nbURL')">Run</button>
           <h4>APL Basics</h4>
           <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
         </div>
@@ -251,24 +251,19 @@
 <p>In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.</p>
       </div>
       <div class="content" id="about">
-        <h1>About TryAPL</h1>
-        <p>TryAPL</b> is thin client for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
-        <p class="ipynbinfo">Tutorials on the <a href="#" onclick="$('#learnTab').click()"><b>Learn</b></a> tab are Jupyter notebooks and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
+        <p><b>TryAPL</b> is a thin client-side interface for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
+        <p class="ipynbinfo">The <a href="#" onclick="$('#learnTab').click()">Learn</a> tab's lessons are Jupyter Notebooks documents and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
         
-        <h1>Limitations</h1>
-        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session. Input is limited to a single line at a time. Each input is must run within <b>1 minute</b> and <b>128 MB</b>. However, only <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back to its previous state if any of these limits is exceeded.</p>
-        <p><b>No information is kept</b> server-side or in cookies, so the session does not persist.</p>
+        <h2>Limitations</h2>
+        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back to its previous state if limit is exceeded.</p>
+        <p><b>No information is kept</b> server-side or in cookies, so nothing persists between instances.</p>
         
-        <h1>Credits</h1>
+        <h2>Credits</h2>
         <p>Inspiration: <b>Joel Hough</b><br />
-        Perspiration: <b>Brian Becker</b><br />
-        Style sheets and design: <b>Brian McCormick</b><br />
-        Sandbox framework: <b>Morten Kromberg</b><br />
-        Expression parser: <b>Dan Baronet</b><br />
-        System Admin and Linux Guru: <b>Jason Rivers</b><br />
-        Additional tutorials: <b>Will Robertson</b><br />
-        Reimplementation: <b>Richard Park</b><br />
-        Various enhancements: <b>Adám Brudzewsky</b></p>
+        Design: <b>Brian McCormick</b><br />
+        Tutorials: <b>Will Robertson</b><br />
+        Implementation: <b>Richard Park</b><br />
+        Enhancements: <b>Adám Brudzewsky</b></p>
         <p>Good ideas: <b>John Scholes, Andy Shiers, Roger Hui, John Daintree</b><br />
         <p>Special thanks: <b>Shaun Gilchrist</b> for the domain</p>
       </div>
