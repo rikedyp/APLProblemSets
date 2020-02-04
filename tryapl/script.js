@@ -109,6 +109,8 @@ nbLoad=id=> {
   });  
 }
 
+replaceAll=(str, find, replace)=>{return str.replace(new RegExp(find, 'g'), replace)}
+
 nbNext=async dir=>{
   // Render (∧,∨) execute next ∨ previous cell  
   mdrender.style.display = "block";
@@ -120,18 +122,38 @@ nbNext=async dir=>{
     log(newCell.cell_type);
     switch (newCell.cell_type) {      
       case "code":
-        // todo, jupyter tradfns, dinput
-        for (let line of cellSource) {
-          newLine = line.replace("\n", "");
-          insertLine(newLine).then(fn=>{
+        // todo, jupyter dinput
+        if (cellSource[0].replace(/\s/g, '')[0] === "∇") {
+          log("tradfn here")
+          // Submit whole definition
+          submitLine(cellSource.join(""), tioParams).then(fn=>{
+            // Format definition with line numbers [1]
+            for (let i = 1; i < cellSource.length; i++) {
+              log("----------");
+              log(cellSource[i]);
+              cellSource[i] = "[" + i + "]" + "&nbsp;&nbsp;" + cellSource[i];
+            }
+            newLine = cellSource.join("");
             var div = document.createElement("div");
-            div.innerHTML = "<code class=\"apl\">" + "&nbsp;&nbsp;" + newLine + "</code>";
+            div.innerHTML = "<pre class=\"apl\">" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + newLine + "</code>";
             mdrender.append(div);
-          }).then(await submitLine("      " + newLine, tioParams));
-        }               
+            // Replace session appendage from submitLine
+            session.value = session.value.split("\n").slice(0,-cellSource.length-1).join("\n") + "\n      ";
+            insertLine(replaceAll(newLine + "\n      ", "&nbsp;", " ")) 
+          });
+        } else {
+          for (let line of cellSource) {
+            newLine = line.replace("\n", "");
+            insertLine(newLine).then(fn=>{
+              var div = document.createElement("div");
+              div.innerHTML = "<code class=\"apl\">" + "&nbsp;&nbsp;" + newLine + "</code>";
+              mdrender.append(div);
+            }).then(await submitLine("      " + newLine, tioParams));
+          }   
+        }          
         break;
       case "markdown":                
-        log(cellSource);
+        log(cellSource);        
         for (var i = 0; i < cellSource.length; i++) {          
           line = cellSource[i];
           if (0 < line.search(/src=\S+/) && 0 > line.search(/src=\"http\S+/)) {                                   
