@@ -42,8 +42,7 @@ paneDrag=s=>{
   } else {
     fs = false;
     triangle.classList.remove("flip");
-  }
-  log(splitPanes.getSizes());
+  }  
   leftPane.style.transition = "unset";
 }
 
@@ -73,10 +72,13 @@ sessionFS=_=>{
   fs = !fs;  
 }
 
-insertLine=code=>{
+insertLine=async code=>{
   session.value += code;
   putCursor(session.value.length); 
-  session.focus();  
+  session.focus(); 
+  return new Promise(function (resolve, reject) {
+    resolve(0);
+  });
 }
 
 replaceLine=code=>{  
@@ -107,9 +109,8 @@ nbLoad=id=> {
   });  
 }
 
-nbNext=dir=>{
-  // Render (∧,∨) execute next ∨ previous cell
-  log("next");
+nbNext=async dir=>{
+  // Render (∧,∨) execute next ∨ previous cell  
   mdrender.style.display = "block";
   newCell = currentBook.cells[currentCell]
   log(newCell);
@@ -119,33 +120,24 @@ nbNext=dir=>{
     log(newCell.cell_type);
     switch (newCell.cell_type) {      
       case "code":
-        // todo: multiple lines
-        insertLine(cellSource);
-        // cellSource = "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + cellSource + "</code>"
-        var div = document.createElement("div");      
-        cellSource.forEach(fn=line=>{
-          div.innerHTML += "<code class='apl' onclick='replaceLine(this.innerHTML)'>" + line + "</code>"
-        });
-        mdrender.appendChild(div);   
-        submitLine();      
+        // todo, jupyter tradfns, dinput
+        for (let line of cellSource) {
+          newLine = line.replace("\n", "");
+          insertLine(newLine).then(fn=>{
+            var div = document.createElement("div");
+            div.innerHTML = "<code class=\"apl\">" + "&nbsp;&nbsp;" + newLine + "</code>";
+            mdrender.append(div);
+          }).then(await submitLine("      " + newLine, tioParams));
+        }               
         break;
-      case "markdown":
-        // imgURL = cellSource.match(/src=\S+/)[0];
-        // log(cellSource.match(/src=\S+/)[0].slice(5,-1));
+      case "markdown":                
         log(cellSource);
-        for (var i = 0; i < cellSource.length; i++) {
-          log(cellSource[i]);
+        for (var i = 0; i < cellSource.length; i++) {          
           line = cellSource[i];
-          if (0 < line.search(/src=\S+/) && 0 > line.search(/src=\"http\S+/)) {
-            log("---");
-                        
+          if (0 < line.search(/src=\S+/) && 0 > line.search(/src=\"http\S+/)) {                                   
             src = cleanURL(nbURL.value);
-            imgURL = src.slice(0,src.lastIndexOf("/") + 1) + line.match(/src=\S+/)[0].slice(5,-1);            
-            // log(line.replace(/src=\S+/, "src=\"" + imgURL + "\""));
+            imgURL = src.slice(0,src.lastIndexOf("/") + 1) + line.match(/src=\S+/)[0].slice(5,-1);                        
             cellSource[i] = line.replace(/src=\S+/, "src=\"" + imgURL + "\"");
-            
-            log("---");
-            
             // todo: handle multiple images in one line 
             // todo: store cleanURL(nbURL) on Run for use here 
             // todo: what about 
