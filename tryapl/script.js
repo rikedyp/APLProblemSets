@@ -122,18 +122,26 @@ nbNext=async dir=>{
     log(newCell.cell_type);
     switch (newCell.cell_type) {      
       case "code":
-        // todo, jupyter dinput
-        if (cellSource[0].replace(/\s/g, '')[0] === "∇") {
-          log("tradfn here")
+        // todo, jupyter dinput        
+        var firstChar = cellSource[0].replace(/\s/g, '')[0];
+        if (firstChar === "∇" || firstChar === "]") {
+          log("tradfn or ]dinput here")
           // Submit whole definition
-          submitLine(cellSource.join(""), tioParams).then(fn=>{
+          if (cellSource[0].replace(/\s/g, '') === "]dinput") {
+            //dfn            
+            fnDef = replaceAll(cellSource.slice(1,cellSource.length).join(""), "\n", "") + "\n".repeat(cellSource.length - 1);
+          } else {
+            // tradfn
+            fnDef = cellSource.join("");
+          }          
+          submitLine(fnDef, tioParams).then(fn=>{
             // Format definition with line numbers [1]
             for (let i = 1; i < cellSource.length; i++) {
               log("----------");
               log(cellSource[i]);
               cellSource[i] = "[" + i + "]" + "&nbsp;&nbsp;" + cellSource[i];
             }
-            newLine = cellSource.join("");
+            newLine = cellSource.join("");            
             var div = document.createElement("div");
             div.innerHTML = "<pre class=\"apl\">" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + newLine + "</code>";
             mdrender.append(div);
@@ -142,6 +150,8 @@ nbNext=async dir=>{
             insertLine(replaceAll(newLine + "\n      ", "&nbsp;", " ")) 
           });
         } else {
+          log("ONE LINER");
+          lastText = session.value;
           for (let line of cellSource) {
             newLine = line.replace("\n", "");
             insertLine(newLine).then(fn=>{
