@@ -253,11 +253,10 @@
       <div class="content" id="about">
         <h1>About TryAPL</h1>
         <p>TryAPL</b> is thin client for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
-        <p class="ipynbinfo">Tutorials on the <a href="#" onclick="$('#leftpanel').tabs('option', 'active', 1);"><b>Learn</b></a> tab are Jupyter notebooks and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
+        <p class="ipynbinfo">Tutorials on the <a href="#" onclick="$('#learnTab').click()"><b>Learn</b></a> tab are Jupyter notebooks and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
         
         <h1>Limitations</h1>
-        <p><b>All of Dyalog APL is supported</b>, but input is limited on a single line at a time.</p>
-        <p>Execution of any single input line must not exceed <b>1 minute</b> nor <b>128 MB</b>. However, the session storage is limited to about <b>20 MB</b>. Exceeding the maximum time or space for execution of an expression causes the execution to be cancelled and the session will remain as it was before the expression was entered.</p>
+        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session. Input is limited to a single line at a time. Each input is must run within <b>1 minute</b> and <b>128 MB</b>. However, only <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back to its previous state if any of these limits is exceeded.</p>
         <p><b>No information is kept</b> server-side or in cookies, so the session does not persist.</p>
         
         <h1>Credits</h1>
