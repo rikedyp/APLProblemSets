@@ -127,6 +127,10 @@ hr {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+#hiTable {
+  width: 100%
+}
+
 #nbURL {
   width: calc(100% - 5em);
   height: 2em;
