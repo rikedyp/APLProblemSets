@@ -55,8 +55,9 @@ paneDrag=s=>{
 }
 
 showTab=id=>{
-  id=id.toLowerCase()
-  $$(".content").forEach(fn=tab=>{    
+  contents=[...$$(".content")]
+  id=(i=parseInt(id))?[...contents].map(n=>n.id)[(i-1)/2]:id.toLowerCase();
+  contents.forEach(fn=tab=>{    
     if (id != tab.id) {      
       $("#" + tab.id + "Tab").classList.remove("active");
       tab.classList.remove("active");
