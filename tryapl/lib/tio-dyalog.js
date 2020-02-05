@@ -71,12 +71,40 @@ function loadTioDyalog() {
   });
   session.value=oldText;
   // Handle URL queries
-  if (expr = s.get("a")) {session.value += decodeURIComponent(expr); if(null!=s.get("run")) {submitLine("      " + decodeURIComponent(expr), tioParams);prevCount += 1;}}   
+  // if (expr = s.get("a")) {session.value += decodeURIComponent(expr); if(null!=s.get("run")) {submitLine("      " + decodeURIComponent(expr), tioParams);prevCount += 1;}} 
+  // Backwards compatiable with old tryapl  
+  if (location.search.length > 0) { 
+    if (expr = s.get("a")) {
+      newLine = unescape(unescape(expr.slice(2)));
+      log(newLine);
+    } else if (expr = s.get("q")) {
+      newLine = decodeURIComponent(expr);
+    } else {
+      newLine = "";
+    }
+    insertLine(newLine);
+    if (null!=s.get("run")) {
+      submitLine("      " + newLine, tioParams);
+    }
+  }
+  
+  // insertLine(newLine);
+  
+  
+  // if (expr = s.get("a")) {
+    // var expression = unescape(unescape(a[i].slice(2)));
+    // submitLine("      " + decodeURIComponent(expression), tioParams)
+    // session.value += 
+    // if (null!=s.get("run")) {
+      // sub
+    // }
+  // }
+  // unescape(unescape(a[i].slice(2))
 }
 
 permaLink=_=>{
   currentLine = getCurrentLine()
-  history.replaceState({},document.title,location.pathname + "?a=" + escape(encodeURIComponent(currentLine.trim())) + "&run");
+  history.replaceState({},document.title,location.pathname + "?q=" + escape(encodeURIComponent(currentLine.trim())) + "&run");
 }
 
 log=text=>{if(debug){console.log(text)}}
