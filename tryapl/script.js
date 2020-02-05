@@ -33,6 +33,14 @@ window.onload=_=>{
   if (expr = s.get("tab")) {showTab(expr);}  
   // Open notebook from URL
   if (expr = s.get("notebook")) {showTab("learn");nbURL.value=expr;nbLoad("#nbURL")};
+  fetch("assets/elements.h").then(e=>e.text()).then(e=>{
+    symbols=""
+    elements=e.split("NAME(").slice(1).map(t=>{
+      lines=[...t.matchAll(/"[^"]*"/g)];
+      symbols+=lines[1][0][1];
+      return lines.join("\n").replace(/"/g,'').replace(/\\\\/g,"\\")
+    })
+  })
 }
 
 paneDrag=s=>{
@@ -47,6 +55,7 @@ paneDrag=s=>{
 }
 
 showTab=id=>{
+  id=id.toLowerCase()
   $$(".content").forEach(fn=tab=>{    
     if (id != tab.id) {      
       $("#" + tab.id + "Tab").classList.remove("active");
@@ -79,6 +88,13 @@ insertLine=async code=>{
   return new Promise(function (resolve, reject) {
     resolve(0);
   });
+}
+
+glyphHelp=g=>{
+  session.value += "\n"+"─".repeat(80)+"\n"+elements[symbols.search("\\"+g)]+"      ";
+  lastText=session.value;
+  putCursor(session.value.length);
+  session.focus(); 
 }
 
 replaceLine=code=>{  
