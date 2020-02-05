@@ -24,7 +24,7 @@ window.onload=_=>{
   })    
   loadTioDyalog();
   gutter = $(".gutter");  
-  gutter.innerHTML += "<span id='full' onmousedown='leftPane.style.transition = \"width 0.15s\";sessionFS();'><svg width='8' height='16' id='triangle'><polygon points='0,8 8,16 8,0'/></svg></span>";
+  gutter.innerHTML += "<span id='full' accesskey='z' onclick='leftPane.style.transition = \"width 0.15s\";sessionFS();'><svg width='8' height='16' id='triangle'><polygon points='0,8 8,16 8,0'/></svg></span>";
   hi.classList.add("active");
   hiTab.classList.add("active"); 
   $$("code.apl").forEach(fn=el=>{el.onclick=e=>{replaceLine(e.target.innerHTML)}});  

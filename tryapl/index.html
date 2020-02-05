@@ -19,11 +19,11 @@
     <a accesskey="h" target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm"></a>
     <div id="leftPane" class="split">
       <div id="tabs">
-        <button class="tablink" title="Introduction" id="hiTab" onclick="showTab('hi')">Intro</button>
-        <button class="tablink" title="Learn with interactive lessons" id="learnTab" onclick="showTab('learn')">Learn</button>
-        <button class="tablink" title="Primer on the langauge" id="primerTab" onclick="showTab('primer')">Primer</button>
-        <button class="tablink" title="Links to useful resources" id="linksTab" onclick="showTab('links')">Links</button>
-        <button class="tablink" title="About the techology used" id="aboutTab" onclick="showTab('about')">About</button>
+        <button class="tablink" accesskey="i" title="Introduction" id="hiTab" onclick="showTab('hi')">Intro</button>
+        <button class="tablink" accesskey="" title="Learn with interactive lessons" id="learnTab" onclick="showTab('learn')">Learn</button>
+        <button class="tablink" accesskey="" title="Primer on the langauge" id="primerTab" onclick="showTab('primer')">Primer</button>
+        <button class="tablink" accesskey="" title="Links to useful resources" id="linksTab" onclick="showTab('links')">Links</button>
+        <button class="tablink" accesskey="" title="About the techology used" id="aboutTab" onclick="showTab('about')">About</button>
       </div>
       <div class="content" id="hi">
         <h1>Got a minute? &mdash; Try APL!</h1>
@@ -246,11 +246,35 @@
         <h1>About TryAPL</h1>
         <p><b>TryAPL</b> is a thin client-side interface for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
         <p class="ipynbinfo">The <a href="#" onclick="$('#learnTab').click()">Learn</a> tab's lessons are Jupyter Notebooks documents and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
-
+        <h2>Shortcut keys</h2>
+        <table class="creditsTable">
+          <tr><td><kbd>Enter</kbd></td><td>Execute current line</td></tr>
+          <tr><td><kbd>Escape</kbd></td><td>Clear current line</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Backspace</kbd></td><td>Previous input</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>Next input</td></tr>
+        </table>
+        <table class="creditsTable">
+          <tr><td><a target="_blank" href="https://www.w3schools.com/tags/att_global_accesskey.asp#table2">Access-key</a> <kbd>H</kbd></td><td>Open language <u>h</u>elp</td></tr>
+          <tr><td>Access-key <kbd>Z</kbd></td><td><u>Z</u>oom right pane</td></tr>
+          <tr><td>Access-key <kbd>L</kbd></td><td>Perma<u>l</u>ink in URL bar</td></tr>
+          <tr><td>Access-key <kbd>B</kbd></td><td>Use <u>b</u>lack theme</td></tr>
+          <tr><td>Access-key <kbd>W</kbd></td><td>Use <u>w</u>hite theme</td></tr>
+        </table>
+        <table class="creditsTable">
+          <tr><td>Access-key <kbd>I</kbd></td><td>Open <u>I</u>ntro tab</tr>
+          <tr><td><kbd>Tab</kbd></td><td>Focus on next <u>tab</u></td></tr>
+          <tr><td><kbd>Shift</kbd>+<kbd>Tab</kbd></td><td>Focus on previous tab</td></tr>
+          <tr><td><kbd>Space</kbd></td><td>Select focused tab</td></tr>
+        </table>
+        <table class="creditsTable">
+          <tr><td>Access-key <kbd>S</kbd></td><td><u>S</u>top current lesson</td></tr>
+          <tr><td>Access-key <kbd>R</kbd></td><td><u>R</u>estart current lesson</td></tr>
+          <tr><td>Access-key <kbd>P</kbd></td><td><u>P</u>revious lesson step</td></tr>
+          <tr><td>Access-key <kbd>N</kbd></td><td><u>N</u>ext lesson step</td></tr>
+        </table>
         <h2>Limitations</h2>
-        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only about <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back to its previous state if limit is exceeded.</p>
+        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window or prompt for input using <code>⎕</code> or <code>⍞</code>. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only about <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back to its previous state if limit is exceeded.</p>
         <p><b>No information is kept</b> server-side or in cookies, so nothing persists between instances.</p>
-
         <h2>Credits</h2>
         <table class="creditsTable">
           <tr><td>Implementation</td><td>Brian Becker</td></tr>
@@ -258,13 +282,13 @@
           <tr><td>Additional tutorials</td><td>Will Robertson</td></tr>
           <tr><td>Reimplementation</td><td>Richard Park</td></tr>
           <tr><td>Redesign</td><td>Adám Brudzewsky</td></tr>
-        </table>
-        <table class="creditsTable">
+        </table>        <table class="creditsTable">
           <tr><td>Inspiration</td><td>Joel Hough</td></tr>
           <tr><td>Ideas</td><td colspan="2">John Scholes, Andy Shiers, Roger Hui, John Daintree</td></tr>
           <tr><td>Domain</td><td>Shaun Gilchrist</td></tr>
         </table>
         <table class="creditsTable">
+          <tr><td>APL library</td><td><a target="_blank" href="http://dfns.dyalog.com/">dfns</a></td></tr>
           <tr><td>Split panes</td><td><a target="_blank" href="https://split.js.org/">Split.js</a></td></tr>
           <tr><td>Text font</td><td><a target="_blank" href="https://github.com/googlefonts/nunito">Nunito</a></td></tr>
           <tr><td>Containers</td><td><a target="_blank" href="https://tio.run">TIO</a></td></tr>

@@ -126,7 +126,7 @@ td{
   color: #fff;
   width: 20%;
   font-size: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: unset;
   text-overflow: ellipsis;
   padding: 6px 2px;
