@@ -71,12 +71,12 @@ function loadTioDyalog() {
   });
   session.value=oldText;
   // Handle URL queries
-  if (expr = s.get("a")) {session.value += decodeURIComponent(expr); if(null!=s.get("run")) {submitLine();prevCount += 1;}}   
+  if (expr = s.get("a")) {session.value += decodeURIComponent(expr); if(null!=s.get("run")) {submitLine("      " + decodeURIComponent(expr), tioParams);prevCount += 1;}}   
 }
 
 permaLink=_=>{
   currentLine = getCurrentLine()
-  history.replaceState({},document.title,location.pathname + "?a=" + encodeURIComponent(currentLine.trim()) + "&run");
+  history.replaceState({},document.title,location.pathname + "?a=" + escape(encodeURIComponent(currentLine.trim())) + "&run");
 }
 
 log=text=>{if(debug){console.log(text)}}
