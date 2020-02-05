@@ -55,6 +55,7 @@ paneDrag=s=>{
 }
 
 showTab=id=>{
+  id=id.toLowerCase()
   $$(".content").forEach(fn=tab=>{    
     if (id != tab.id) {      
       $("#" + tab.id + "Tab").classList.remove("active");
@@ -91,7 +92,8 @@ insertLine=async code=>{
 
 glyphHelp=g=>{
   session.value += "\n"+"─".repeat(80)+"\n"+elements[symbols.search("\\"+g)]+"      ";
-  putCursor(session.value.length); 
+  lastText=session.value;
+  putCursor(session.value.length);
   session.focus(); 
 }
 
