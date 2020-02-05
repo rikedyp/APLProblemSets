@@ -70,6 +70,13 @@ hr {
   margin: 3px;
 }
 
+table {
+  border-collapse: collapse;
+}
+td{
+  padding: 0;
+}
+
 .hidden {
   visibility: hidden;
   opacity: 0;
@@ -148,8 +155,16 @@ hr {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+.hiTable, .creditsTable {
+  margin: 1ex 0;
+}
+
 .hiTable {
   width: 100%
+}
+
+.hiTable td, .creditsTable td {
+  padding: 0.5ex 0;
 }
 
 .hiTable td:first-child {
