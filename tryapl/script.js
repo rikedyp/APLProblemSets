@@ -29,10 +29,12 @@ window.onload=_=>{
   hiTab.classList.add("active"); 
   $$("code.apl").forEach(fn=el=>{el.onclick=e=>{replaceLine(e.target.innerHTML)}});  
   var s=new URLSearchParams(location.search) // Options from URL 
-  // Go to tab from URL  
-  if (expr = s.get("tab")) {showTab(expr);}  
-  // Open notebook from URL
-  if (expr = s.get("notebook")) {showTab("learn");nbURL.value=expr;nbLoad("#nbURL")};
+  if (expr = s.get("fs")) {sessionFS()}      // Start in Full Screen mode
+  if (expr = s.get("tab")) {showTab(expr);}  // Go to tab from URL    
+  if (expr = s.get("notebook"))              // Open notebook from URL
+  {
+    showTab("learn");nbURL.value=expr;nbLoad("#nbURL");
+  };                                         
   fetch("assets/elements.h").then(e=>e.text()).then(e=>{
     symbols=""
     elements=e.split("NAME(").slice(1).map(t=>{
