@@ -279,22 +279,21 @@ code.apl {
   color: #f0f;
 }
 
-#primerGlyphs .tba {
+#primerGlyphs input {
   font-family: APL385, monospace;
   background: unset;
   border: none;
-  font-size: 3ex;
-  padding: 0 0.25em;
-  margin: 0;
+  font-size: 1.2em;
+  padding: 0 0.1em;
   color: purple;
   cursor: pointer;
-  height: 3ex;
 }
-.b #primerGlyphs .tba {
+
+.b #primerGlyphs input {
   color: #a54cce; 
 }
 
-#primerGlyphs .tba:hover {
+#primerGlyphs input:hover {
   background: #c06ece;
   color: #fff;
 }

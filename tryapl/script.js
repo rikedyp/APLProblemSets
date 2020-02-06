@@ -38,7 +38,7 @@ window.onload=_=>{
     elements=e.split("NAME(").slice(1).map(t=>{
       lines=[...t.matchAll(/"[^"]*"/g)];
       symbols+=lines[1][0][1];
-      return lines.join("\n").replace(/"/g,'').replace(/\\\\/g,"\\")
+      return lines.join("\n").replace("\n"," (").replace("\n",")\n\n").replace(/"/g,'').replace(/\\\\/g,"\\")
     })
   })
 }
@@ -92,10 +92,13 @@ insertLine=async code=>{
 }
 
 glyphHelp=g=>{
-  session.value += "\n"+"─".repeat(80)+"\n"+elements[symbols.search("\\"+g)]+"      ";
-  lastText=session.value;
-  putCursor(session.value.length);
-  session.focus(); 
+  i=symbols.search("\\"+g)
+  if(-1<i){
+    session.value += "\n"+"─".repeat(80)+"\n"+elements[i]+"      ";
+    lastText=session.value;
+    putCursor(session.value.length);
+    session.focus(); 
+  }
 }
 
 replaceLine=code=>{  

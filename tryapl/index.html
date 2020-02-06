@@ -21,7 +21,7 @@
       <div id="tabs">
         <button class="tablink" accesskey="i" title="Introduction" id="hiTab" onclick="showTab('hi')">Intro</button>
         <button class="tablink" accesskey="" title="Learn with interactive lessons" id="learnTab" onclick="showTab('learn')">Learn</button>
-        <button class="tablink" accesskey="" title="Primer on the langauge" id="primerTab" onclick="showTab('primer')">Primer</button>
+        <button class="tablink" accesskey="" title="Primer on the language" id="primerTab" onclick="showTab('primer')">Primer</button>
         <button class="tablink" accesskey="" title="Links to useful resources" id="linksTab" onclick="showTab('links')">Links</button>
         <button class="tablink" accesskey="" title="About the techology used" id="aboutTab" onclick="showTab('about')">About</button>
       </div>
@@ -108,103 +108,113 @@
       </div>
       <div class="content" id="primer">
         <h1>Cheat Sheet</h1>
-        Click on a glyph to print basic usage.
-        <div id="primerGlyphs">
-          <h3>Mathematics</h3>
-          <input class="tba" onclick="glyphHelp('+');" type="button" value="+">
-          <input class="tba" onclick="glyphHelp('-');" type="button" value="-">
-          <input class="tba" onclick="glyphHelp('×');" type="button" value="×">
-          <input class="tba" onclick="glyphHelp('÷');" type="button" value="÷">
-          <input class="tba" onclick="glyphHelp('⌈');" type="button" value="⌈">
-          <input class="tba" onclick="glyphHelp('⌊');" type="button" value="⌊">
-          <input class="tba" onclick="glyphHelp('*');" type="button" value="*">
-          <input class="tba" onclick="glyphHelp('!');" type="button" value="!">
-          <input class="tba" onclick="glyphHelp('|');" type="button" value="|">
-          <input class="tba" onclick="glyphHelp('⍟');" type="button" value="⍟">
-          <input class="tba" onclick="glyphHelp('○');" type="button" value="○">
-          <input class="tba" onclick="glyphHelp('⌹');" type="button" value="⌹">
-          <input class="tba" onclick="glyphHelp('⊥');" type="button" value="⊥">
-          <input class="tba" onclick="glyphHelp('⊤');" type="button" value="⊤">
-          <input class="tba" onclick="glyphHelp('?');" type="button" value="?">
-          <h3>Logic and Comparison</h3>
-          <input class="tba" onclick="glyphHelp('∧');" type="button" value="∧">
-          <input class="tba" onclick="glyphHelp('∨');" type="button" value="∨">
-          <input class="tba" onclick="glyphHelp('⍲');" type="button" value="⍲">
-          <input class="tba" onclick="glyphHelp('⍱');" type="button" value="⍱">
-          <input class="tba" onclick="glyphHelp('<');" type="button" value="<">
-          <input class="tba" onclick="glyphHelp('>');" type="button" value=">">
-          <input class="tba" onclick="glyphHelp('≤');" type="button" value="≤">
-          <input class="tba" onclick="glyphHelp('≥');" type="button" value="≥">
-          <input class="tba" onclick="glyphHelp('=');" type="button" value="=">
-          <input class="tba" onclick="glyphHelp('≠');" type="button" value="≠">
-          <input class="tba" onclick="glyphHelp('≡');" type="button" value="≡">
-          <input class="tba" onclick="glyphHelp('≢');" type="button" value="≢">
-          <h3>Structural</h3>
-          <input class="tba" onclick="glyphHelp('⍴');" type="button" value="⍴">
-          <input class="tba" onclick="glyphHelp(',');" type="button" value=",">
-          <input class="tba" onclick="glyphHelp('⍪');" type="button" value="⍪">
-          <input class="tba" onclick="glyphHelp('⌽');" type="button" value="⌽">
-          <input class="tba" onclick="glyphHelp('⊖');" type="button" value="⊖">
-          <input class="tba" onclick="glyphHelp('⍉');" type="button" value="⍉">
-          <input class="tba" onclick="glyphHelp('↑');" type="button" value="↑">
-          <input class="tba" onclick="glyphHelp('↓');" type="button" value="↓">
-          <input class="tba" onclick="glyphHelp('⊂');" type="button" value="⊂">
-          <input class="tba" onclick="glyphHelp('⊆');" type="button" value="⊆">
-          <input class="tba" onclick="glyphHelp('≡');" type="button" value="≡">
-          <input class="tba" onclick="glyphHelp('∊');" type="button" value="∊">
-          <h3>Selection and Set Operations</h3>
-          <input class="tba" onclick="glyphHelp('⌷');" type="button" value="⌷">
-          <input class="tba" onclick="glyphHelp('⊃');" type="button" value="⊃">
-          <input class="tba" onclick="glyphHelp('/');" type="button" value="/">
-          <input class="tba" onclick="glyphHelp('⌿');" type="button" value="⌿">
-          <input class="tba" onclick="glyphHelp('\\');" type="button" value="\">
-          <input class="tba" onclick="glyphHelp('⍀');" type="button" value="⍀">
-          <input class="tba" onclick="glyphHelp('~');" type="button" value="~">
-          <input class="tba" onclick="glyphHelp('∪');" type="button" value="∪">
-          <input class="tba" onclick="glyphHelp('∩');" type="button" value="∩">
-          <input class="tba" onclick="glyphHelp('⊣');" type="button" value="⊣">
-          <input class="tba" onclick="glyphHelp('⊢');" type="button" value="⊢">
-          <h3>Search and Ordering</h3>
-          <input class="tba" onclick="glyphHelp('⍳');" type="button" value="⍳">
-          <input class="tba" onclick="glyphHelp('⍸');" type="button" value="⍸">
-          <input class="tba" onclick="glyphHelp('∊');" type="button" value="∊">
-          <input class="tba" onclick="glyphHelp('⍷');" type="button" value="⍷">
-          <input class="tba" onclick="glyphHelp('⍋');" type="button" value="⍋">
-          <input class="tba" onclick="glyphHelp('⍒');" type="button" value="⍒">
-          <h3>Miscellaneous</h3>
-          <input class="tba" onclick="glyphHelp('¯');" type="button" value="¯">
-          <!-- <input class="tba" onclick="glyphHelp('\'');" type="button" value="'">
-          <input class="tba" onclick="glyphHelp('→');" type="button" value="→" /> -->
-          <input class="tba" onclick="glyphHelp('←');" type="button" value="←">
-          <input class="tba" onclick="glyphHelp('⍬');" type="button" value="⍬">
-          <input class="tba" onclick="glyphHelp('⍎');" type="button" value="⍎">
-          <input class="tba" onclick="glyphHelp('⍕');" type="button" value="⍕">
-          <input class="tba" onclick="glyphHelp('⋄');" type="button" value="⋄">
-          <input class="tba" onclick="glyphHelp('⍝');" type="button" value="⍝">
-          <input class="tba" onclick="glyphHelp('∇');" type="button" value="∇">
-          <input class="tba" onclick="glyphHelp('⍺');" type="button" value="⍺">
-          <input class="tba" onclick="glyphHelp('⍵');" type="button" value="⍵">
-          <input class="tba" onclick="glyphHelp('⎕');" type="button" value="⎕">
-          <input class="tba" onclick="glyphHelp('⍞');" type="button" value="⍞">
-          <!-- <input class="tba" onclick="glyphHelp('[]');" type="button" value="[]">
-          <input class="tba" onclick="glyphHelp('{}');" type="button" value="{}">-->
-          <h3>Operators</h3>
-          <input class="tba" onclick="glyphHelp('¨');" type="button" value="¨">
-          <input class="tba" onclick="glyphHelp('⍨');" type="button" value="⍨">
-          <input class="tba" onclick="glyphHelp('⍣');" type="button" value="⍣">
-          <input class="tba" onclick="glyphHelp('.');" type="button" value=".">
-          <input class="tba" onclick="glyphHelp('∘');" type="button" value="∘">
-          <input class="tba" onclick="glyphHelp('/');" type="button" value="/">
-          <input class="tba" onclick="glyphHelp('\\');" type="button" value="\">
-          <input class="tba" onclick="glyphHelp('⌿');" type="button" value="⌿">
-          <input class="tba" onclick="glyphHelp('⍀');" type="button" value="⍀">
-          <input class="tba" onclick="glyphHelp('⌸');" type="button" value="⌸">
-          <input class="tba" onclick="glyphHelp('⍤');" type="button" value="⍤">
-          <input class="tba" onclick="glyphHelp('⌺');" type="button" value="⌺">
-          <input class="tba" onclick="glyphHelp('@');" type="button" value="@">
-          <input class="tba" onclick="glyphHelp('⍠');" type="button" value="⍠">
-          <input class="tba" onclick="glyphHelp('⌶');" type="button" value="⌶">
+        <h2>Primitives</h2>
+        Click on a glyph to print basic usage. See <a target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm">the language reference</a> for details.
+        <div id="primerGlyphs" onclick="glyphHelp(event.target.value)">
+          <h4>Mathematics</h4>
+          <input type="button" value="+">
+          <input type="button" value="-">
+          <input type="button" value="×">
+          <input type="button" value="÷">
+          <input type="button" value="⌈">
+          <input type="button" value="⌊">
+          <input type="button" value="*">
+          <input type="button" value="!">
+          <input type="button" value="|">
+          <input type="button" value="⍟">
+          <input type="button" value="○">
+          <input type="button" value="⌹">
+          <input type="button" value="⊥">
+          <input type="button" value="⊤">
+          <input type="button" value="?">
+          <h4>Logic and Comparison</h4>
+          <input type="button" value="∧">
+          <input type="button" value="∨">
+          <input type="button" value="⍲">
+          <input type="button" value="⍱">
+          <input type="button" value="<">
+          <input type="button" value=">">
+          <input type="button" value="≤">
+          <input type="button" value="≥">
+          <input type="button" value="=">
+          <input type="button" value="≠">
+          <input type="button" value="≡">
+          <input type="button" value="≢">
+          <h4>Structural</h4>
+          <input type="button" value="⍴">
+          <input type="button" value=",">
+          <input type="button" value="⍪">
+          <input type="button" value="⌽">
+          <input type="button" value="⊖">
+          <input type="button" value="⍉">
+          <input type="button" value="↑">
+          <input type="button" value="↓">
+          <input type="button" value="⊂">
+          <input type="button" value="⊆">
+          <input type="button" value="≡">
+          <input type="button" value="∊">
+          <h4>Selection and Set Operations</h4>
+          <input type="button" value="⌷">
+          <input type="button" value="⊃">
+          <input type="button" value="/">
+          <input type="button" value="⌿">
+          <input onclick="glyphHelp('\\');" type="button" value="\">
+          <input type="button" value="⍀">
+          <input type="button" value="~">
+          <input type="button" value="∪">
+          <input type="button" value="∩">
+          <input type="button" value="⊣">
+          <input type="button" value="⊢">
+          <h4>Search and Ordering</h4>
+          <input type="button" value="⍳">
+          <input type="button" value="⍸">
+          <input type="button" value="∊">
+          <input type="button" value="⍷">
+          <input type="button" value="⍋">
+          <input type="button" value="⍒">
+          <h4>Operators</h4>
+          <input type="button" value="¨">
+          <input type="button" value="⍨">
+          <input type="button" value="⍣">
+          <input type="button" value=".">
+          <input type="button" value="∘">
+          <input type="button" value="/">
+          <input type="button" value="\">
+          <input type="button" value="⌿">
+          <input type="button" value="⍀">
+          <input type="button" value="⌸">
+          <input type="button" value="⍤">
+          <input type="button" value="⌺">
+          <input type="button" value="@">
+          <input type="button" value="⍠">
+          <input type="button" value="⌶">
+          <h4>Miscellaneous</h4>
+          <input type="button" value="¯">
+     <!-- <input type="button" value="'">
+          <input type="button" value="→" /> -->
+          <input type="button" value="←">
+          <input type="button" value="⍬">
+          <input type="button" value="⍎">
+          <input type="button" value="⍕">
+          <input type="button" value="⋄">
+          <input type="button" value="⍝">
+          <input type="button" value="∇">
+          <input type="button" value="⍺">
+          <input type="button" value="⍵">
+          <input type="button" value="⎕">*
+          <input type="button" value="⍞">*
+     <!-- <input type="button" value="[]">
+          <input type="button" value="{}">-->
+          <br>* On TryAPL: output only 
         </div>
+
+        <h2>Additional features</h2>
+        <h4>Utilities</h4>
+        APL has a lot of built-in utilities. They have names beginning with the <i>quad</i> character; <code>⎕</code>. Please refer to <a target="_blank" href="http://help.dyalog.com/latest/#Language/System%20Functions/Summary%20Tables/System%20Functions%20Categorised.htm">the categorized listing</a>.
+        <h4>System commands</h4>
+        Additionally, there are so-called system commands which are not code, but perform <a target="_blank" href="http://help.dyalog.com/latest/#Language/System%20Commands/Introduction.htm">various management actions</a>. They begin with the closing parenthesis character; <code>)</code> as in <code class="apl">)fns</code> to list your <b>f</b>u<b>n</b>ction<b>s</b>.</li>
+        <h4>Library</h4>
+        Finally, we've added <a target="_blank" href="http://dfns.dyalog.com/n_contents.htm">the entire <i>dfns</i> library</a> which you can call using <code>⎕SE.name</code> as in <code class="apl">⎕SE.cal 0</code> .
       </div>
       <div class="content" id="links">
         <h1>Useful links</h1>
@@ -273,7 +283,7 @@
           <tr><td>Access-key <kbd>N</kbd></td><td><u>N</u>ext lesson step</td></tr>
         </table>
         <h2>Limitations</h2>
-        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window or prompt for input using <code>⎕</code> or <code>⍞</code>. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only about <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back to its previous state if limit is exceeded.</p>
+        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window or prompt for input using <code>⎕</code> or <code>⍞</code>. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only about <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back if a limit is exceeded.</p>
         <p><b>No information is kept</b> server-side or in cookies, so nothing persists between instances.</p>
         <h2>Credits</h2>
         <table class="creditsTable">
