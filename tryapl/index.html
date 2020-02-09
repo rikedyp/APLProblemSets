@@ -100,220 +100,243 @@
           <h1>Interactive lessons</h1>
           TryAPL uses the Jupyter Notebook format to provide interactive lessons. Use one of the listed, or bring your own. Most documents based on the <a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel">Dyalog Jupyter Kernel</a> work fine here.
           <p><input type="text" placeholder="Jupyter Notebook URL" id="nbURL"/><button id="run" onclick="nbLoad('#nbURL')"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"/></svg></button></p>
-          <h2>APL Basics</h2>
-          <a onclick="nbURL.value='https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb';log('test')">APL Expressions</a>
+          <h2>Recommended lessons</h2>
+          <div id="lessonList" onclick="nbFill(event.target)">
+            <p>Click on an item below to insert its URL in the input field.</p>
+            <h3>About TryAPL's lessons</h3>
+            <a data-url="">Using the TryAPL tutorials</a>
+            <h3>APL Basics</h3>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Introduction.ipynb">APL Expressions</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Arrays.ipynb">Arrays</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Functions.ipynb">Functions</a>
+            <h3>Closer Looks at Some Functions</h3>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Arithmetic Functions.ipynb">Arithmetic Functions: <code>+</code> <code>-</code> <code>×</code> <code>÷</code> <code>*</code> <code>⍟</code> <code>⌈</code> <code>⌊</code> <code>|</code></a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Grading and Sorting.ipynb">Grading and Sorting: <code>⍋</code> <code>⍒</code></a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Rank and Depth.ipynb">Modifying Rank and Depth: <code>↑</code> <code>↓</code> <code>⊂</code> <code>⊃</code></a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Random Numbers.ipynb">Random Numbers: <code>?</code></a>
+            <h3>Closer Looks at Some Operators</h3>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Reduce and Scan.ipynb">Reduce and Scan: <code>/</code> <code>\</code></a>
+            <h3>Highlights of Recent Releases</h3>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/New in v14.ipynb">New in version 14.0</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/New in v15.ipynb">New in version 15.0</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/New in v16.ipynb">New in version 16.0</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/New in v17.ipynb">New in version 17.0</a>
+            <h3>Interesting Explorations</h3>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Conway's Game of Life.ipynb">Conway's Game of Life</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/lookup without replacement.ipynb">Lookup Without Replacement</a>
+            <a data-url="https://github.com/Dyalog/dyalog-jupyter-notebooks/blob/master/Sudoku Solver.ipynb">Sudoku Solver</a>
+          </div>
         </div>
-        <div id="mdrender"></div>
-        <div class="hidden" id="learnButtons"><button id="s" accesskey="s" id="nbclose" onclick="nbClose()" title="Stop lesson"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></button><button id="r" accesskey="r" onclick="nbReload()" title="Restart lesson"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"/></svg></button><button id="p" accesskey="p" onclick="nbNext(0)" title="Previous step"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg></button><button id="n" accesskey="n" onclick="nbNext(1)" title="Next step"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg></button></div>
-      </div>
-      <div class="content" id="primer">
-        <h1>Cheat Sheet</h1>
-        <h2>Primitives</h2>
-        Click on a glyph to print basic usage. See <a target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm">the language reference</a> for details.
-        <div id="primerGlyphs" onclick="glyphHelp(event.target.value)">
-          <h4>Mathematics</h4>
-          <input type="button" value="+">
-          <input type="button" value="-">
-          <input type="button" value="×">
-          <input type="button" value="÷">
-          <input type="button" value="⌈">
-          <input type="button" value="⌊">
-          <input type="button" value="*">
-          <input type="button" value="!">
-          <input type="button" value="|">
-          <input type="button" value="⍟">
-          <input type="button" value="○">
-          <input type="button" value="⌹">
-          <input type="button" value="⊥">
-          <input type="button" value="⊤">
-          <input type="button" value="?">
-          <h4>Logic and Comparison</h4>
-          <input type="button" value="∧">
-          <input type="button" value="∨">
-          <input type="button" value="⍲">
-          <input type="button" value="⍱">
-          <input type="button" value="<">
-          <input type="button" value=">">
-          <input type="button" value="≤">
-          <input type="button" value="≥">
-          <input type="button" value="=">
-          <input type="button" value="≠">
-          <input type="button" value="≡">
-          <input type="button" value="≢">
-          <h4>Structural</h4>
-          <input type="button" value="⍴">
-          <input type="button" value=",">
-          <input type="button" value="⍪">
-          <input type="button" value="⌽">
-          <input type="button" value="⊖">
-          <input type="button" value="⍉">
-          <input type="button" value="↑">
-          <input type="button" value="↓">
-          <input type="button" value="⊂">
-          <input type="button" value="⊆">
-          <input type="button" value="≡">
-          <input type="button" value="∊">
-          <h4>Selection and Set Operations</h4>
-          <input type="button" value="⌷">
-          <input type="button" value="⊃">
-          <input type="button" value="/">
-          <input type="button" value="⌿">
-          <input onclick="glyphHelp('\\');" type="button" value="\">
-          <input type="button" value="⍀">
-          <input type="button" value="~">
-          <input type="button" value="∪">
-          <input type="button" value="∩">
-          <input type="button" value="⊣">
-          <input type="button" value="⊢">
-          <h4>Search and Ordering</h4>
-          <input type="button" value="⍳">
-          <input type="button" value="⍸">
-          <input type="button" value="∊">
-          <input type="button" value="⍷">
-          <input type="button" value="⍋">
-          <input type="button" value="⍒">
-          <h4>Operators</h4>
-          <input type="button" value="¨">
-          <input type="button" value="⍨">
-          <input type="button" value="⍣">
-          <input type="button" value=".">
-          <input type="button" value="∘">
-          <input type="button" value="/">
-          <input type="button" value="\">
-          <input type="button" value="⌿">
-          <input type="button" value="⍀">
-          <input type="button" value="⌸">
-          <input type="button" value="⍤">
-          <input type="button" value="⌺">
-          <input type="button" value="@">
-          <input type="button" value="⍠">
-          <input type="button" value="⌶">
-          <h4>Miscellaneous</h4>
-          <input type="button" value="¯">
-     <!-- <input type="button" value="'"> -->
-          <input type="button" value="→"/><sup>(1)</sup>
-          <input type="button" value="←">
-          <input type="button" value="⍬">
-          <input type="button" value="⍎">
-          <input type="button" value="⍕">
-          <input type="button" value="⋄">
-          <input type="button" value="⍝">
-          <input type="button" value="∇">
-          <input type="button" value="⍺">
-          <input type="button" value="⍵">
-          <input type="button" value="⎕"><sup>(2)</sup>
-          <input type="button" value="⍞"><sup>(2)</sup>
-     <!-- <input type="button" value="[]">
-          <input type="button" value="{}">-->
-          <ol>
-            <li>On TryAPL: clear stack only
-            <li>On TryAPL: output only 
-          </ol>
-        </div>
-
-        <h2>Additional features</h2>
-        <h4>Utilities</h4>
-        APL has a lot of built-in utilities. They have names beginning with the <i>quad</i> character; <code>⎕</code> as in <code class="apl">⎕ts</code> for the current <b>t</b>ime <b>s</b>tamp. Please refer to <a target="_blank" href="http://help.dyalog.com/latest/#Language/System%20Functions/Summary%20Tables/System%20Functions%20Categorised.htm">the categorized listing</a>.
-        <h4>System commands</h4>
-        Additionally, there are so-called system commands which are not code, but perform <a target="_blank" href="http://help.dyalog.com/latest/#Language/System%20Commands/Introduction.htm">various management actions</a>. They begin with the closing parenthesis character; <code>)</code> as in <code class="apl">)fns</code> to list your <b>f</b>u<b>n</b>ction<b>s</b>.</li>
-        <h4>Library</h4>
-        Finally, we've added <a target="_blank" href="http://dfns.dyalog.com/n_contents.htm">the entire <i>dfns</i> library</a> which you can call using <code>⎕SE.name</code> as in <code class="apl">⎕SE.cal 0</code> .
-      </div>
-      <div class="content" id="links">
-        <h1>Useful links</h1>
-        <h2>APL Wiki</h2>
-        Most information is available via <a target="_blank" href="https://aplwiki.com">APL Wiki</a>, for example:
-        <ul>
-          <li><a target="_blank" href="https://aplwiki.com/wiki/Learning_resources">Learning resources</a></li>
-          <li><a target="_blank" href="https://aplwiki.com/wiki/Running_APL
-">How to run APL</a></li>
-          <li><a target="_blank" href="https://aplwiki.com/wiki/Documentation_suites">Online documentation</a></li>
-        </ul>
-        <h2>Getting help</h2>
-        If you just need to know how to do something relatively simple, check out <a target="_blank" href="https://aplcart.info/">APLcart</a>. You can also <a target="_blank" href="http://stackoverflow.com/questions/tagged/apl">browse Stack Overflow</a>. If that didn't do it, just get in touch the welcoming community:
-        <ul>
-          <li>Chat in <a target="_blank" href="http://chat.stackexchange.com/rooms/52405/the-apl-orchard">the APL Orchard</a>, a very active chat room</li>
-          <li><a target="_blank" href="https://stackoverflow.com/questions/ask?tags=apl">Ask a question</a> on Stack Overflow</li>
-          <li>Post on <a target="_blank" href="http://forums.dyalog.com/">the Dyalog Forums</a></li>
-          <li>Participate in the <a target="_blank" href="http://groups.google.com/group/comp.lang.apl/">comp.lang.apl</a> group</li>
-          <li>Dyalog social media: <a href="http://www.twitter.com/DyalogAPL" target="_blank">Twitter</a>, 
-            <a href="http://www.facebook.com/DyalogAPL" target="_blank">Facebook</a>, 
-            <a href="http://www.linkedin.com/company/dyalog-ltd-" target="_blank">LinkedIn</a>
-        </ul>
-
-        <h2>Recommended videos</h2>
-        There are lots of good APL videos out there, including these hand-picked masterpieces:
-        <ul>
-          <li><a target="_blank" href="http://www.youtube.com/watch?v=a9xAKttWgP4">Conway's Game of Life in APL</a></li>
-          <li><a target="_blank" href="http://www.youtube.com/watch?v=X3bv4Iu1aEg">Palindromic Expression for Phi in APL</a></li>
-          <li><a target="_blank" href="https://www.youtube.com/watch?v=DmT80OseAGs">A Sudoku Solver in APL</a></li>
-          <li><a target="_blank" href="https://www.youtube.com/watch?v=_DTpQ4Kk2wA">APL demonstration 1975</a></li>
-          <li><a target="_blank" href="https://www.infoq.com/presentations/Why-APL-is-Still-Cool">Why APL Is Still Cool</a> (at QCon 2011)</li>
-          <li><a target="_blank" href="https://www.youtube.com/watch?v=v7Mt0GYHU9A">Design Patterns vs Anti pattern in APL</a> (at FnConf17)</li>
-          <li><a target="_blank" href="https://www.youtube.com/watch?v=PlM9BXfu7UY">Pragmatic Functional Programming</a> with Dyalog's CTO (Talks at Google, 2015)</a></li>
-          <li><a target="_blank" href="https://dyalog.tv/">Dyalog TV</a> (webinars and user meetings)
-        </p>
-        </ul>
-      </div>
-      <div class="content" id="about">
-        <h1>About TryAPL</h1>
-        <p><b>TryAPL</b> is a thin client-side interface for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
-        <p class="ipynbinfo">The <a href="#" onclick="$('#learnTab').click()">Learn</a> tab's lessons are Jupyter Notebooks documents and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
-        <h2>Shortcut keys</h2>
-        <table class="creditsTable">
-          <tr><td><kbd>Enter</kbd></td><td>Execute current line</td></tr>
-          <tr><td><kbd>Escape</kbd></td><td>Clear current line</td></tr>
-          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Backspace</kbd></td><td>Previous input</td></tr>
-          <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>Next input</td></tr>
-        </table>
-        <table class="creditsTable">
-          <tr><td><a target="_blank" href="https://www.w3schools.com/tags/att_global_accesskey.asp#table2">Access-key</a> <kbd>H</kbd></td><td>Open language <u>h</u>elp</td></tr>
-          <tr><td>Access-key <kbd>Z</kbd></td><td><u>Z</u>oom right pane</td></tr>
-          <tr><td>Access-key <kbd>L</kbd></td><td>Perma<u>l</u>ink in URL bar</td></tr>
-          <tr><td>Access-key <kbd>B</kbd></td><td>Use <u>b</u>lack theme</td></tr>
-          <tr><td>Access-key <kbd>W</kbd></td><td>Use <u>w</u>hite theme</td></tr>
-        </table>
-        <table class="creditsTable">
-          <tr><td>Access-key <kbd>I</kbd></td><td>Open <u>I</u>ntro tab</tr>
-          <tr><td><kbd>Tab</kbd></td><td>Focus on next <u>tab</u></td></tr>
-          <tr><td><kbd>Shift</kbd>+<kbd>Tab</kbd></td><td>Focus on previous tab</td></tr>
-          <tr><td><kbd>Space</kbd></td><td>Select focused tab</td></tr>
-        </table>
-        <table class="creditsTable">
-          <tr><td>Access-key <kbd>S</kbd></td><td><u>S</u>top current lesson</td></tr>
-          <tr><td>Access-key <kbd>R</kbd></td><td><u>R</u>estart current lesson</td></tr>
-          <tr><td>Access-key <kbd>P</kbd></td><td><u>P</u>revious lesson step</td></tr>
-          <tr><td>Access-key <kbd>N</kbd></td><td><u>N</u>ext lesson step</td></tr>
-        </table>
-        <h2>Limitations</h2>
-        <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window or prompt for input using <code>⎕</code> or <code>⍞</code>. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only about <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back if a limit is exceeded.</p>
-        <p><b>No information is kept</b> server-side or in cookies, so nothing persists between instances.</p>
-        <h2>Credits</h2>
-        <table class="creditsTable">
-          <tr><td>Implementation</td><td>Brian Becker</td></tr>
-          <tr><td>Design</td><td>Brian McCormick</td></tr>
-          <tr><td>Additional tutorials</td><td>Will Robertson</td></tr>
-          <tr><td>Reimplementation</td><td>Richard Park</td></tr>
-          <tr><td>Redesign</td><td>Adám Brudzewsky</td></tr>
-        </table>        <table class="creditsTable">
-          <tr><td>Inspiration</td><td>Joel Hough</td></tr>
-          <tr><td>Ideas</td><td colspan="2">John Scholes, Andy Shiers, Roger Hui, John Daintree</td></tr>
-          <tr><td>Domain</td><td>Shaun Gilchrist</td></tr>
-        </table>
-        <table class="creditsTable">
-          <tr><td>APL library</td><td><a target="_blank" href="http://dfns.dyalog.com/">dfns</a></td></tr>
-          <tr><td>Split panes</td><td><a target="_blank" href="https://split.js.org/">Split.js</a></td></tr>
-          <tr><td>Text font</td><td><a target="_blank" href="https://github.com/googlefonts/nunito">Nunito</a></td></tr>
-          <tr><td>Containers</td><td><a target="_blank" href="https://tio.run">TIO</a></td></tr>
-          <tr><td>Compression</td><td><a target="_blank" href="http://nodeca.github.io/pako/">pako</a></td></tr>
-          <tr><td>Markdown</td><td><a target="_blank" href="https://marked.js.org">Marked.js</a></td></tr>
-          <tr><td>Formulas</td><td><a target="_blank" href="https://www.mathjax.org/">MathJax</a></td></tr>
-        </table>
-      </div>
+      <div id="mdrender"></div>
+      <div class="hidden" id="learnButtons"><button id="s" accesskey="s" id="nbclose" onclick="nbClose()" title="Stop lesson"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></button><button id="r" accesskey="r" onclick="nbReload()" title="Restart lesson"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><rect fill="none" height="24" width="24"/><path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"/></svg></button><button id="p" accesskey="p" onclick="nbNext(0)" title="Previous step"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg></button><button id="n" accesskey="n" onclick="nbNext(1)" title="Next step"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M14 8.83L17.17 12 14 15.17V14H6v-4h8V8.83M12 4v4H4v8h8v4l8-8-8-8z"/></svg></button></div>
     </div>
-      <div id="rightPane" class="split">
-        <textarea spellcheck="false" id="session" autofocus wrap="off"></textarea>
+    <div class="content" id="primer">
+      <h1>Cheat Sheet</h1>
+      <h2>Primitives</h2>
+      Click on a glyph to print basic usage. See <a target="_blank" href="http://help.dyalog.com/latest/#Language/Introduction/Language%20Elements.htm">the language reference</a> for details.
+      <div id="primerGlyphs" onclick="glyphHelp(event.target.value)">
+        <h4>Mathematics</h4>
+        <input type="button" value="+">
+        <input type="button" value="-">
+        <input type="button" value="×">
+        <input type="button" value="÷">
+        <input type="button" value="⌈">
+        <input type="button" value="⌊">
+        <input type="button" value="*">
+        <input type="button" value="!">
+        <input type="button" value="|">
+        <input type="button" value="⍟">
+        <input type="button" value="○">
+        <input type="button" value="⌹">
+        <input type="button" value="⊥">
+        <input type="button" value="⊤">
+        <input type="button" value="?">
+        <h4>Logic and Comparison</h4>
+        <input type="button" value="∧">
+        <input type="button" value="∨">
+        <input type="button" value="⍲">
+        <input type="button" value="⍱">
+        <input type="button" value="<">
+        <input type="button" value=">">
+        <input type="button" value="≤">
+        <input type="button" value="≥">
+        <input type="button" value="=">
+        <input type="button" value="≠">
+        <input type="button" value="≡">
+        <input type="button" value="≢">
+        <h4>Structural</h4>
+        <input type="button" value="⍴">
+        <input type="button" value=",">
+        <input type="button" value="⍪">
+        <input type="button" value="⌽">
+        <input type="button" value="⊖">
+        <input type="button" value="⍉">
+        <input type="button" value="↑">
+        <input type="button" value="↓">
+        <input type="button" value="⊂">
+        <input type="button" value="⊆">
+        <input type="button" value="≡">
+        <input type="button" value="∊">
+        <h4>Selection and Set Operations</h4>
+        <input type="button" value="⌷">
+        <input type="button" value="⊃">
+        <input type="button" value="/">
+        <input type="button" value="⌿">
+        <input onclick="glyphHelp('\\');" type="button" value="\">
+        <input type="button" value="⍀">
+        <input type="button" value="~">
+        <input type="button" value="∪">
+        <input type="button" value="∩">
+        <input type="button" value="⊣">
+        <input type="button" value="⊢">
+        <h4>Search and Ordering</h4>
+        <input type="button" value="⍳">
+        <input type="button" value="⍸">
+        <input type="button" value="∊">
+        <input type="button" value="⍷">
+        <input type="button" value="⍋">
+        <input type="button" value="⍒">
+        <h4>Operators</h4>
+        <input type="button" value="¨">
+        <input type="button" value="⍨">
+        <input type="button" value="⍣">
+        <input type="button" value=".">
+        <input type="button" value="∘">
+        <input type="button" value="/">
+        <input type="button" value="\">
+        <input type="button" value="⌿">
+        <input type="button" value="⍀">
+        <input type="button" value="⌸">
+        <input type="button" value="⍤">
+        <input type="button" value="⌺">
+        <input type="button" value="@">
+        <input type="button" value="⍠">
+        <input type="button" value="⌶">
+        <h4>Miscellaneous</h4>
+        <input type="button" value="¯">
+    !-- <input type="button" value="'"> -->
+        <input type="button" value="→"/><sup>(1)</sup>
+        <input type="button" value="←">
+        <input type="button" value="⍬">
+        <input type="button" value="⍎">
+        <input type="button" value="⍕">
+        <input type="button" value="⋄">
+        <input type="button" value="⍝">
+        <input type="button" value="∇">
+        <input type="button" value="⍺">
+        <input type="button" value="⍵">
+        <input type="button" value="⎕"><sup>(2)</sup>
+        <input type="button" value="⍞"><sup>(2)</sup>
+    !-- <input type="button" value="[]">
+        <input type="button" value="{}">-->
+        <ol>
+          <li>On TryAPL: clear stack only
+          <li>On TryAPL: output only 
+        </ol>
       </div>
-    <script src="lib/tiolb.js"></script>
+    
+      <h2>Additional features</h2>
+      <h4>Utilities</h4>
+      APL has a lot of built-in utilities. They have names beginning with the <i>quad</i> character; <code>⎕</code> as in <code class="apl">⎕ts</code> for the current <b>t</b>ime <b>s</b>tamp. Please refer to <a target="_blank" href="http://help.dyalog.com/latest/#Language/System%20Functions/Summary%20Tables/System%20Functions%20Categorised.htm">the categorized listing</a>.
+      <h4>System commands</h4>
+      Additionally, there are so-called system commands which are not code, but perform <a target="_blank" href="http://help.dyalog.com/latest/#Language/System%20Commands/Introduction.htm">various management actions</a>. They begin with the closing parenthesis character; <code>)</code> as in <code class="apl">)fns</code> to list your <b>f</b>u<b>n</b>ction<b>s</b>.</li>
+      <h4>Library</h4>
+      Finally, we've added <a target="_blank" href="http://dfns.dyalog.com/n_contents.htm">the entire <i>dfns</i> library</a> which you can call using <code>⎕SE.name</code> as in <code class="apl">⎕SE.cal 0</code> .
+    </div>
+    <div class="content" id="links">
+      <h1>Useful links</h1>
+      <h2>APL Wiki</h2>
+      Most information is available via <a target="_blank" href="https://aplwiki.com">APL Wiki</a>, for example:
+      <ul>
+        <li><a target="_blank" href="https://aplwiki.com/wiki/Learning_resources">Learning resources</a></li>
+        <li><a target="_blank" href="https://aplwiki.com/wiki/Running_APL">How to run APL</a></li>
+        <li><a target="_blank" href="https://aplwiki.com/wiki/Documentation_suites">Online documentation</a></li>
+      </ul>
+      <h2>Getting help</h2>
+      If you just need to know how to do something relatively simple, check out <a target="_blank" href="https://aplcart.info/">APLcart</a>. You can also <a target="_blank" href="http://stackoverflow.com/questions/tagged/apl">browse Stack Overflow</a>. If that didn't do it, just get in touch the welcoming community:
+      <ul>
+        <li>Chat in <a target="_blank" href="http://chat.stackexchange.com/rooms/52405/the-apl-orchard">the APL Orchard</a>, a very active chat room</li>
+        <li><a target="_blank" href="https://stackoverflow.com/questions/ask?tags=apl">Ask a question</a> on Stack Overflow</li>
+        <li>Post on <a target="_blank" href="http://forums.dyalog.com/">the Dyalog Forums</a></li>
+        <li>Participate in the <a target="_blank" href="http://groups.google.com/group/comp.lang.apl/">comp.lang.apl</a> group</li>
+        <li>Dyalog social media: <a href="http://www.twitter.com/DyalogAPL" target="_blank">Twitter</a>, 
+          <a href="http://www.facebook.com/DyalogAPL" target="_blank">Facebook</a>, 
+          <a href="http://www.linkedin.com/company/dyalog-ltd-" target="_blank">LinkedIn</a>
+      </ul>
+
+      <h2>Recommended videos</h2>
+      There are lots of good APL videos out there, including these hand-picked masterpieces:
+      <ul>
+        <li><a target="_blank" href="http://www.youtube.com/watch?v=a9xAKttWgP4">Conway's Game of Life in APL</a></li>
+        <li><a target="_blank" href="http://www.youtube.com/watch?v=X3bv4Iu1aEg">Palindromic Expression for Phi in APL</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=DmT80OseAGs">A Sudoku Solver in APL</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=_DTpQ4Kk2wA">APL demonstration 1975</a></li>
+        <li><a target="_blank" href="https://www.infoq.com/presentations/Why-APL-is-Still-Cool">Why APL Is Still Cool</a> (at QCon 2011)</li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=v7Mt0GYHU9A">Design Patterns vs Anti pattern in APL</a> (at FnConf17)</li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=PlM9BXfu7UY">Pragmatic Functional Programming</a> with Dyalog's CTO (Talks at Google, 2015)</a></li>
+        <li><a target="_blank" href="https://dyalog.tv/">Dyalog TV</a> (webinars and user meetings)
+      </p>
+      </ul>
+    </div>
+    <div class="content" id="about">
+      <h1>About TryAPL</h1>
+      <p><b>TryAPL</b> is a thin client-side interface for <a target="_blank" href="http://tio.run">Try It Online</a>, which runs <a href="http://dyalog.com">Dyalog APL</a> in a container under <b>Security-Enhanced Linux</b>, one of the <b>Dyalog APL platforms</b>, which also include other <b>Linux</b> distributions (even <b>Raspberry Pi</b>), <b>Microsoft Windows</b>, and <b>macOS</b>.</p>
+      <p class="ipynbinfo">The <a href="#" onclick="$('#learnTab').click()">Learn</a> tab's lessons are Jupyter Notebooks documents and can be <b><a target="_blank" href="https://github.com/Dyalog/dyalog-jupyter-kernel/wiki">used locally</a></b>. We welcome submissions of notebooks for inclusion in TryAPL, as well as reports of anomalies, suggestions, criticisms, and comments to <a href="mailto:tryapl@dyalog.com">tryapl@dyalog.com</a>.</p>
+      <h2>Shortcut keys</h2>
+      <table class="creditsTable">
+        <tr><td><kbd>Enter</kbd></td><td>Execute current line</td></tr>
+        <tr><td><kbd>Escape</kbd></td><td>Clear current line</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Backspace</kbd></td><td>Previous input</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>Next input</td></tr>
+      </table>
+      <table class="creditsTable">
+        <tr><td><a target="_blank" href="https://www.w3schools.com/tags/att_global_accesskey.asp#table2">Access-key</a> <kbd>H</kbd></td><td>Open language <u>h</u>elp</td></tr>
+        <tr><td>Access-key <kbd>Z</kbd></td><td><u>Z</u>oom right pane</td></tr>
+        <tr><td>Access-key <kbd>L</kbd></td><td>Perma<u>l</u>ink in URL bar</td></tr>
+        <tr><td>Access-key <kbd>B</kbd></td><td>Use <u>b</u>lack theme</td></tr>
+        <tr><td>Access-key <kbd>W</kbd></td><td>Use <u>w</u>hite theme</td></tr>
+      </table>
+      <table class="creditsTable">
+        <tr><td>Access-key <kbd>I</kbd></td><td>Open <u>I</u>ntro tab</tr>
+        <tr><td><kbd>Tab</kbd></td><td>Focus on next <u>tab</u></td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>Tab</kbd></td><td>Focus on previous tab</td></tr>
+        <tr><td><kbd>Space</kbd></td><td>Select focused tab</td></tr>
+      </table>
+      <table class="creditsTable">
+        <tr><td>Access-key <kbd>S</kbd></td><td><u>S</u>top current lesson</td></tr>
+        <tr><td>Access-key <kbd>R</kbd></td><td><u>R</u>estart current lesson</td></tr>
+        <tr><td>Access-key <kbd>P</kbd></td><td><u>P</u>revious lesson step</td></tr>
+        <tr><td>Access-key <kbd>N</kbd></td><td><u>N</u>ext lesson step</td></tr>
+      </table>
+      <h2>Limitations</h2>
+      <p>The interpreter is a <b>full Dyalog for Linux</b> running in script mode without a session, so one cannot, for example, open an editor window or prompt for input using <code>⎕</code> or <code>⍞</code>. Input is limited to a single line at a time. Each input must run within <b>1 minute</b> and <b>128 MB</b>. However, only about <b>20 MB</b> can be carried over from one execution to the next. The state will be rolled back if a limit is exceeded.</p>
+      <p><b>No information is kept</b> server-side or in cookies, so nothing persists between instances.</p>
+      <h2>Credits</h2>
+      <table class="creditsTable">
+        <tr><td>Implementation</td><td>Brian Becker</td></tr>
+        <tr><td>Design</td><td>Brian McCormick</td></tr>
+        <tr><td>Additional tutorials</td><td>Will Robertson</td></tr>
+        <tr><td>Reimplementation</td><td>Richard Park</td></tr>
+        <tr><td>Redesign</td><td>Adám Brudzewsky</td></tr>
+      </table>        <table class="creditsTable">
+        <tr><td>Inspiration</td><td>Joel Hough</td></tr>
+        <tr><td>Ideas</td><td colspan="2">John Scholes, Andy Shiers, Roger Hui, John Daintree</td></tr>
+        <tr><td>Domain</td><td>Shaun Gilchrist</td></tr>
+      </table>
+      <table class="creditsTable">
+        <tr><td>APL library</td><td><a target="_blank" href="http://dfns.dyalog.com/">dfns</a></td></tr>
+        <tr><td>Split panes</td><td><a target="_blank" href="https://split.js.org/">Split.js</a></td></tr>
+        <tr><td>Text font</td><td><a target="_blank" href="https://github.com/googlefonts/nunito">Nunito</a></td></tr>
+        <tr><td>Containers</td><td><a target="_blank" href="https://tio.run">TIO</a></td></tr>
+        <tr><td>Compression</td><td><a target="_blank" href="http://nodeca.github.io/pako/">pako</a></td></tr>
+        <tr><td>Markdown</td><td><a target="_blank" href="https://marked.js.org">Marked.js</a></td></tr>
+        <tr><td>Formulas</td><td><a target="_blank" href="https://www.mathjax.org/">MathJax</a></td></tr>
+      </table>
+    </div>
+  </div>
+  <div id="rightPane" class="split">
+    <textarea spellcheck="false" id="session" autofocus wrap="off"></textarea>
+  </div>
+  <script src="lib/tiolb.js"></script>
   </body>
 </html>

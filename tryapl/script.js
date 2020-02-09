@@ -108,6 +108,11 @@ replaceLine=code=>{
   session.focus();
 }
 
+nbFill=t=>{
+  url=t.dataset.url?t.dataset.url:t.parentNode.dataset.url;
+  if(url){nbURL.value=url;nbURL.selectionStart=nbURL.selectionEnd=url.length}
+}
+
 nbLoad=id=> {
   url = $(id).value;
   log("running notebook @:" + url);  

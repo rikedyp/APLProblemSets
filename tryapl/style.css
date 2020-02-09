@@ -185,6 +185,10 @@ td{
   border: 1px solid #7f00b9;  
 }
 
+#lessonList a{
+  display: block;
+}
+
 #run {
   height: 2.25em;
   background: #a54cce;
