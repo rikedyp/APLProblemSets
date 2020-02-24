@@ -242,6 +242,7 @@ async function tioProcess(runURL, currentLine, code, params) {
   lastText = session.value;
   session.scrollTop = session.scrollHeight;
   session.disabled = false;
+  session.focus();
   return new Promise(function(resolve, reject) {
     resolve(response);
   });
