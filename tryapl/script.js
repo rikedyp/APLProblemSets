@@ -5,6 +5,7 @@ var currentCell = 0;
 var splitPanes;
 var paneSizes = [40, 60];
 var fs = false;
+var tryAPLURL = "file:///C:/Users/rpark/Documents/APL/Education/ProblemSets/tryapl/index.html";
 
 $=s=>document.querySelector(s);
 $$=s=>document.querySelectorAll(s);
@@ -116,7 +117,7 @@ nbFill=t=>{
 nbLoad=id=> {
   url = $(id).value;
   log("running notebook @:" + url);  
-  fetch(cleanURL(url)).then((response) => {
+  fetch(githubRawURL(url)).then((response) => {
     if (response.ok) {
       return response.json();
     } else {
@@ -190,18 +191,24 @@ nbNext=async dir=>{
         }          
         break;
       case "markdown":                
-        log(cellSource);        
+        log(cellSource); 
+        m = [];
         for (var i = 0; i < cellSource.length; i++) {          
           line = cellSource[i];
+          m.push(marked(line));
           if (0 < line.search(/src=\S+/) && 0 > line.search(/src=\"http\S+/)) {                                   
-            src = cleanURL(nbURL.value);
+            src = githubRawURL(nbURL.value);
             imgURL = src.slice(0,src.lastIndexOf("/") + 1) + line.match(/src=\S+/)[0].slice(5,-1);                        
             cellSource[i] = line.replace(/src=\S+/, "src=\"" + imgURL + "\"");
             // todo: handle multiple images in one line 
-            // todo: store cleanURL(nbURL) on Run for use here 
+            // todo: store githubRawURL(nbURL) on Run for use here 
             // todo: what about 
             // Make sure images use absolute URLs
             // todo: What about e.g. <script src="">?
+          } else if (0 < m[i].search(/href=.*.ipynb/gi) && 0 > m[i].search(/http/gi)) {
+            // Relative notebook hyperlink: convert to tryapl link 
+            gURL = absURL(m[i].match(/href=.*.ipynb/i)[0], nbURL.value);            
+            m[i] = m[i].replace(/href=.*.ipynb/gi, tryURL(gURL, tryAPLURL));
           } else {            
             log("No relative image URL to make absolute");
           }
@@ -210,7 +217,7 @@ nbNext=async dir=>{
         log("woah");        
       default:        
         var div = document.createElement("div");        
-        cellSource.forEach(fn=line=>{div.innerHTML += marked(line)});        
+        m.forEach(fn=line=>{div.innerHTML += line});        
         mdrender.appendChild(div);        
         MathJax.texReset();
         MathJax.typesetClear();
@@ -245,10 +252,25 @@ nbClose=_=>{
   currentCell = 0;
 }
 
-cleanURL=url=>{
+tryURL=(url, root)=>{
+  // Notebook to TryAPL 
+  log(root + "?notebook=" + url);
+  return "href=\"" + root + "?notebook=" + url + "\"";
+}
+
+absURL=(url, root)=>{
+  // TODO: multiple URLs in a single line
+  log("making absolute URL: " + url + "|" + root);
+  var gURL = root.split("/").slice(0,-1).join("/") + "/" + url.split(/href=\"/i)[1];  
+  return githubRawURL(gURL);
+}
+
+githubRawURL=url=>{
   log(url);
   if (url.includes("github") && !url.includes("raw.githubusercontent")) {
     log("https://raw.githubusercontent.com" + url.split("https://github.com")[1].split("/blob").join(""));
     return "https://raw.githubusercontent.com" + url.split("https://github.com")[1].split("/blob").join("");
+  } else {
+    return url;
   }
 }
