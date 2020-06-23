@@ -115,6 +115,7 @@ nbFill=t=>{
 }
 
 nbLoad=id=> {
+  $("#learn").setAttribute("data-in_notebook", "yes");
   let lb_height = document.getElementsByClassName("ngn_lb")[0].clientHeight;
   $("#learn").style.height=`calc(100vh - 2px - ${lb_height}px)`;
   url = $(id).value;
@@ -247,6 +248,7 @@ nbReload=_=>{
 
 nbClose=_=>{
   log("close");
+  $("#learn").setAttribute("data-in_notebook", "no");
   learnButtons.classList.add("hidden");
   loadnb.classList.remove("hidden");
   mdrender.style.display = "none";

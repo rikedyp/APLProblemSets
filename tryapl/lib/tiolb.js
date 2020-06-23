@@ -58,9 +58,27 @@ let ff=x=>{
   if(nn!=='textarea'&&(nn!=='input'||t0.type!=='text'&&t0.type!=='search'))return
   t=t0;if(!t.ngn){t.ngn=1;ts.push(t);ev(t,'keydown',fk)}
 }
-let upd=_=>{d.body.style.marginTop=lb.clientHeight+'px';
-                               session.style.height="calc(100vh - 8px - " + lb.clientHeight+'px)';
-$$(".content").forEach(fn=node=>{node.style.height="calc(100vh - 3em - 2px - " + lb.clientHeight+'px)';});
+let upd=_=>{
+  d.body.style.marginTop=lb.clientHeight+'px';
+  session.style.height="calc(100vh - 8px - " + lb.clientHeight+'px)';
+  $$(".content").forEach(fn=node=>{
+    if(node.id === "learn") {
+      let inNotebook = node.getAttribute("data-in_notebook");
+      switch(inNotebook) {
+        case "yes":
+          node.style.height="calc(100vh - 2px - " + lb.clientHeight+'px)';
+          break;
+        case "no":
+          node.style.height="calc(100vh - 3em - 2px - " + lb.clientHeight+'px)';
+          break;
+        default:
+          console.error(`Error: expected "yes" or "no", got: ${inNotebook}`);
+          break;
+      }
+    } else {
+      node.style.height="calc(100vh - 3em - 2px - " + lb.clientHeight+'px)';
+    }
+  });
 }
 upd();ev(window,'resize',upd)
 ev(d,'focus',ff,!0);let ae=d.activeElement;ae&&ff({type:'focus',target:ae})
