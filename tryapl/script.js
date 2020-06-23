@@ -115,6 +115,8 @@ nbFill=t=>{
 }
 
 nbLoad=id=> {
+  let lb_height = document.getElementsByClassName("ngn_lb")[0].clientHeight;
+  $("#learn").style.height=`calc(100vh - 2px - ${lb_height}px)`;
   url = $(id).value;
   log("running notebook @:" + url);  
   fetch(githubRawURL(url)).then((response) => {
@@ -249,6 +251,8 @@ nbClose=_=>{
   loadnb.classList.remove("hidden");
   mdrender.style.display = "none";
   mdrender.innerHTML = "";
+  let lb_height = document.getElementsByClassName("ngn_lb")[0].clientHeight;
+  $("#learn").style.height=`calc(100vh - 3em + 2px - ${lb_height}px)`;
   currentCell = 0;
 }
 
