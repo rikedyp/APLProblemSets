@@ -66,7 +66,13 @@ let upd=_=>{
       let inNotebook = node.getAttribute("data-in_notebook");
       switch(inNotebook) {
         case "yes":
+          // Modify Learn section height for scrollbar responsiveness
           node.style.height="calc(100vh - 2px - " + lb.clientHeight+'px)';
+
+          // Modify markdown renderer height for button responsiveness
+          let btn_h = document.querySelector("#learnButtons").offsetHeight;
+          let bar_h = document.querySelector(".ngn_lb").offsetHeight;
+          node.querySelector("#mdrender").style.height = "calc(100vh - "+(btn_h+bar_h)+"px)";
           break;
         case "no":
           node.style.height="calc(100vh - 3em - 2px - " + lb.clientHeight+'px)';

@@ -116,8 +116,16 @@ nbFill=t=>{
 
 nbLoad=id=> {
   $("#learn").setAttribute("data-in_notebook", "yes");
+  
+  // Initialize Learn section height for scrollbar responsiveness
   let lb_height = document.getElementsByClassName("ngn_lb")[0].clientHeight;
   $("#learn").style.height=`calc(100vh - 2px - ${lb_height}px)`;
+  
+  // Initialize markdown renderer height for button responsiveness
+  let btn_height = document.querySelector("#learnButtons").offsetHeight;
+  let tabs_height = document.querySelector("#tabs").offsetHeight;
+  document.querySelector("#mdrender").style.height = "calc(100vh - "+(lb_height+tabs_height+btn_height)+"px)";
+  
   url = $(id).value;
   log("running notebook @:" + url);  
   fetch(githubRawURL(url)).then((response) => {

@@ -240,7 +240,6 @@ td{
 }
 
 #mdrender {
-  height: calc(100vh - 8em);
   display: none;
   overflow: auto;
   margin: -1ex -1em;
